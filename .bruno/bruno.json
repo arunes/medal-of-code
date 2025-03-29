@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Medal of Code",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,15 @@
+meta {
+  name: get-projects
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://dev.azure.com/{{organizationId}}/_apis/projects?api-version=7.1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 7.1
+}
