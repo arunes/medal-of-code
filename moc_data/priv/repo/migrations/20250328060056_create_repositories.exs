@@ -7,7 +7,7 @@ defmodule MocData.Repo.Migrations.CreateRepositories do
       add :name, :text, null: false
       add :url, :text, null: false
       add :sync_enabled, :boolean, null: false
-      add :cutoff_date, :utc_datetime, null: false
+      add :cutoff_date, :naive_datetime, null: false
       add :project_id, references(:projects, on_delete: :delete_all), null: false
 
       timestamps()

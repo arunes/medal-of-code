@@ -1,4 +1,5 @@
 defmodule Moc.Sync.Impl.Register do
+  import Moc.Utils.Date, only: [utc_now: 0]
   alias Moc.Connector
   alias MocData.Schema.Repository
   alias MocData.Schema.Project
@@ -8,9 +9,7 @@ defmodule Moc.Sync.Impl.Register do
   import Ecto.Query
 
   # 6 months
-  @cutoff_date DateTime.utc_now()
-               |> DateTime.add(6 * 30 * 24 * 60 * 60 * -1)
-               |> DateTime.truncate(:second)
+  @cutoff_date utc_now() |> NaiveDateTime.add(6 * 30 * 24 * 60 * 60 * -1)
 
   @spec register(External.t()) :: {:ok} | {:error, String.t()}
   def register(%{organization_id: organization_id} = settings) do
@@ -64,8 +63,8 @@ defmodule Moc.Sync.Impl.Register do
           url: repo.url,
           sync_enabled: false,
           cutoff_date: @cutoff_date,
-          inserted_at: NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second),
-          updated_at: NaiveDateTime.utc_now() |> NaiveDateTime.truncate(:second)
+          inserted_at: utc_now(),
+          updated_at: utc_now()
         }
       end)
 

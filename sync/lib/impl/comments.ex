@@ -1,7 +1,7 @@
 defmodule Moc.Sync.Impl.Comments do
   require Logger
   import Ecto.Query
-  import Moc.Utils.Date, only: [new_utc: 0, string_to_utc: 1]
+  import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
 
   alias Moc.Sync.Runtime.ContributorCache
   alias Moc.Connector
@@ -15,12 +15,10 @@ defmodule Moc.Sync.Impl.Comments do
     total_repos = prs_to_sync |> Enum.count()
     Logger.info("#{total_repos} pull requests will be synced for comments.")
 
-    prs_to_sync |> save_comments()
+    prs_to_sync |> Enum.map(&get_comments/1)
   end
 
-  defp save_comments([]), do: {:ok}
-
-  defp save_comments([pull_request | _tail]) do
+  defp get_comments(pull_request) do
     settings = %Connector{
       provider: pull_request.org_provider |> String.to_atom(),
       organization_id: pull_request.org_external_id,
@@ -53,13 +51,19 @@ defmodule Moc.Sync.Impl.Comments do
           published_on: cmt.published_on |> string_to_utc,
           updated_on: cmt.updated_on |> string_to_utc,
           created_by_id: ContributorCache.get_id(cmt.created_by),
+          liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_id/1) |> Enum.join(","),
           pull_request_id: pull_request.pr_id,
-          inserted_at: new_utc(),
-          updated_at: new_utc()
+          inserted_at: utc_now(),
+          updated_at: utc_now()
         }
       end)
 
     Repo.insert_all(Schema.PullRequestComment, comments_to_insert)
+
+    Ecto.Changeset.change(%MocData.Schema.PullRequest{id: pull_request.pr_id}, %{
+      comments_imported_on: utc_now()
+    })
+    |> Repo.update()
   end
 
   # Queries

@@ -8,8 +8,9 @@ defmodule MocData.Schema.PullRequestComment do
     field(:parent_comment_id, :integer)
     field(:content, :string)
     field(:comment_type, :string)
-    field(:published_on, :utc_datetime)
-    field(:updated_on, :utc_datetime)
+    field(:liked_by, :string)
+    field(:published_on, :naive_datetime)
+    field(:updated_on, :naive_datetime)
     belongs_to(:created_by, MocData.Schema.Contributor)
     belongs_to(:pull_request, MocData.Schema.PullRequest)
     timestamps()
@@ -20,9 +21,11 @@ defmodule MocData.Schema.PullRequestComment do
     |> Ecto.Changeset.cast(params, [
       :external_id,
       :thread_id,
+      :thread_status,
       :parent_comment_id,
       :content,
       :comment_type,
+      :liked_by,
       :published_on,
       :updated_on,
       :created_by_id,

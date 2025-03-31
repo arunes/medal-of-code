@@ -2,7 +2,7 @@ defmodule MocData.Schema.ContributorMedal do
   use Ecto.Schema
 
   schema "contributor_medals" do
-    field(:awarded_on, :utc_datetime)
+    field(:awarded_on, :naive_datetime)
     belongs_to(:contributor, MocData.Schema.Contributor)
     belongs_to(:medal, MocData.Schema.Medal)
     timestamps()

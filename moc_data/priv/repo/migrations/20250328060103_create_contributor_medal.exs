@@ -3,7 +3,7 @@ defmodule MocData.Repo.Migrations.CreateContributorMedal do
 
   def change do
     create table("contributor_medals") do
-      add :awarded_on, :utc_datetime, null: false
+      add :awarded_on, :naive_datetime, null: false
       add :contributor_id, references("contributors", on_delete: :delete_all), null: false
       add :medal_id, references("medals", on_delete: :delete_all), null: false
 

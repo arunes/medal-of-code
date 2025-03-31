@@ -6,7 +6,7 @@ defmodule MocData.Schema.Repository do
     field(:name, :string)
     field(:url, :string)
     field(:sync_enabled, :boolean)
-    field(:cutoff_date, :utc_datetime)
+    field(:cutoff_date, :naive_datetime)
     belongs_to(:project, MocData.Schema.Project)
 
     timestamps()
@@ -14,7 +14,14 @@ defmodule MocData.Schema.Repository do
 
   def changeset(repository, params \\ %{}) do
     repository
-    |> Ecto.Changeset.cast(params, [:external_id, :name, :url, :sync_enabled, :cutoff_date, :project_id])
+    |> Ecto.Changeset.cast(params, [
+      :external_id,
+      :name,
+      :url,
+      :sync_enabled,
+      :cutoff_date,
+      :project_id
+    ])
     |> Ecto.Changeset.validate_required([
       :external_id,
       :name,

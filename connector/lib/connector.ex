@@ -19,7 +19,7 @@ defmodule Moc.Connector do
     Azure.get_repositories(settings, project_id)
   end
 
-  @spec get_pull_requests(t(), String.t(), String.t(), DateTime.t()) ::
+  @spec get_pull_requests(t(), String.t(), String.t(), NaiveDateTime.t()) ::
           list(Type.pull_request())
   def get_pull_requests(%{provider: :azure} = settings, repository_id, status, min_date) do
     Azure.get_pull_requests(settings, repository_id, status, min_date, 0)

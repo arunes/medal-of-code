@@ -1,7 +1,7 @@
 defmodule Moc.Sync.Impl.PullRequests do
   require Logger
   import Ecto.Query
-  import Moc.Utils.Date, only: [new_utc: 0, string_to_utc: 1]
+  import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
   alias Moc.Sync.Runtime.ContributorCache
   alias Moc.Connector
   alias MocData.Schema
@@ -46,8 +46,8 @@ defmodule Moc.Sync.Impl.PullRequests do
           merge_strategy: pr.completionOptions.merge_strategy,
           ready_for_use: false,
           repository_id: repository_ids[pr.repository_id],
-          inserted_at: new_utc(),
-          updated_at: new_utc()
+          inserted_at: utc_now(),
+          updated_at: utc_now()
         }
       end)
 
@@ -76,8 +76,8 @@ defmodule Moc.Sync.Impl.PullRequests do
                 end,
               reviewer_id: ContributorCache.get_id(rw),
               pull_request_id: pull_request_ids[pr.id],
-              inserted_at: new_utc(),
-              updated_at: new_utc()
+              inserted_at: utc_now(),
+              updated_at: utc_now()
             }
           end)
 
