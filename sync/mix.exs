@@ -1,4 +1,4 @@
-defmodule Sync.MixProject do
+defmodule Moc.Sync.MixProject do
   use Mix.Project
 
   def project do
@@ -22,7 +22,7 @@ defmodule Sync.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:moc_data, path: "../moc_data"},
+      {:db, path: "../db"},
       {:connector, path: "../connector/"}
     ]
   end

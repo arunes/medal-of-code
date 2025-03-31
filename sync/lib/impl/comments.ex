@@ -5,8 +5,8 @@ defmodule Moc.Sync.Impl.Comments do
 
   alias Moc.Sync.Runtime.ContributorCache
   alias Moc.Connector
-  alias MocData.Schema
-  alias MocData.Repo
+  alias Moc.Db.Schema
+  alias Moc.Db.Repo
 
   def sync do
     Logger.info("Getting repos to sync.")
@@ -60,7 +60,7 @@ defmodule Moc.Sync.Impl.Comments do
 
     Repo.insert_all(Schema.PullRequestComment, comments_to_insert)
 
-    Ecto.Changeset.change(%MocData.Schema.PullRequest{id: pull_request.pr_id}, %{
+    Ecto.Changeset.change(%Moc.Db.Schema.PullRequest{id: pull_request.pr_id}, %{
       comments_imported_on: utc_now()
     })
     |> Repo.update()

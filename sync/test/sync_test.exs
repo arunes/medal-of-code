@@ -1,4 +1,4 @@
-defmodule SyncTest do
+defmodule Moc.SyncTest do
   use ExUnit.Case
   doctest Moc.Sync
 

@@ -1,8 +1,8 @@
 defmodule Moc.Sync.Impl.Contributors do
   import Ecto.Query
   alias Ecto.Repo.Schema
-  alias MocData.Repo
-  alias MocData.Schema
+  alias Moc.Db.Repo
+  alias Moc.Db.Schema
 
   @spec get_contributors() :: %{String.t() => String.t()}
   def get_contributors() do

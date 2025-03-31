@@ -1,4 +1,4 @@
-defmodule DateTest do
+defmodule Moc.DateTest do
   alias Moc.Utils.Date
   use ExUnit.Case
 

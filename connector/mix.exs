@@ -1,4 +1,4 @@
-defmodule Connector.MixProject do
+defmodule Moc.Connector.MixProject do
   use Mix.Project
 
   def project do
@@ -21,7 +21,7 @@ defmodule Connector.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:moc_data, path: "../moc_data"},
+      {:db, path: "../db"},
       {:utils, path: "../utils"},
       {:jason, "~> 1.4"},
       {:httpoison, "~> 2.2"}

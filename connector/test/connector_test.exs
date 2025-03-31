@@ -1,4 +1,4 @@
-defmodule ConnectorTest do
+defmodule Moc.ConnectorTest do
   use ExUnit.Case
   doctest Connector
 

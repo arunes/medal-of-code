@@ -4,8 +4,8 @@ defmodule Moc.Sync.Impl.PullRequests do
   import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
   alias Moc.Sync.Runtime.ContributorCache
   alias Moc.Connector
-  alias MocData.Schema
-  alias MocData.Repo
+  alias Moc.Db.Schema
+  alias Moc.Db.Repo
 
   def sync do
     Logger.info("Getting repos to sync.")

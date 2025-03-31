@@ -1,4 +1,4 @@
-defmodule Utils.MixProject do
+defmodule Moc.Utils.MixProject do
   use Mix.Project
 
   def project do

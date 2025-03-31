@@ -1,11 +1,11 @@
 defmodule Moc.Sync.Impl.Register do
   import Moc.Utils.Date, only: [utc_now: 0]
   alias Moc.Connector
-  alias MocData.Schema.Repository
-  alias MocData.Schema.Project
+  alias Moc.Db.Schema.Repository
+  alias Moc.Db.Schema.Project
   alias Hex.API.Key.Organization
-  alias MocData.Schema.Organization
-  alias MocData.Repo
+  alias Moc.Db.Schema.Organization
+  alias Moc.Db.Repo
   import Ecto.Query
 
   # 6 months
