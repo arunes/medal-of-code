@@ -21,7 +21,7 @@ defmodule Sync.Impl.Register do
     {:ok}
   end
 
-  defp create_organization(true = _exists, _settings), do: {:error, :exists}
+  defp create_organization(true = _exists, _settings), do: {:error, "organization already exists"}
 
   defp create_organization(_, settings) do
     %Organization{
@@ -52,7 +52,7 @@ defmodule Sync.Impl.Register do
     {:ok, organization.id}
   end
 
-  defp create_repositories({:error, _}, _settings), do: {:error, :schema}
+  defp create_repositories({:error, _}, _settings), do: {:error, "an unknown db error occurred"}
 
   defp create_repositories({:ok, project}, settings) do
     repositories =
@@ -71,5 +71,6 @@ defmodule Sync.Impl.Register do
       end)
 
     Repo.insert_all(Repository, repositories)
+    {:ok}
   end
 end

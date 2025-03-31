@@ -21,4 +21,8 @@ defmodule Sync.Impl.External do
   def get_repositories(%{provider: :azure} = settings, project_id) do
     Azure.get_repositories(settings, project_id)
   end
+
+  def get_pull_requests(%{provider: :azure} = settings, repository_id, status, min_date) do
+    Azure.get_pull_requests(settings, repository_id, status, min_date, 0)
+  end
 end
