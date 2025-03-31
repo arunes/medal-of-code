@@ -1,7 +1,4 @@
 defmodule MocData.Schema.PullRequest do
-  alias MocData.Schema.PullRequestReview
-  alias MocData.Schema.PullRequestCounter
-  alias MocData.Schema.PullRequestComment
   use Ecto.Schema
 
   schema "pull_requests" do
@@ -22,9 +19,6 @@ defmodule MocData.Schema.PullRequest do
     field(:comments_imported_on, :utc_datetime)
     belongs_to(:repository, MocData.Schema.Repository)
     belongs_to(:created_by, MocData.Schema.Contributor)
-    has_many(:pull_request_comments, PullRequestComment)
-    has_many(:pull_request_counters, PullRequestCounter)
-    has_many(:pull_request_reviews, PullRequestReview)
     timestamps()
   end
 

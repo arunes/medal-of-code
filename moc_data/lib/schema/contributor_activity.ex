@@ -7,5 +7,5 @@ defmodule MocData.Schema.ContributorActivity do
     field(:date, :date)
   end
 
-  @primary_key false
+  # @primary_key false
 end

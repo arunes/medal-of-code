@@ -1,3 +1,3 @@
-defmodule Sync.Type do
+defmodule Moc.Sync.Type do
   @type provider :: :azure
 end

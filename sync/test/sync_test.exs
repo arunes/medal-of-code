@@ -1,6 +1,6 @@
 defmodule SyncTest do
   use ExUnit.Case
-  doctest Sync
+  doctest Moc.Sync
 
   test "greets the world" do
     assert Sync.hello() == :world

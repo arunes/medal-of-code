@@ -1,8 +1,7 @@
-defmodule Sync.Impl.Register do
+defmodule Moc.Sync.Impl.Register do
+  alias Moc.Connector
   alias MocData.Schema.Repository
   alias MocData.Schema.Project
-  alias Sync.Impl.External
-  alias Hex.API.Key.Organization
   alias Hex.API.Key.Organization
   alias MocData.Schema.Organization
   alias MocData.Repo
@@ -13,7 +12,7 @@ defmodule Sync.Impl.Register do
                |> DateTime.add(6 * 30 * 24 * 60 * 60 * -1)
                |> DateTime.truncate(:second)
 
-  @spec register(External.t_settings()) :: {:ok} | {:error, String.t()}
+  @spec register(External.t()) :: {:ok} | {:error, String.t()}
   def register(%{organization_id: organization_id} = settings) do
     Repo.exists?(from(org in Organization, where: org.external_id == ^organization_id))
     |> create_organization(settings)
@@ -37,7 +36,7 @@ defmodule Sync.Impl.Register do
   defp create_projects({:error, _}, _settings), do: {:error, :schema}
 
   defp create_projects({:ok, organization}, settings) do
-    External.get_projects(settings)
+    Connector.get_projects(settings)
     |> Enum.map(fn prj ->
       Repo.insert(%Project{
         organization_id: organization.id,
@@ -56,7 +55,7 @@ defmodule Sync.Impl.Register do
 
   defp create_repositories({:ok, project}, settings) do
     repositories =
-      External.get_repositories(settings, project.external_id)
+      Connector.get_repositories(settings, project.external_id)
       |> Enum.map(fn repo ->
         %{
           project_id: project.id,

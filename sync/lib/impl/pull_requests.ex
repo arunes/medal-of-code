@@ -1,13 +1,10 @@
-defmodule Sync.Impl.PullRequests do
+defmodule Moc.Sync.Impl.PullRequests do
   import Ecto.Query
-  import Sync.Impl.Utils, only: [new_utc: 0, string_to_utc: 1]
+  import Moc.Utils.Date, only: [new_utc: 0, string_to_utc: 1]
   require Logger
-  alias MocData.Schema.PullRequestReview
-  alias MocData.Schema.Contributor
-  alias Sync.Impl.External
-  alias MocData.Schema.PullRequest
+  alias Moc.Connector
+  alias MocData.Schema
   alias MocData.Repo
-  alias MocData.Schema.Repository
 
   def sync do
     Logger.info("Getting repos to sync.")
@@ -54,7 +51,7 @@ defmodule Sync.Impl.PullRequests do
         }
       end)
 
-    Repo.insert_all(PullRequest, prs_to_insert)
+    Repo.insert_all(Schema.PullRequest, prs_to_insert)
 
     inserted_pull_request_ids = pull_requests |> Enum.map(& &1.id)
 
@@ -87,7 +84,7 @@ defmodule Sync.Impl.PullRequests do
         reviewers ++ acc
       end)
 
-    Repo.insert_all(PullRequestReview, reviewers_to_insert)
+    Repo.insert_all(Schema.PullRequestReview, reviewers_to_insert)
   end
 
   defp add_and_get_contributor_ids(pull_requests) do
@@ -122,7 +119,7 @@ defmodule Sync.Impl.PullRequests do
 
       _ ->
         Logger.info("Adding new contributors to db.")
-        Repo.insert_all(Contributor, new_contributors)
+        Repo.insert_all(Schema.Contributor, new_contributors)
         Repo.all(query_contributor_ids())
     end
     |> Enum.reduce(%{}, fn %{external_id: external_id, id: id}, acc ->
@@ -134,7 +131,7 @@ defmodule Sync.Impl.PullRequests do
     Logger.info("Running pr sync for repo '#{repo.repo_external_id}'")
     IO.inspect(repo, label: "REPO")
 
-    settings = %External{
+    settings = %Connector{
       provider: repo.org_provider |> String.to_atom(),
       organization_id: repo.org_external_id,
       token: repo.org_token
@@ -144,7 +141,7 @@ defmodule Sync.Impl.PullRequests do
     Logger.info("Getting completed PRs completed after '#{completed_pr_cutoff_date}'.")
 
     completed_prs =
-      External.get_pull_requests(
+      Connector.get_pull_requests(
         settings,
         repo.repo_external_id,
         "completed",
@@ -155,7 +152,7 @@ defmodule Sync.Impl.PullRequests do
     Logger.info("Getting abandoned PRs abandoned after '#{abandoned_pr_cutoff_date}'.")
 
     abandoned_prs =
-      External.get_pull_requests(
+      Connector.get_pull_requests(
         settings,
         repo.repo_external_id,
         "abandoned",
@@ -170,13 +167,13 @@ defmodule Sync.Impl.PullRequests do
   # Queries
   # Gets the list of repositories to sync
   defp query_sync_request do
-    from(rp in Repository,
+    from(rp in Schema.Repository,
       where: rp.sync_enabled == true,
       join: prj in assoc(rp, :project),
       join: org in assoc(prj, :organization),
-      left_join: pra in PullRequest,
+      left_join: pra in Schema.PullRequest,
       on: pra.repository_id == rp.id and pra.status == "abandoned",
-      left_join: prc in PullRequest,
+      left_join: prc in Schema.PullRequest,
       on: prc.repository_id == rp.id and prc.status == "completed",
       group_by: [
         rp.cutoff_date,
@@ -202,7 +199,7 @@ defmodule Sync.Impl.PullRequests do
   end
 
   defp query_contributor_ids do
-    from(c in Contributor,
+    from(c in Schema.Contributor,
       select: %{
         id: c.id,
         external_id: c.external_id
@@ -211,7 +208,7 @@ defmodule Sync.Impl.PullRequests do
   end
 
   defp query_pr_id_by_external_ids(external_ids) do
-    from(pr in PullRequest,
+    from(pr in Schema.PullRequest,
       where: pr.external_id in ^external_ids,
       select: %{
         id: pr.id,

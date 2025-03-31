@@ -1,14 +1,14 @@
-defmodule Sync.Impl.External.Azure do
-  import Sync.Impl.Utils, only: [format_utc_date: 1]
-  alias Sync.Impl.External
+defmodule Moc.Connector.Impl.Azure do
+  import Moc.Utils.Date, only: [format_utc_date: 1]
+  alias Moc.Connector
 
-  @page_size 25
+  @page_size 500
 
   @spec get_projects(External.t_settings()) :: list(Sync.Impl.External.t_project())
   @doc """
   Gets a list of projects that belongs to the organization specified in settings.
   """
-  def get_projects(%External{} = settings) do
+  def get_projects(%Connector{} = settings) do
     url = "https://dev.azure.com/#{settings.organization_id}/_apis/projects?api-version=7.1"
 
     get_external_data(settings, url, fn res ->
@@ -21,7 +21,7 @@ defmodule Sync.Impl.External.Azure do
   @doc """
   Gets the project's repositories.
   """
-  def get_repositories(%External{} = settings, project_id) do
+  def get_repositories(%Connector{} = settings, project_id) do
     url =
       "https://dev.azure.com/#{settings.organization_id}/#{project_id}/_apis/git/repositories?api-version=7.1"
 
@@ -31,7 +31,7 @@ defmodule Sync.Impl.External.Azure do
   end
 
   def get_pull_requests(
-        %External{} = settings,
+        %Connector{} = settings,
         repository_id,
         status,
         min_date,
@@ -97,7 +97,7 @@ defmodule Sync.Impl.External.Azure do
     |> Enum.map(&fun.(&1))
   end
 
-  defp get_headers(%External{token: token}) do
+  defp get_headers(%Connector{token: token}) do
     [
       Authorization: "Basic #{Base.encode64(":#{token}")}",
       Accept: "Application/json; Charset=utf-8"

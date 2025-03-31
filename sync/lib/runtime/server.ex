@@ -1,5 +1,5 @@
-defmodule Sync.Runtime.Server do
-  alias Sync.Impl.Service
+defmodule Moc.Sync.Runtime.Server do
+  alias Moc.Sync.Impl.Service
   @me __MODULE__
   @interval :timer.minutes(1)
 

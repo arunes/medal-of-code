@@ -1,7 +1,5 @@
-defmodule Sync.Impl.Service do
-  alias Sync.Impl.PullRequests
-  # alias MocData.Schema
-  # alias MocData.Repo
+defmodule Moc.Sync.Impl.Service do
+  alias Moc.Sync.Impl.PullRequests
 
   @doc """
   Starts the sync process

@@ -1,9 +1,9 @@
-defmodule Sync.MixProject do
+defmodule Utils.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :sync,
+      app: :utils,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -14,16 +14,15 @@ defmodule Sync.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Moc.Sync.Application, []},
-      extra_applications: [:logger, :eex, :observer, :wx, :runtime_tools]
+      extra_applications: [:logger]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:moc_data, path: "../moc_data"},
-      {:connector, path: "../connector/"}
+      # {:dep_from_hexpm, "~> 0.3.0"},
+      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
     ]
   end
 end

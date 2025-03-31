@@ -19,5 +19,5 @@ defmodule MocData.Schema.ContributorOverview do
     field(:rank, :integer)
   end
 
-  @primary_key false
+  # @primary_key false
 end
