@@ -4,6 +4,7 @@ defmodule MocData.Schema.PullRequestComment do
   schema "pull_request_comments" do
     field(:external_id, :integer)
     field(:thread_id, :integer)
+    field(:thread_status, :string)
     field(:parent_comment_id, :integer)
     field(:content, :string)
     field(:comment_type, :string)

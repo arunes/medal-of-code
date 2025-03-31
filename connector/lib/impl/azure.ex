@@ -4,10 +4,6 @@ defmodule Moc.Connector.Impl.Azure do
 
   @page_size 500
 
-  @spec get_projects(External.t_settings()) :: list(Sync.Impl.External.t_project())
-  @doc """
-  Gets a list of projects that belongs to the organization specified in settings.
-  """
   def get_projects(%Connector{} = settings) do
     url = "https://dev.azure.com/#{settings.organization_id}/_apis/projects?api-version=7.1"
 
@@ -16,11 +12,6 @@ defmodule Moc.Connector.Impl.Azure do
     end)
   end
 
-  @spec get_repositories(External.t_settings(), String.t()) ::
-          list(Sync.Impl.External.t_repository())
-  @doc """
-  Gets the project's repositories.
-  """
   def get_repositories(%Connector{} = settings, project_id) do
     url =
       "https://dev.azure.com/#{settings.organization_id}/#{project_id}/_apis/git/repositories?api-version=7.1"
@@ -84,6 +75,44 @@ defmodule Moc.Connector.Impl.Azure do
       set ->
         set ++ get_pull_requests(settings, repository_id, status, min_date, skip + @page_size)
     end
+  end
+
+  def get_threads(settings, project_id, repository_id, pull_request_id) do
+    url =
+      "https://dev.azure.com/#{settings.organization_id}/#{project_id}/_apis/git/repositories/#{repository_id}/pullRequests/#{pull_request_id}/threads?api-version=7.1"
+
+    get_external_data(settings, url, fn res ->
+      %{
+        id: res["id"],
+        status: res["status"],
+        comments:
+          res["comments"]
+          |> Enum.map(fn cmt ->
+            %{
+              id: cmt["id"],
+              parent_comment_id: cmt["parentCommentId"],
+              content: cmt["content"],
+              comment_type: cmt["commentType"],
+              published_on: cmt["publishedDate"],
+              updated_on: cmt["lastUpdatedDate"],
+              created_by: %{
+                id: cmt["author"]["id"],
+                name: cmt["author"]["displayName"],
+                email: cmt["author"]["uniqueName"]
+              },
+              users_liked:
+                cmt["usersLiked"]
+                |> Enum.map(fn usr ->
+                  %{
+                    id: usr["id"],
+                    name: usr["displayName"],
+                    email: usr["uniqueName"]
+                  }
+                end)
+            }
+          end)
+      }
+    end)
   end
 
   # Helper functions

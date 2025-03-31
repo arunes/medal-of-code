@@ -1,0 +1,21 @@
+meta {
+  name: get-pull-request-threads
+  type: http
+  seq: 4
+}
+
+get {
+  url: https://dev.azure.com/{{organizationId}}/:project/_apis/git/repositories/:repositoryId/pullRequests/:pullRequestId/threads?api-version=7.1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  api-version: 7.1
+}
+
+params:path {
+  pullRequestId: 
+  repositoryId: 
+  project: 
+}

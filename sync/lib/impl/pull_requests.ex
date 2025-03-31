@@ -1,7 +1,8 @@
 defmodule Moc.Sync.Impl.PullRequests do
+  require Logger
   import Ecto.Query
   import Moc.Utils.Date, only: [new_utc: 0, string_to_utc: 1]
-  require Logger
+  alias Moc.Sync.Runtime.ContributorCache
   alias Moc.Connector
   alias MocData.Schema
   alias MocData.Repo
@@ -14,7 +15,6 @@ defmodule Moc.Sync.Impl.PullRequests do
     Logger.info("#{total_repos} repos will be synced.")
 
     all_prs = repos_to_sync |> Enum.map(&get_prs/1) |> Enum.flat_map(& &1)
-    contributor_ids = all_prs |> add_and_get_contributor_ids()
 
     repository_ids =
       repos_to_sync
@@ -22,11 +22,11 @@ defmodule Moc.Sync.Impl.PullRequests do
         Map.put(acc, external_id, id)
       end)
 
-    all_prs |> add_pull_requests(repository_ids, contributor_ids)
+    all_prs |> add_pull_requests(repository_ids)
     {:ok}
   end
 
-  defp add_pull_requests(pull_requests, repository_ids, contributor_ids) do
+  defp add_pull_requests(pull_requests, repository_ids) do
     prs_to_insert =
       pull_requests
       |> Enum.map(fn pr ->
@@ -40,7 +40,7 @@ defmodule Moc.Sync.Impl.PullRequests do
           source_branch: pr.source_branch |> String.replace("refs/heads", ""),
           target_branch: pr.target_branch |> String.replace("refs/heads", ""),
           is_draft: pr.is_draft,
-          created_by_id: contributor_ids[pr.created_by.id],
+          created_by_id: ContributorCache.get_id(pr.created_by),
           delete_source_branch: pr.completionOptions.delete_source_branch,
           squash_merge: pr.completionOptions.squash_merge,
           merge_strategy: pr.completionOptions.merge_strategy,
@@ -74,7 +74,7 @@ defmodule Moc.Sync.Impl.PullRequests do
                   nil -> false
                   val -> val
                 end,
-              reviewer_id: contributor_ids[rw.id],
+              reviewer_id: ContributorCache.get_id(rw),
               pull_request_id: pull_request_ids[pr.id],
               inserted_at: new_utc(),
               updated_at: new_utc()
@@ -87,49 +87,8 @@ defmodule Moc.Sync.Impl.PullRequests do
     Repo.insert_all(Schema.PullRequestReview, reviewers_to_insert)
   end
 
-  defp add_and_get_contributor_ids(pull_requests) do
-    Logger.info("Getting existing contributors.")
-    all_contributors = Repo.all(query_contributor_ids())
-    Logger.info("#{length(all_contributors)} existing contributors found.")
-    all_contributor_external_ids = all_contributors |> Enum.map(& &1.external_id)
-    Logger.info("Extracting contributors from pull request data (created by and reviewers).")
-
-    new_contributors =
-      pull_requests
-      |> Enum.map(&[&1.created_by | &1.reviewers])
-      |> Enum.flat_map(& &1)
-      |> Enum.filter(&(not Enum.member?(all_contributor_external_ids, &1.id)))
-      |> Enum.map(fn c ->
-        %{
-          external_id: c.id,
-          name: c.name,
-          email: c.email,
-          active: true,
-          inserted_at: new_utc(),
-          updated_at: new_utc()
-        }
-      end)
-      |> Enum.uniq_by(& &1.external_id)
-
-    Logger.info("#{length(new_contributors)} new contributors found.")
-
-    case length(new_contributors) do
-      0 ->
-        all_contributors
-
-      _ ->
-        Logger.info("Adding new contributors to db.")
-        Repo.insert_all(Schema.Contributor, new_contributors)
-        Repo.all(query_contributor_ids())
-    end
-    |> Enum.reduce(%{}, fn %{external_id: external_id, id: id}, acc ->
-      Map.put(acc, external_id, id)
-    end)
-  end
-
   defp get_prs(repo) do
     Logger.info("Running pr sync for repo '#{repo.repo_external_id}'")
-    IO.inspect(repo, label: "REPO")
 
     settings = %Connector{
       provider: repo.org_provider |> String.to_atom(),
@@ -194,15 +153,6 @@ defmodule Moc.Sync.Impl.PullRequests do
         cutoff_date: rp.cutoff_date,
         last_abandoned_pr_date: max(pra.closed_on),
         last_completed_pr_date: max(prc.closed_on)
-      }
-    )
-  end
-
-  defp query_contributor_ids do
-    from(c in Schema.Contributor,
-      select: %{
-        id: c.id,
-        external_id: c.external_id
       }
     )
   end

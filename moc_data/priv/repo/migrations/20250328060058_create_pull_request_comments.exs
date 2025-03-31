@@ -5,6 +5,7 @@ defmodule MocData.Repo.Migrations.CreatePullRequests do
     create table("pull_request_comments") do
       add :external_id, :integer, null: false
       add :thread_id, :integer, null: false
+      add :thread_status, :string, null: true
       add :parent_comment_id, :integer, null: false
       add :content, :text, null: false
       add :comment_type, :string, null: false
