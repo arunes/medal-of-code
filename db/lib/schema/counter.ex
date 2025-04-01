@@ -1,4 +1,5 @@
 defmodule Moc.Db.Schema.Counter do
+  alias Moc.Db.Schema.Medal
   use Ecto.Schema
 
   schema "counters" do
@@ -15,6 +16,7 @@ defmodule Moc.Db.Schema.Counter do
     field(:constitution, :integer, default: 0)
     field(:dexterity, :integer, default: 0)
     field(:wisdom, :integer, default: 0)
+    has_many(:medals, Medal)
     timestamps()
   end
 
