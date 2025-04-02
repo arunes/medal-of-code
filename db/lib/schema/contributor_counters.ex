@@ -1,7 +1,7 @@
 defmodule Moc.Db.Schema.ContributorCounter do
   use Ecto.Schema
 
-  schema "contributor_counter" do
+  schema "contributor_counters" do
     field(:count, :integer)
     belongs_to(:counter, Moc.Db.Schema.Counter)
     belongs_to(:contributor, Moc.Db.Schema.Contributor)

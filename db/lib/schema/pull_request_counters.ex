@@ -1,7 +1,7 @@
 defmodule Moc.Db.Schema.PullRequestCounter do
   use Ecto.Schema
 
-  schema "pull_request_counter" do
+  schema "pull_request_counters" do
     belongs_to(:counter, Moc.Db.Schema.Counter)
     belongs_to(:pull_request, Moc.Db.Schema.PullRequest)
     timestamps()

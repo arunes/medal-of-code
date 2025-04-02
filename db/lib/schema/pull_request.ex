@@ -1,7 +1,9 @@
 defmodule Moc.Db.Schema.PullRequest do
-  use Ecto.Schema
+  alias Moc.Db.Schema.PullRequestReview
+  alias Moc.Db.Schema.PullRequestComment
+  use TypedEctoSchema
 
-  schema "pull_requests" do
+  typed_schema "pull_requests" do
     field(:external_id, :integer)
     field(:title, :string)
     field(:description, :string)
@@ -15,8 +17,9 @@ defmodule Moc.Db.Schema.PullRequest do
     field(:squash_merge, :boolean)
     field(:merge_strategy, :string)
     field(:ready_for_use, :boolean)
-    field(:pr_imported_on, :naive_datetime)
     field(:comments_imported_on, :naive_datetime)
+    has_many(:comments, PullRequestComment)
+    has_many(:reviews, PullRequestReview)
     belongs_to(:repository, Moc.Db.Schema.Repository)
     belongs_to(:created_by, Moc.Db.Schema.Contributor)
     timestamps()
@@ -38,7 +41,6 @@ defmodule Moc.Db.Schema.PullRequest do
       :squash_merge,
       :merge_strategy,
       :ready_for_use,
-      :pr_imported_on,
       :comments_imported_on,
       :repository_id,
       :created_by_id
@@ -53,7 +55,6 @@ defmodule Moc.Db.Schema.PullRequest do
       :target_branch,
       :is_draft,
       :ready_for_use,
-      :pr_imported_on,
       :repository_id,
       :created_by_id
     ])

@@ -25,7 +25,8 @@ defmodule Moc.Db.MixProject do
   defp deps do
     [
       {:ecto, "~> 3.12"},
-      {:ecto_sqlite3, "~> 0.19.0"}
+      {:ecto_sqlite3, "~> 0.19.0"},
+      {:typed_ecto_schema, "~> 0.4.1"}
     ]
   end
 

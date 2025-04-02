@@ -2,7 +2,7 @@ defmodule Moc.Db.Repo.Migrations.CreateContributorCounter do
   use Ecto.Migration
 
   def change do
-    create table("contributor_counter") do
+    create table("contributor_counters") do
       add :count, :integer, null: false
       add :counter_id, references("counters", on_delete: :delete_all), null: false
       add :contributor_id, references("contributors", on_delete: :delete_all), null: false
@@ -11,8 +11,8 @@ defmodule Moc.Db.Repo.Migrations.CreateContributorCounter do
       timestamps()
     end
 
-    create index("contributor_counter", [:contributor_id])
-    create index("contributor_counter", [:repository_id])
-    create index("contributor_counter", [:counter_id])
+    create index("contributor_counters", [:contributor_id])
+    create index("contributor_counters", [:repository_id])
+    create index("contributor_counters", [:counter_id])
   end
 end
