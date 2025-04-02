@@ -1,4 +1,6 @@
 defmodule Moc.Sync.Impl.Service do
+  require Logger
+  alias Moc.Sync.Impl.Scores
   alias Moc.Sync.Impl.PullRequests
   alias Moc.Sync.Impl.Comments
 
@@ -6,14 +8,17 @@ defmodule Moc.Sync.Impl.Service do
   Starts the sync process
   """
   def start_sync do
-    IO.puts("Running sync")
+    Logger.info("Running sync")
 
-    IO.puts("Syncing pull requests")
+    Logger.info("Syncing pull requests")
     PullRequests.sync()
 
-    IO.puts("Syncing comments")
+    Logger.info("Syncing comments")
     Comments.sync()
 
-    IO.puts("Sync finished")
+    Logger.info("Calculating points")
+    Scores.calculate()
+
+    Logger.info("Sync finished")
   end
 end

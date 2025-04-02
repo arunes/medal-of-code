@@ -37,10 +37,10 @@ defmodule Moc.Sync.Impl.PullRequests do
           status: pr.status,
           created_on: pr.created_on |> string_to_utc,
           closed_on: pr.completed_on |> string_to_utc,
-          source_branch: pr.source_branch |> String.replace("refs/heads", ""),
-          target_branch: pr.target_branch |> String.replace("refs/heads", ""),
+          source_branch: pr.source_branch |> String.replace("refs/heads/", ""),
+          target_branch: pr.target_branch |> String.replace("refs/heads/", ""),
           is_draft: pr.is_draft,
-          created_by_id: ContributorCache.get_id(pr.created_by),
+          created_by_id: ContributorCache.get_by_id(pr.created_by),
           delete_source_branch: pr.completionOptions.delete_source_branch,
           squash_merge: pr.completionOptions.squash_merge,
           merge_strategy: pr.completionOptions.merge_strategy,
@@ -74,7 +74,7 @@ defmodule Moc.Sync.Impl.PullRequests do
                   nil -> false
                   val -> val
                 end,
-              reviewer_id: ContributorCache.get_id(rw),
+              reviewer_id: ContributorCache.get_by_id(rw),
               pull_request_id: pull_request_ids[pr.id],
               inserted_at: utc_now(),
               updated_at: utc_now()

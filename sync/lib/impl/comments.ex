@@ -50,8 +50,8 @@ defmodule Moc.Sync.Impl.Comments do
           comment_type: cmt.comment_type,
           published_on: cmt.published_on |> string_to_utc,
           updated_on: cmt.updated_on |> string_to_utc,
-          created_by_id: ContributorCache.get_id(cmt.created_by),
-          liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_id/1) |> Enum.join(","),
+          created_by_id: ContributorCache.get_by_id(cmt.created_by),
+          liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_by_id/1) |> Enum.join(","),
           pull_request_id: pull_request.pr_id,
           inserted_at: utc_now(),
           updated_at: utc_now()
