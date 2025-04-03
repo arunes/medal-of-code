@@ -1273,3 +1273,20 @@ Moc.Db.Repo.insert!(%Moc.Db.Schema.Counter{
   }]
 })
 
+Moc.Db.Repo.insert!(%Moc.Db.Schema.Counter{
+  key: "commentedWithPicture",
+  personal_description: "Commented on a PR with a picture.",
+  xp: 3.00,
+  display_order: 111,
+  main_counter: false,
+  category: "Comment",
+  personal_counter: false,
+  affinity: "neutral",
+	#  medals: [%Moc.Db.Schema.Medal{
+	#    name: "Man of Few Words",
+	#    description: "Create 25 PRs with 5 words or less in the description.",
+	#    count_to_award: 25,
+	# affinity: "dark",    
+	# lore: "In the economy of expression, your code speaks volumes while your words whisper. A master of brevity, your pull requests are as succinct as ancient proverbs etched in stone."
+	#  }]
+})
