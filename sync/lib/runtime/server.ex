@@ -1,5 +1,6 @@
 defmodule Moc.Sync.Runtime.Server do
-  alias Moc.Sync.Impl.Service
+  alias Moc.Sync
+
   @me __MODULE__
   @interval :timer.minutes(1)
 
@@ -15,14 +16,14 @@ defmodule Moc.Sync.Runtime.Server do
   # Server
   @impl true
   def init(:ok) do
-    Service.start_sync()
+    Sync.start_sync()
     schedule_next()
     {:ok, nil}
   end
 
   @impl true
   def handle_info(:do_sync, _state) do
-    Service.start_sync()
+    Sync.start_sync()
     schedule_next()
     {:noreply, nil}
   end

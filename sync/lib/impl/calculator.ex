@@ -15,17 +15,20 @@ defmodule Moc.Sync.Impl.Calculator do
 
     get_all_counters()
     |> Enum.map(&run_for_counter(&1, sync_data))
+    |> Enum.filter(&(&1 != :empty))
   end
 
   defp run_for_counter(counter, data) do
-    Logger.info("Running for counter '#{counter.key}'")
+    data
+    |> Enum.filter(fn pr -> counter.id in pr.counter_ids end)
+    |> Enum.map(fn pr -> pr.id end)
+    |> do_run_for_counter(counter)
+  end
 
-    all_pr_ids =
-      data
-      |> Enum.filter(fn pr -> counter.id in pr.counter_ids end)
-      |> Enum.map(fn pr -> pr.id end)
+  defp do_run_for_counter(all_pr_ids, _counter) when length(all_pr_ids) == 0, do: :empty
 
-    Logger.info("'#{counter.key}' will run on #{length(all_pr_ids)} pull requests.")
+  defp do_run_for_counter(all_pr_ids, counter) do
+    Logger.info("Running for counter '#{counter.key}' for #{length(all_pr_ids)} pull requests.")
 
     all_pr_ids
     |> query_pull_requests()

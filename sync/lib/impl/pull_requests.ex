@@ -25,11 +25,11 @@ defmodule Moc.Sync.Impl.PullRequests do
     all_prs |> insert_pull_requests(repository_ids)
   end
 
-  defp insert_pull_requests([], _repository_ids), do: :ok
+  defp insert_pull_requests([], _repository_ids), do: {:ok, 0}
 
   defp insert_pull_requests(all_prs, repository_ids) do
     all_prs |> add_pull_requests(repository_ids)
-    :ok
+    {:ok, all_prs |> length}
   end
 
   defp add_pull_requests(pull_requests, repository_ids) do

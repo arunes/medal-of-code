@@ -20,7 +20,10 @@ defmodule Moc.Sync.Runtime.ContributorCache do
   @doc """
   Gets the contributor db id by it's external id, creates the contributor if doesn't exists
   """
-  @spec get_by_id(Type.contributor()) :: integer()
+  @spec get_by_id(Type.contributor() | String.t()) :: integer()
+  def get_by_id(external_id) when is_binary(external_id),
+    do: get_by_id(%{id: external_id, name: "Mysterious Contributor", email: ""})
+
   def get_by_id(contributor) do
     Agent.get_and_update(@me, fn state ->
       case state[contributor.id] do
