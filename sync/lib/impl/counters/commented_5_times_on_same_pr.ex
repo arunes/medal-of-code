@@ -1,6 +1,8 @@
 defmodule Moc.Sync.Impl.Counters.Commented5TimesOnSamePR do
   alias Moc.Db.Schema
+  alias Moc.Sync.Type
 
+  @spec count(Schema.PullRequest.t()) :: list(Type.counter_result())
   def count(%Schema.PullRequest{comments: comments}) do
     comments
     |> Enum.filter(&(&1.comment_type == "text"))
