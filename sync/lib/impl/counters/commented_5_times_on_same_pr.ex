@@ -1,0 +1,19 @@
+defmodule Moc.Sync.Impl.Counters.Commented5TimesOnSamePR do
+  alias Moc.Db.Schema
+
+  def count(%Schema.PullRequest{comments: comments}) do
+    comments
+    |> Enum.filter(&(&1.comment_type == "text"))
+    |> Enum.map(fn comment ->
+      number_of_comments =
+        comments
+        |> Enum.count(&(&1.comment_type == "text" and &1.created_by_id == comment.created_by_id))
+
+      %{contributor_id: comment.created_by_id, total_comments: number_of_comments}
+    end)
+    |> Enum.filter(&(&1.total_comments >= 5))
+    |> Enum.map(& &1.contributor_id)
+    |> Enum.uniq()
+    |> Enum.map(fn contributor_id -> %{contributor_id: contributor_id, count: 1} end)
+  end
+end
