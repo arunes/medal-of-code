@@ -1,34 +1,20 @@
 defmodule Moc.Sync.Impl.Calculator do
   require Logger
   import Ecto.Query
-  alias Moc.Sync.Runtime.ScoreCache
-  alias Moc.Sync.Runtime.GenericCache
+  alias Moc.Sync.Type
   alias Ecto.Repo.Schema
   alias Moc.Db.Repo
   alias Moc.Db.Schema
   alias Moc.Utils
 
+  @spec calculate() :: Type.counter_result_set()
   def calculate do
+    # pulls the data to sync, every row will have id (pr id) 
+    # and comma separated counter ids to run for the pr
     sync_data = get_sync_data()
 
-    query_counters()
-    |> Repo.all()
+    get_all_counters()
     |> Enum.map(&run_for_counter(&1, sync_data))
-    |> Enum.reduce([], fn r, acc -> r ++ acc end)
-    |> Enum.each(&ScoreCache.add(&1))
-
-    ScoreCache.get_all()
-  end
-
-  defp get_sync_data do
-    query_score_data()
-    |> Repo.all()
-    |> Enum.map(fn d ->
-      %{
-        id: d.id,
-        counter_ids: d.counter_ids |> String.split(",") |> Enum.map(&String.to_integer/1)
-      }
-    end)
   end
 
   defp run_for_counter(counter, data) do
@@ -40,45 +26,47 @@ defmodule Moc.Sync.Impl.Calculator do
       |> Enum.map(fn pr -> pr.id end)
 
     Logger.info("'#{counter.key}' will run on #{length(all_pr_ids)} pull requests.")
-    db_pr_ids = all_pr_ids |> Enum.filter(&(not GenericCache.has_key?("pr_#{&1}")))
-
-    Logger.info(
-      "#{length(db_pr_ids)} out of #{length(all_pr_ids)} pull requests will be pulled from db, rest are in the cache."
-    )
-
-    db_pr_ids
-    |> query_pull_requests()
-    |> Repo.all()
-    |> Enum.each(&GenericCache.set(&1, "pr_#{&1.id}"))
 
     all_pr_ids
-    |> Enum.map(&GenericCache.get("pr_#{&1}", fn -> nil end))
-    |> Enum.filter(&(not is_nil(&1)))
+    |> query_pull_requests()
+    |> Repo.all()
     |> Enum.map(&run_counter(counter, &1))
     |> Enum.filter(&(length(&1) > 0))
     |> Enum.reduce([], fn r, acc -> r ++ acc end)
-    |> update_existing_counter(counter.id)
+    |> group_into_result_set(counter, all_pr_ids)
   end
 
-  defp update_existing_counter(counter_results, counter_id) do
-    repository_ids = counter_results |> Enum.map(fn r -> r.repository_id end)
-    contributor_ids = counter_results |> Enum.map(fn r -> r.contributor_id end)
-    existing = query_existing_counter(repository_ids, contributor_ids, counter_id) |> Repo.all()
+  defp group_into_result_set(results, counter, all_pr_ids) do
+    repository_ids = results |> Enum.map(fn r -> r.repository_id end) |> Enum.uniq()
+    contributor_ids = results |> Enum.map(fn r -> r.contributor_id end) |> Enum.uniq()
+    existing = query_existing_counter(repository_ids, contributor_ids, counter.id) |> Repo.all()
 
-    for counter_result <- counter_results do
-      current_count =
-        existing
-        |> Enum.find(%{id: nil, count: 0}, fn d ->
-          d.contributor_id == counter_result.contributor_id and
-            d.repository_id == counter_result.repository_id
-        end)
+    set_results =
+      results
+      |> Utils.List.flatten()
+      |> Enum.group_by(fn r -> {r.contributor_id, r.repository_id} end)
+      |> Enum.map(fn {{contributor_id, repository_id}, data} ->
+        current_count =
+          existing
+          |> Enum.find(%{id: nil, count: 0}, fn d ->
+            d.contributor_id == contributor_id and d.repository_id == repository_id
+          end)
 
-      %{
-        counter_result
-        | old_count: current_count.count,
-          contributor_counter_id: current_count.id
-      }
-    end
+        %{
+          contributor_id: contributor_id,
+          repository_id: repository_id,
+          contributor_counter_id: current_count.id,
+          old_count: current_count.count,
+          data: data |> Enum.map(&Map.drop(&1, [:contributor_id, :repository_id]))
+        }
+      end)
+
+    %{
+      counter_key: counter.key,
+      counter_id: counter.id,
+      prs_ran_on: all_pr_ids,
+      results: set_results
+    }
   end
 
   defp run_counter(counter, pr) do
@@ -94,9 +82,6 @@ defmodule Moc.Sync.Impl.Calculator do
     apply(module, :count, [pr])
     |> Enum.map(fn r ->
       %{
-        counter_id: counter.id,
-        contributor_counter_id: nil,
-        old_count: 0,
         pull_request_id: pr.id,
         repository_id: pr.repository_id,
         contributor_id: r.contributor_id,
@@ -110,6 +95,19 @@ defmodule Moc.Sync.Impl.Calculator do
       }
     end)
   end
+
+  defp get_sync_data do
+    query_score_data()
+    |> Repo.all()
+    |> Enum.map(fn d ->
+      %{
+        id: d.id,
+        counter_ids: d.counter_ids |> String.split(",") |> Enum.map(&String.to_integer/1)
+      }
+    end)
+  end
+
+  defp get_all_counters(), do: query_counters() |> Repo.all()
 
   # Queries
   defp query_counters() do
@@ -163,7 +161,7 @@ defmodule Moc.Sync.Impl.Calculator do
   defp query_existing_counter(repository_ids, contributor_ids, counter_id) do
     from(cc in Schema.ContributorCounter,
       where: cc.repository_id in ^repository_ids,
-      where: cc.counter_id in ^contributor_ids,
+      where: cc.contributor_id in ^contributor_ids,
       where: cc.counter_id == ^counter_id,
       select: %{
         id: cc.id,

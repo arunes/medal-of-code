@@ -22,8 +22,14 @@ defmodule Moc.Sync.Impl.PullRequests do
         Map.put(acc, external_id, id)
       end)
 
+    all_prs |> insert_pull_requests(repository_ids)
+  end
+
+  defp insert_pull_requests([], _repository_ids), do: :ok
+
+  defp insert_pull_requests(all_prs, repository_ids) do
     all_prs |> add_pull_requests(repository_ids)
-    {:ok}
+    :ok
   end
 
   defp add_pull_requests(pull_requests, repository_ids) do
