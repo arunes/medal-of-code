@@ -1,7 +1,7 @@
 defmodule Moc.Data.Schema.Medal do
-  use Ecto.Schema
+  use TypedEctoSchema
 
-  schema "medals" do
+  typed_schema "medals" do
     field(:name, :string)
     field(:description, :string)
     field(:count_to_award, :integer)
