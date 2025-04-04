@@ -3,16 +3,16 @@ defmodule Moc.Tests.Counters.CommentedOnPRTest do
   alias Moc.Sync.Impl.Counters.CommentedOnPR
 
 
-  @pull_request %Moc.Db.Schema.PullRequest{comments: [
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 1 },
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 1 },
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
-    %Moc.Db.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
+  @pull_request %Moc.Data.Schema.PullRequest{comments: [
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 1 },
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 1 },
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
+    %Moc.Data.Schema.PullRequestComment{ comment_type: "text", created_by_id: 2 },
   ]}
 
-  @pull_request_empty %Moc.Db.Schema.PullRequest{comments: []}
+  @pull_request_empty %Moc.Data.Schema.PullRequest{comments: []}
 
 
   test "checks if empty comment list returns empty results" do

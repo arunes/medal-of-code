@@ -21,7 +21,6 @@ defmodule Moc.Connector.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:db, path: "../db"},
       {:utils, path: "../utils"},
       {:jason, "~> 1.4"},
       {:httpoison, "~> 2.2"}

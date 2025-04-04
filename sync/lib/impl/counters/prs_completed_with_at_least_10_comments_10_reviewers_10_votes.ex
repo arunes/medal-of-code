@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Impl.Counters.PrsCompletedWithAtLeast10Comments10Reviewers10Votes do
-  alias Moc.Db.Schema
+  alias Moc.Data.Schema
   alias Moc.Sync.Type
 
   @spec count(Schema.PullRequest.t()) :: list(Type.counter_result())

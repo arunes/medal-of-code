@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Impl.Counters.CommentedWithEmoji do
-  alias Moc.Db.Schema
+  alias Moc.Data.Schema
   alias Moc.Sync.Type
 
   @regex ~r/\p{So}/u

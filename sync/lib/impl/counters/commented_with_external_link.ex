@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Impl.Counters.CommentedWithExternalLink do
-  alias Moc.Db.Schema
+  alias Moc.Data.Schema
   alias Moc.Sync.Type
 
   @regex ~r/(\b(https?|ftp|file):\/\/((?!dev\.azure\.com).)[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i

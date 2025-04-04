@@ -3,7 +3,7 @@ defmodule Moc.Sync.MixProject do
 
   def project do
     [
-      app: :sync,
+      app: :moc_sync,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -22,7 +22,7 @@ defmodule Moc.Sync.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:db, path: "../db"},
+      {:moc_data, path: "../data"},
       {:connector, path: "../connector/"}
     ]
   end

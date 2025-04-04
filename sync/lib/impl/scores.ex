@@ -1,8 +1,8 @@
 defmodule Moc.Sync.Impl.Scores do
   require Logger
   import Moc.Utils.Date, only: [utc_now: 0]
-  alias Moc.Db.Schema
-  alias Moc.Db.Repo
+  alias Moc.Data.Schema
+  alias Moc.Data.Repo
   alias Moc.Sync.Impl.Calculator
 
   def calculate do

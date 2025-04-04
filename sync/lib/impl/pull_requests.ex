@@ -2,10 +2,10 @@ defmodule Moc.Sync.Impl.PullRequests do
   require Logger
   import Ecto.Query
   import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
-  alias Moc.Db.Runtime.ContributorCache
+  alias Moc.Data.Runtime.ContributorCache
   alias Moc.Connector
-  alias Moc.Db.Schema
-  alias Moc.Db.Repo
+  alias Moc.Data.Schema
+  alias Moc.Data.Repo
 
   def sync do
     Logger.info("Getting repos to sync.")

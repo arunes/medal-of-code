@@ -3,8 +3,8 @@ defmodule Moc.Sync.Impl.Calculator do
   import Ecto.Query
   alias Moc.Sync.Type
   alias Ecto.Repo.Schema
-  alias Moc.Db.Repo
-  alias Moc.Db.Schema
+  alias Moc.Data.Repo
+  alias Moc.Data.Schema
   alias Moc.Utils
 
   @spec calculate() :: Type.counter_result_set()

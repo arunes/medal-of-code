@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Impl.Counters.CommentedWithPraiseWords do
-  alias Moc.Db.Schema
+  alias Moc.Data.Schema
   alias Moc.Sync.Type
 
   @praise_words [

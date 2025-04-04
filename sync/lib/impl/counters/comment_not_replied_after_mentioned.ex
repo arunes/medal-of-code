@@ -1,6 +1,6 @@
 defmodule Moc.Sync.Impl.Counters.CommentNotRepliedAfterMentioned do
-  alias Moc.Db.Runtime.ContributorCache
-  alias Moc.Db.Schema
+  alias Moc.Data.Runtime.ContributorCache
+  alias Moc.Data.Schema
   alias Moc.Sync.Type
 
   @regex ~r/@<([{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?)>/

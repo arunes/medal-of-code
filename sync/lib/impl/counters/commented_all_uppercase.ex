@@ -1,6 +1,6 @@
 defmodule Moc.Sync.Impl.Counters.CommentedAllUppercase do
   alias Moc.Sync.Type
-  alias Moc.Db.Schema
+  alias Moc.Data.Schema
 
   @spec count(Schema.PullRequest.t()) :: list(Type.counter_result())
   def count(%Schema.PullRequest{comments: comments}) do

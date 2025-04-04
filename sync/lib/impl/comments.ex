@@ -3,10 +3,10 @@ defmodule Moc.Sync.Impl.Comments do
   import Ecto.Query
   import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
 
-  alias Moc.Db.Runtime.ContributorCache
+  alias Moc.Data.Runtime.ContributorCache
   alias Moc.Connector
-  alias Moc.Db.Schema
-  alias Moc.Db.Repo
+  alias Moc.Data.Schema
+  alias Moc.Data.Repo
 
   def sync do
     Logger.info("Getting repos to sync.")
@@ -60,7 +60,7 @@ defmodule Moc.Sync.Impl.Comments do
 
     Repo.insert_all(Schema.PullRequestComment, comments_to_insert)
 
-    Ecto.Changeset.change(%Moc.Db.Schema.PullRequest{id: pull_request.pr_id}, %{
+    Ecto.Changeset.change(%Moc.Data.Schema.PullRequest{id: pull_request.pr_id}, %{
       comments_imported_on: utc_now()
     })
     |> Repo.update()
