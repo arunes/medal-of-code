@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Impl.Counters.CommentNotRepliedAfterMentioned do
-  alias Moc.Sync.Runtime.ContributorCache
+  alias Moc.Db.Runtime.ContributorCache
   alias Moc.Db.Schema
   alias Moc.Sync.Type
 

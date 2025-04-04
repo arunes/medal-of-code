@@ -1,4 +1,4 @@
-defmodule Moc.Sync.Runtime.ContributorCache do
+defmodule Moc.Db.Runtime.ContributorCache do
   @moduledoc """
   A cache for storing contributors, using an Agent to manage the state. Provides function for retrieving contributors by IDs.
   """

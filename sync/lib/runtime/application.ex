@@ -1,5 +1,5 @@
 defmodule Moc.Sync.Application do
-  alias Moc.Sync.Runtime.ContributorCache
+  alias Moc.Db.Runtime.ContributorCache
   alias Moc.Sync.Runtime.GenericCache
   alias Moc.Sync.Runtime.Server
   use Application
