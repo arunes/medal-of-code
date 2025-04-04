@@ -8,3 +8,5 @@ config :db, Moc.Db.Repo,
   show_sensitive_data_on_connection_error: true
 
 config :sync, ecto_repos: [Moc.Db.Repo]
+
+import_config "#{config_env()}.exs"
