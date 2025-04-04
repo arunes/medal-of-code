@@ -6,6 +6,7 @@ defmodule Moc.Counters.CommentsReplied do
   def count(%Type.Input{comments: comments}, _get_data) do
     comments
     |> Enum.filter(&(&1.comment_type == "text"))
+    |> Enum.sort_by(fn cmt -> cmt.published_on end)
     |> Enum.group_by(& &1.thread_id)
     |> Enum.filter(fn {_, list} -> length(list) > 1 end)
     |> Enum.flat_map(fn {_, list} -> who_replied(list) end)
