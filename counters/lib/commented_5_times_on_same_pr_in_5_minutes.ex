@@ -1,5 +1,5 @@
 defmodule Moc.Counters.Commented5TimesOnSamePRIn5Minutes do
-    alias Moc.Counters.Type
+  alias Moc.Counters.Type
 
   @spec count(Type.Input.t(), fun()) :: list(Type.counter_result())
   def count(%Type.Input{comments: comments}, _get_data) do
@@ -12,7 +12,8 @@ defmodule Moc.Counters.Commented5TimesOnSamePRIn5Minutes do
         Enum.count(comments, fn uc ->
           uc.comment_type == "text" &&
             uc.created_by_id == comment.created_by_id &&
-            NaiveDateTime.compare(uc.published_on, comment.published_on) == :gt &&
+            (NaiveDateTime.compare(uc.published_on, comment.published_on) == :eq ||
+               NaiveDateTime.compare(uc.published_on, comment.published_on) == :gt) &&
             NaiveDateTime.compare(uc.published_on, five_min_in_future) == :lt
         end)
 
