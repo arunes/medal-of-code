@@ -22,8 +22,9 @@ defmodule Moc.Sync.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:moc_data, path: "../data"},
-      {:connector, path: "../connector/"}
+      {:moc_scoring, path: "../scoring"},
+      {:moc_utils, path: "../utils"},
+      {:moc_connector, path: "../connector"}
     ]
   end
 end

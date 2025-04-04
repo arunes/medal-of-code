@@ -3,7 +3,7 @@ defmodule Moc.Connector.MixProject do
 
   def project do
     [
-      app: :connector,
+      app: :moc_connector,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -21,7 +21,7 @@ defmodule Moc.Connector.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:utils, path: "../utils"},
+      {:moc_utils, path: "../utils"},
       {:jason, "~> 1.4"},
       {:httpoison, "~> 2.2"}
     ]

@@ -1,9 +1,9 @@
-defmodule Moc.Utils.MixProject do
+defmodule Counters.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :moc_utils,
+      app: :moc_counters,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -20,6 +20,9 @@ defmodule Moc.Utils.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [
+      # {:dep_from_hexpm, "~> 0.3.0"},
+      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+    ]
   end
 end

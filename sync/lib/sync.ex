@@ -1,6 +1,6 @@
 defmodule Moc.Sync do
   require Logger
-  alias Moc.Sync.Impl.Scores
+  alias Moc.Scoring
   alias Moc.Sync.Impl.PullRequests
   alias Moc.Sync.Impl.Comments
 
@@ -17,7 +17,7 @@ defmodule Moc.Sync do
     Comments.sync()
 
     Logger.info("Calculating points")
-    Scores.calculate()
+    Scoring.calculate()
 
     Logger.info("Sync finished")
   end

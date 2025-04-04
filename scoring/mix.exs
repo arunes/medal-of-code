@@ -1,9 +1,9 @@
-defmodule Moc.Utils.MixProject do
+defmodule Scoring.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :moc_utils,
+      app: :moc_scoring,
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
@@ -20,6 +20,10 @@ defmodule Moc.Utils.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [
+      {:moc_counters, path: "../counters"},
+      {:moc_data, path: "../data"},
+      {:moc_utils, path: "../utils"}
+    ]
   end
 end
