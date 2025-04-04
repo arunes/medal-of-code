@@ -1,9 +1,22 @@
 defmodule Moc.Counters.CommentsReplied do
+  alias Moc.Counters.Helpers
   alias Moc.Counters.Type
-  
+
   @spec count(Type.Input.t(), fun()) :: list(Type.counter_result())
-  def count(_input, _get_data) do
-    # %{contributor_id: contributor_id, count: 1}
-    []
+  def count(%Type.Input{comments: comments}, _get_data) do
+    comments
+    |> Enum.filter(&(&1.comment_type == "text"))
+    |> Enum.group_by(& &1.thread_id)
+    |> Enum.filter(fn {_, list} -> length(list) > 1 end)
+    |> Enum.flat_map(fn {_, list} -> who_replied(list) end)
+    |> Helpers.result_by_sum()
+  end
+
+  defp who_replied([author | replies]) do
+    replies
+    |> Enum.filter(fn cmt -> cmt.created_by_id != author.created_by_id end)
+    |> Enum.map(& &1.created_by_id)
+    |> Enum.uniq()
+    |> Enum.map(&%{contributor_id: &1, count: 1})
   end
 end
