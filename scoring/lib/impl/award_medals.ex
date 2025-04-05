@@ -50,5 +50,6 @@ defmodule Moc.Scoring.Impl.AwardMedals do
     end)
   end
 
+  defp insert_to_db([]), do: {:ok, []}
   defp insert_to_db(winners), do: Repo.insert_all(Schema.ContributorMedal, winners)
 end

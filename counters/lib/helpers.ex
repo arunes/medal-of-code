@@ -1,6 +1,13 @@
 defmodule Moc.Counters.Helpers do
   @doc """
-  Groups the comment by user id and counts the number of records
+  Takes a list of comments and returns a list of maps with the contributor_id and count
+  of comments per contributor.
+
+  ## Examples
+
+      iex> result_by_count([%{created_by_id: 1}, %{created_by_id: 1}, %{created_by_id: 2}])
+      [%{contributor_id: 1, count: 2}, %{contributor_id: 2, count: 1}]
+
   """
   def result_by_count(comments) do
     comments
@@ -11,7 +18,14 @@ defmodule Moc.Counters.Helpers do
   end
 
   @doc """
-  Groups the comment by user id and sums the 'count' field
+  Takes a list of comments and returns a list of maps with the contributor_id and sum
+  of counts per contributor.
+
+  ## Examples
+
+      iex> result_by_sum([%{contributor_id: 1, count: 2}, %{contributor_id: 1, count: 3}, %{contributor_id: 2, count: 1}])
+      [%{contributor_id: 1, count: 5}, %{contributor_id: 2, count: 1}]
+
   """
   def result_by_sum(comments) do
     comments
