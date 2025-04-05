@@ -3,7 +3,7 @@ defmodule Moc.Data.Schema.Level do
 
   schema "levels" do
     field(:level, :integer)
-    field(:xp, :integer)
+    field(:xp, :float)
     timestamps()
   end
 

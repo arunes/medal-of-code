@@ -12,10 +12,10 @@ defmodule Moc.Data.Repo.Migrations.CreateCounters do
       add :personal_description, :string, null: true
       add :category, :string, null: false
       add :affinity, :string, null: false, default: "neutral"
-      add :charisma, :integer, null: false, default: 0
-      add :constitution, :integer, null: false, default: 0
-      add :dexterity, :integer, null: false, default: 0
-      add :wisdom, :integer, null: false, default: 0
+      add :charisma, :float, null: false, default: 0
+      add :constitution, :float, null: false, default: 0
+      add :dexterity, :float, null: false, default: 0
+      add :wisdom, :float, null: false, default: 0
 
       timestamps()
     end

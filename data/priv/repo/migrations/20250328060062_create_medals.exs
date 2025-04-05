@@ -5,7 +5,7 @@ defmodule Moc.Data.Repo.Migrations.CreateMedals do
     create table("medals") do
       add :name, :string, null: false
       add :description, :string, null: false
-      add :count_to_award, :integer, null: false
+      add :count_to_award, :float, null: false
       add :lore, :string, null: true
       add :affinity, :string, null: false, default: "neutral"
       add :counter_id, references("counters", on_delete: :delete_all), null: false

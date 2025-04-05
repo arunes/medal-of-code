@@ -14,10 +14,10 @@ defmodule Moc.Scoring.Type do
                 pull_request_id: pos_integer(),
                 xp: float(),
                 affinity: String.t(),
-                dexterity: non_neg_integer(),
-                wisdom: non_neg_integer(),
-                charisma: non_neg_integer(),
-                constitution: non_neg_integer()
+                dexterity: float(),
+                wisdom: float(),
+                charisma: float(),
+                constitution: float()
               })
           }
         }

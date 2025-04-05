@@ -3,7 +3,7 @@ defmodule Moc.Data.Schema.Title do
 
   schema "titles" do
     field(:title, :string)
-    field(:xp, :integer)
+    field(:xp, :float)
     timestamps()
   end
 

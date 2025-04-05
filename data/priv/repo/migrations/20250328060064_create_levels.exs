@@ -3,8 +3,8 @@ defmodule Moc.Data.Repo.Migrations.CreateLevels do
 
   def change do
     create table("levels") do
-      add :level, :integer, null: false
-      add :xp, :integer, null: false
+      add :level, :float, null: false
+      add :xp, :float, null: false
 
       timestamps()
     end

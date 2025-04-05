@@ -1,135 +1,140 @@
 # Levels
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 1, xp: 0})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 2, xp: 500})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 3, xp: 1037})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 4, xp: 1613})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 5, xp: 2231})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 6, xp: 2894})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 7, xp: 3607})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 8, xp: 4371})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 9, xp: 5191})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 10, xp: 6072})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 11, xp: 7017})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 12, xp: 8031})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 13, xp: 9120})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 14, xp: 10289})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 15, xp: 11543})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 16, xp: 12889})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 17, xp: 14334})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 18, xp: 15885})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 19, xp: 17549})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 20, xp: 19336})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 21, xp: 21253})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 22, xp: 23311})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 23, xp: 25520})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 24, xp: 27891})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 25, xp: 30435})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 26, xp: 33166})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 27, xp: 36098})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 28, xp: 39244})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 29, xp: 42620})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 30, xp: 46245})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 31, xp: 50135})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 32, xp: 54310})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 33, xp: 58791})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 34, xp: 63601})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 35, xp: 68763})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 36, xp: 74304})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 37, xp: 80251})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 38, xp: 86634})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 39, xp: 93485})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 40, xp: 100_838})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 41, xp: 108_729})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 42, xp: 117_200})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 43, xp: 126_291})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 44, xp: 136_049})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 45, xp: 146_523})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 46, xp: 157_763})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 47, xp: 169_828})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 48, xp: 182_778})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 49, xp: 196_677})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 50, xp: 211_594})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 51, xp: 227_605})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 52, xp: 244_790})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 53, xp: 263_234})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 54, xp: 283_031})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 55, xp: 304_279})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 56, xp: 327_084})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 57, xp: 351_561})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 58, xp: 377_833})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 59, xp: 406_030})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 60, xp: 436_295})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 61, xp: 468_778})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 62, xp: 503_642})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 63, xp: 541_062})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 64, xp: 581_225})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 65, xp: 624_332})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 66, xp: 670_599})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 67, xp: 720_258})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 68, xp: 773_557})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 69, xp: 830_763})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 70, xp: 892_163})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 71, xp: 958_063})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 72, xp: 1_028_795})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 73, xp: 1_104_712})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 74, xp: 1_186_193})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 75, xp: 1_273_648})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 76, xp: 1_367_514})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 77, xp: 1_468_261})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 78, xp: 1_576_393})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 79, xp: 1_692_452})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 80, xp: 1_817_018})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 81, xp: 1_950_716})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 82, xp: 2_094_215})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 83, xp: 2_248_233})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 84, xp: 2_413_541})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 85, xp: 2_590_968})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 86, xp: 2_781_401})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 87, xp: 2_985_794})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 88, xp: 3_205_170})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 89, xp: 3_440_627})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 90, xp: 3_693_345})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 91, xp: 3_964_589})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 92, xp: 4_255_717})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 93, xp: 4_568_185})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 94, xp: 4_903_560})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 95, xp: 5_263_519})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 96, xp: 5_649_866})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 97, xp: 6_064_534})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 98, xp: 6_509_599})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 99, xp: 6_987_291})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 100, xp: 7_500_000})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 1, xp: 0.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 2, xp: 500.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 3, xp: 1037.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 4, xp: 1613.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 5, xp: 2231.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 6, xp: 2894.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 7, xp: 3607.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 8, xp: 4371.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 9, xp: 5191.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 10, xp: 6072.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 11, xp: 7017.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 12, xp: 8031.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 13, xp: 9120.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 14, xp: 10289.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 15, xp: 11543.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 16, xp: 12889.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 17, xp: 14334.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 18, xp: 15885.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 19, xp: 17549.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 20, xp: 19336.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 21, xp: 21253.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 22, xp: 23311.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 23, xp: 25520.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 24, xp: 27891.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 25, xp: 30435.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 26, xp: 33166.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 27, xp: 36098.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 28, xp: 39244.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 29, xp: 42620.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 30, xp: 46245.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 31, xp: 50135.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 32, xp: 54310.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 33, xp: 58791.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 34, xp: 63601.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 35, xp: 68763.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 36, xp: 74304.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 37, xp: 80251.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 38, xp: 86634.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 39, xp: 93485.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 40, xp: 100_838.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 41, xp: 108_729.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 42, xp: 117_200.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 43, xp: 126_291.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 44, xp: 136_049.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 45, xp: 146_523.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 46, xp: 157_763.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 47, xp: 169_828.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 48, xp: 182_778.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 49, xp: 196_677.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 50, xp: 211_594.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 51, xp: 227_605.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 52, xp: 244_790.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 53, xp: 263_234.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 54, xp: 283_031.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 55, xp: 304_279.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 56, xp: 327_084.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 57, xp: 351_561.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 58, xp: 377_833.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 59, xp: 406_030.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 60, xp: 436_295.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 61, xp: 468_778.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 62, xp: 503_642.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 63, xp: 541_062.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 64, xp: 581_225.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 65, xp: 624_332.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 66, xp: 670_599.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 67, xp: 720_258.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 68, xp: 773_557.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 69, xp: 830_763.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 70, xp: 892_163.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 71, xp: 958_063.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 72, xp: 1_028_795.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 73, xp: 1_104_712.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 74, xp: 1_186_193.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 75, xp: 1_273_648.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 76, xp: 1_367_514.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 77, xp: 1_468_261.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 78, xp: 1_576_393.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 79, xp: 1_692_452.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 80, xp: 1_817_018.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 81, xp: 1_950_716.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 82, xp: 2_094_215.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 83, xp: 2_248_233.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 84, xp: 2_413_541.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 85, xp: 2_590_968.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 86, xp: 2_781_401.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 87, xp: 2_985_794.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 88, xp: 3_205_170.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 89, xp: 3_440_627.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 90, xp: 3_693_345.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 91, xp: 3_964_589.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 92, xp: 4_255_717.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 93, xp: 4_568_185.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 94, xp: 4_903_560.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 95, xp: 5_263_519.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 96, xp: 5_649_866.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 97, xp: 6_064_534.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 98, xp: 6_509_599.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 99, xp: 6_987_291.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Level{level: 100, xp: 7_500_000.0})
 
-# Titles
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Wanderer", xp: 0})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Novice", xp: 2500})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Apprentice", xp: 5625})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Enthusiast", xp: 9532})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Explorer", xp: 14415})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Protégé", xp: 20518})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Connoisseur", xp: 28147})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Specialist", xp: 37684})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Expert", xp: 49605})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Guru", xp: 64506})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Virtuoso", xp: 83133})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Maestro", xp: 106_416})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Master", xp: 135_520})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Legend", xp: 171_899})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Champion", xp: 217_374})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Architect", xp: 274_218})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Wizard", xp: 345_272})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Dynamo", xp: 434_090})
-Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Grandmaster", xp: 545_112})
+# Titl.0es
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Wanderer", xp: 0.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Novice", xp: 2500.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Apprentice", xp: 5625.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Enthusiast", xp: 9532.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Explorer", xp: 14415.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Protégé", xp: 20518.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Connoisseur", xp: 28147.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Specialist", xp: 37684.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Expert", xp: 49605.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Guru", xp: 64506.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Virtuoso", xp: 83133.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Maestro", xp: 106_416.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Master", xp: 135_520.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Legend", xp: 171_899.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Champion", xp: 217_374.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Architect", xp: 274_218.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Wizard", xp: 345_272.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Dynamo", xp: 434_090.0})
+Moc.Data.Repo.insert!(%Moc.Data.Schema.Title{title: "Grandmaster", xp: 545_112.0})
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithQuestion",
-  personal_description: "Commented on a PR with a question.",
-  xp: 3.00,
+  xp: 3.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with a question.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Curious Cat",
     description: "Ask 100 questions in comments.",
@@ -141,13 +146,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedAllUppercase",
-  personal_description: "Commented on a PR with all upper case.",
-  xp: 1.00,
+  xp: 1.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with all upper case.",
+  category: "Comment",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "LOUD AND PROUD",
     description: "Comment on a PR with all upper case.",
@@ -159,13 +169,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commented25TimesOnSamePR",
-  personal_description: "Commented 25 times on same PR.",
-  xp: 55.00,
+  xp: 55.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented 25 times on same PR.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Feedback Fanatic",
     description: "Leave at least 25 comments on a single PR.",
@@ -177,13 +192,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompleted",
-  personal_description: "Completed a PR.",
-  xp: 100.00,
+  xp: 100.0,
   display_order: 1,
   main_counter: true,
-  category: "Pull Request",
+  main_description: "PRs completed.",
   personal_counter: true,
+  personal_description: "Completed a PR.",
+  category: "Pull Request",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 1.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "100s Club",
     description: "Complete 100 PRs.",
@@ -195,13 +215,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "totalWordsCommentedOnPR",
-  personal_description: "Total words commented on a PR.",
   xp: 0.23,
   display_order: 9,
   main_counter: true,
-  category: "Comment",
+  main_description: "Total words commented.",
   personal_counter: true,
+  personal_description: "Total words commented on a PR.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Could Have Been a Book",
     description: "Reach 25,000 words in all comments.",
@@ -213,13 +238,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commented5TimesOnSamePRIn5Minutes",
-  personal_description: "Commented 5 times on same PR in 5 minutes.",
-  xp: 36.00,
+  xp: 36.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented 5 times on same PR in 5 minutes.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 10.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Instant Insight",
     description: "On 10 PRs, leave 5 comments under 5 minutes.",
@@ -231,13 +261,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentsRepliedLessThan5Minutes",
-  personal_description: "Reply a comment in less then 5 minutes.",
-  xp: 6.00,
+  xp: 6.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Reply a comment in less then 5 minutes.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 10.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Rapid Responder",
     description: "On 10 PRs, reply comments under 5 minutes.",
@@ -249,13 +284,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "totalLettersCommentedOnPR",
-  personal_description: "Total letters commented on a PR.",
   xp: 0.11,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Total letters commented on a PR.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Log.Verbose",
     description: "Reach 100k letters in all comments.",
@@ -267,13 +307,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsApproved",
-  personal_description: "Approved a PR created by others.",
-  xp: 50.00,
+  xp: 50.0,
   display_order: 3,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Approved a PR created by others.",
+  category: "Pull Request",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Stamped",
     description: "Approve 100 PRs.",
@@ -285,13 +330,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsApprovedWithSuggestions",
-  personal_description: "Approved a PR created by others with suggestions.",
-  xp: 60.00,
+  xp: 60.0,
   display_order: 5,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Approved a PR created by others with suggestions.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Critic",
     description: "Approve 100 PRs with suggestions.",
@@ -303,13 +353,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentsReplied",
-  personal_description: "Reply a comment.",
-  xp: 1.00,
+  xp: 1.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Reply a comment.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Conversationalist",
     description: "Reply total of 100 comments.",
@@ -321,13 +376,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "optionalReviewersAdded",
-  personal_description: "Added a optional reviewer to a PR.",
-  xp: 10.00,
+  xp: 10.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Added a optional reviewer to a PR.",
+  category: "Review",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "More the Merrier",
     description: "Add total of 100 optional reviewers to your PRs.",
@@ -339,13 +399,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "requiredReviewersAdded",
-  personal_description: "Added a required reviewer to a PR.",
-  xp: 30.00,
+  xp: 30.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Added a required reviewer to a PR.",
+  category: "Review",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Recruiter",
     description: "Add total of 100 required reviewers to your PRs.",
@@ -357,13 +422,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsAbandoned",
-  personal_description: "Abandon a PR.",
-  xp: 50.00,
+  xp: 50.0,
   display_order: 2,
   main_counter: true,
-  category: "Pull Request",
+  main_description: "PRs abandoned.",
   personal_counter: true,
+  personal_description: "Abandon a PR.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Escape Artist",
     description: "Abandon 10 PRs.",
@@ -375,13 +445,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedOnPR",
-  personal_description: "Commented on a PR.",
-  xp: 10.00,
+  xp: 10.0,
   display_order: 8,
   main_counter: true,
-  category: "Comment",
+  main_description: "Total comments.",
   personal_counter: true,
+  personal_description: "Commented on a PR.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Thousand Thoughts",
     description: "Leave 1,000 comments.",
@@ -393,13 +468,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsWithAPicture",
-  personal_description: "Added a picture to PR description.",
-  xp: 18.00,
+  xp: 18.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Added a picture to PR description.",
+  category: "Pull Request",
   affinity: "light",
+  charisma: 5.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Worth a Thousand Words",
     description: "Create 10 PR with a picture in description..",
@@ -411,13 +491,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "gotApprovedByAllReviewersAtLeast5",
-  personal_description: "Created PR got approved by all reviewers. (At least 5 reviewers).",
-  xp: 71.00,
+  xp: 71.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Created PR got approved by all reviewers. (At least 5 reviewers).",
+  category: "Review",
   affinity: "neutral",
+  charisma: 5.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "People's Choice",
     description: "Get approvals from all reviewers with at least 5 reviewers.",
@@ -429,13 +514,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentLiked3TimesByOthers",
-  personal_description: "Got 3 likes on a comment made.",
-  xp: 13.00,
+  xp: 13.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Got 3 likes on a comment made.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 5.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Talk of the Town",
     description: "Get at least 3 likes on a comment you made.",
@@ -447,13 +537,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentsRepliedAtLeast3Others",
-  personal_description: "Made a comment replied by 3 different people.",
-  xp: 17.00,
+  xp: 17.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Made a comment replied by 3 different people.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Conversation Starter",
     description: "Have 3 people in same PR reply to your comment.",
@@ -465,13 +560,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentsRepliedLessThanAMinute",
-  personal_description: "Reply a comment in less then a minute.",
-  xp: 24.00,
+  xp: 24.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Reply a comment in less then a minute.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 15.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Fast Finger",
     description: "Reply 10 comments in less than a minute.",
@@ -483,13 +583,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsRejectedByOthers",
-  personal_description: "Got a rejection on a PR.",
-  xp: 1.00,
+  xp: 1.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Got a rejection on a PR.",
+  category: "Review",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 10.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Dissed",
     description: "Get your PR rejected.",
@@ -501,13 +606,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompletedWithNoApprovals",
-  personal_description: "Completed a PR without getting any approvals.",
-  xp: 0.00,
+  xp: 0.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed a PR without getting any approvals.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Outlaw",
     description: "Complete a PR without getting any approvals.",
@@ -519,13 +629,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentsLiked",
-  personal_description: "Liked a comment.",
-  xp: 3.00,
+  xp: 3.0,
   display_order: 11,
   main_counter: true,
-  category: "Comment",
+  main_description: "Comments liked.",
   personal_counter: true,
+  personal_description: "Liked a comment.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Bighearted",
     description: "Like total of 50 comments.",
@@ -537,13 +652,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithEmoji",
-  personal_description: "Commented on a PR with an emoji.",
-  xp: 11.00,
+  xp: 11.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with an emoji.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Emojinator",
     description: "Comment a PR with an emoji.",
@@ -555,13 +675,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompletedWithNoCommentsAndAtLeast3Approvals",
-  personal_description: "Completed a PR that has at least 3 approvals and no comments.",
-  xp: 62.00,
+  xp: 62.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed a PR that has at least 3 approvals and no comments.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 5.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Flawless",
     description: "Complete a PR with no comments and at least 3 approvals.",
@@ -573,13 +698,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedAsLGTM",
-  personal_description: "Commented on a PR as LGTM.",
-  xp: 6.00,
+  xp: 6.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR as LGTM.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "LGTM!",
     description: "Comment in a PR as lgmt.",
@@ -591,13 +721,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commented10TimesOnSamePR",
-  personal_description: "Commented 10 times on same PR.",
-  xp: 33.00,
+  xp: 33.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented 10 times on same PR.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Feedback Enthusiast",
     description: "Leave at least 10 comments on a single PR.",
@@ -609,13 +744,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsWithAtLeast10Reviewers",
-  personal_description: "Number of PRs created with at least 10 reviewers.",
-  xp: 28.00,
+  xp: 28.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Number of PRs created with at least 10 reviewers.",
+  category: "Pull Request",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Big Party Planner",
     description: "Add at least 10 reviewers to your PR.",
@@ -627,13 +767,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompletedIn10Minutes",
-  personal_description: "Completed a PR within 10 minutes of its creation.",
-  xp: 38.00,
+  xp: 38.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed a PR within 10 minutes of its creation.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 20.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Blink of an Eye",
     description: "Complete a PR within 10 minutes after its published.",
@@ -645,13 +790,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedOnPRAfterCompleted",
-  personal_description: "Commented on a PR after completed.",
-  xp: 5.00,
+  xp: 5.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR after completed.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Fashionably Late",
     description: "Comment on a PR after its completion.",
@@ -663,13 +813,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commented15TimesOnSamePR",
-  personal_description: "Commented 15 times on same PR.",
-  xp: 44.00,
+  xp: 44.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented 15 times on same PR.",
+  category: "Comment",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Feedback Zealot",
     description: "Leave at least 15 comments on a single PR.",
@@ -681,13 +836,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompletedWithNoReviewers",
-  personal_description: "Completed a PR without adding any reviewers.",
-  xp: 0.00,
+  xp: 0.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed a PR without adding any reviewers.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Judge, Jury and Executioner",
     description: "Complete a PR without adding any reviewers.",
@@ -699,13 +859,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedOwnPRBeforeOthers",
-  personal_description: "Commented on own PR before anyone else.",
-  xp: 9.00,
+  xp: 9.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on own PR before anyone else.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 6.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Let me Explain",
     description: "Comment 10 times on your own PRs before anyone else.",
@@ -717,13 +882,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "ownPRsApproved",
-  personal_description: "Approved own PR.",
-  xp: 2.00,
+  xp: 2.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Approved own PR.",
+  category: "Review",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "My Precious",
     description: "Approve 10 of your own PRs.",
@@ -735,13 +905,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "samePRVotedAtLeast10Times",
-  personal_description: "Voted on same PR at least 10 times.",
-  xp: 112.00,
+  xp: 112.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Voted on same PR at least 10 times.",
+  category: "Review",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 20.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Insanity",
     description: "Vote on a same PR at least 10 times.",
@@ -753,13 +928,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "mergeConflictsResolved",
-  personal_description: "Number of merge conflicts resolved.",
-  xp: 14.00,
+  xp: 14.0,
   display_order: 13,
   main_counter: true,
-  category: "Conflict",
+  main_description: "Number of merge conflicts resolved.",
   personal_counter: true,
+  personal_description: "Number of merge conflicts resolved.",
+  category: "Conflict",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Fix-it Felix",
     description: "Fix 10 merge conflicts.",
@@ -771,13 +951,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentLikedByOthers",
-  personal_description: "Got like on a comment made.",
-  xp: 4.00,
+  xp: 4.0,
   display_order: 10,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Got like on a comment made.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 2.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Influencer",
     description: "Get total of 50 likes on the comments you made.",
@@ -789,13 +974,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsVotedWaitingForAuthor",
-  personal_description: "Voted waiting for author on a PR created by others.",
-  xp: 70.00,
+  xp: 70.0,
   display_order: 4,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Voted waiting for author on a PR created by others.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 1.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Negotiator",
     description: "Voted waiting for author 10 times.",
@@ -807,13 +997,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsNotVoted",
-  personal_description: "Not voted on a PR created by others.",
-  xp: 0.00,
+  xp: 0.0,
   display_order: 7,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Not voted on a PR created by others.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Observer",
     description: "Not vote 10 PRs when you are added as reviewer.",
@@ -825,13 +1020,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "ownPRsRejected",
-  personal_description: "Rejected own PR.",
-  xp: 14.00,
+  xp: 14.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Rejected own PR.",
+  category: "Review",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Self-Saboteur",
     description: "Reject your own PR.",
@@ -843,13 +1043,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsTook30DaysToComplete",
-  personal_description: "Number of PRs took at least 30 days to complete.",
-  xp: 7.00,
+  xp: 7.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Number of PRs took at least 30 days to complete.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Zenmaster",
     description: "Have your PR open waiting at least 30 days.",
@@ -861,13 +1066,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "ownCommentsReplied",
-  personal_description: "Replied to own comment.",
-  xp: 0.00,
+  xp: 0.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Replied to own comment.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "You Talkin' to me?",
     description: "Reply to your own comment in 5 different threads.",
@@ -879,13 +1089,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "ownCommentsLiked",
-  personal_description: "Liked own comment.",
-  xp: 0.00,
+  xp: 0.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Liked own comment.",
+  category: "Comment",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Me, Myself and I",
     description: "Like your own comment.",
@@ -897,13 +1112,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsVotedAsOptionalReviewer",
-  personal_description: "Number of PRs voted as optional reviewer.",
-  xp: 8.00,
+  xp: 8.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Number of PRs voted as optional reviewer.",
+  category: "Review",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Sixth Man",
     description: "Vote 25 PRs when you are an optional reviewer.",
@@ -915,13 +1135,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithPraiseWords",
-  personal_description: "Commented on a PR with a praise.",
-  xp: 39.00,
+  xp: 39.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with a praise.",
+  category: "Comment",
   affinity: "light",
+  charisma: 10.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Sweet Talker",
     description: "Comment 10 PRs with praise words.",
@@ -933,13 +1158,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsAbandonedIn10Minutes",
-  personal_description: "Abandoned a PR within 10 minutes of its creation.",
-  xp: 7.00,
+  xp: 7.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Abandoned a PR within 10 minutes of its creation.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 5.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Swift Surrender",
     description: "Abandon a PR within 10 minutes of publish date.",
@@ -951,13 +1181,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "filesFixedInMergeConflict",
-  personal_description: "Number of files fixed in merge conflict.",
-  xp: 1.00,
+  xp: 1.0,
   display_order: 12,
   main_counter: true,
-  category: "Conflict",
+  main_description: "Number of files fixed in merge conflict.",
   personal_counter: true,
+  personal_description: "Number of files fixed in merge conflict.",
+  category: "Conflict",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 1.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Blood, Sweat & Tears",
     description: "Fix 100 files in merge conflicts.",
@@ -969,13 +1204,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithCodeChangeSuggestion",
-  personal_description: "Commented on a PR with a code change suggestion.",
-  xp: 13.00,
+  xp: 13.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with a code change suggestion.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Gentleman and a Scholar",
     description: "Leave 25 code change suggestions.",
@@ -987,13 +1227,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commented5TimesOnSamePR",
-  personal_description: "Commented 5 times on same PR.",
-  xp: 22.00,
+  xp: 22.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented 5 times on same PR.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Keen Feedbacker",
     description: "Leave at least 5 comments per PR on 10 different PRs.",
@@ -1005,13 +1250,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithExternalLink",
-  personal_description: "Commented on a PR with an external link.",
-  xp: 11.00,
+  xp: 11.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with an external link.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 2.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Link Lexicon",
     description: "Comment on a PR with a external link.",
@@ -1023,13 +1273,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsTook15DaysToComplete",
-  personal_description: "Number of PRs took at least 15 days to complete.",
-  xp: 14.00,
+  xp: 14.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Number of PRs took at least 15 days to complete.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 1.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Long-game Player",
     description: "Have your PR open waiting at least 15 days.",
@@ -1041,13 +1296,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsWithAtLeast5Reviewers",
-  personal_description: "Number of PRs created with at least 5 reviewers.",
-  xp: 13.00,
+  xp: 13.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Number of PRs created with at least 5 reviewers.",
+  category: "Pull Request",
   affinity: "light",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Party Planner",
     description: "Add at least 5 reviewers 5 times to your PR.",
@@ -1059,13 +1319,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsApprovedWithSuggestionsNoComments",
-  personal_description: "Approved PR with suggestions but left no comment",
-  xp: 5.00,
+  xp: 5.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Approved PR with suggestions but left no comment",
+  category: "Review",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Read my Mind",
     description: "Vote Approve with Suggestions on a PR but leave no comments.",
@@ -1077,13 +1342,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsInteractedOnWeekend",
-  personal_description: "Commented, created, closed a PR on a weekend.",
-  xp: 58.00,
+  xp: 58.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented, created, closed a PR on a weekend.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Weekend Warrior",
     description: "Take an action on a 5 different PRs on weekends.",
@@ -1095,13 +1365,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsRejected",
-  personal_description: "Rejected a PR created by others.",
-  xp: 100.00,
+  xp: 100.0,
   display_order: 6,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: true,
+  personal_description: "Rejected a PR created by others.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 10.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "You Shall not Pass!",
     description: "Reject a PR.",
@@ -1113,13 +1388,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "samePRVotedAtLeast5Times",
-  personal_description: "Voted on same PR at least 5 times.",
-  xp: 50.00,
+  xp: 50.0,
   display_order: 111,
   main_counter: false,
-  category: "Review",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Voted on same PR at least 5 times.",
+  category: "Review",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 5.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Button Masher",
     description: "Vote on a same PR at least 5 times.",
@@ -1131,13 +1411,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCompletedWithAtLeast10Comments10Reviewers10Votes",
-  personal_description: "Completed a PR that has at least 10 comments, 10 reviewers, and 10 votes.",
-  xp: 82.00,
+  xp: 82.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed a PR that has at least 10 comments, 10 reviewers, and 10 votes.",
+  category: "Pull Request",
   affinity: "neutral",
+  charisma: 0.0,
+  constitution: 10.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Triple Double",
     description: "Add at least 10 reviewers, get 10 comments and 10 votes on a PR.",
@@ -1149,13 +1434,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "receivedAtLeast100CommentsOnAPR",
-  personal_description: "Received at least 100 comments on a PR.",
-  xp: 79.00,
+  xp: 79.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Received at least 100 comments on a PR.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 10.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Center of Attention",
     description: "Get at least 100 comments on a PR.",
@@ -1167,13 +1457,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "othersPRsCompleted",
-  personal_description: "Completed someone else's PR.",
-  xp: 47.00,
+  xp: 47.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Completed someone else's PR.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "It's Mine Now",
     description: "Complete 10 PRs that created by someone else.",
@@ -1185,13 +1480,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "mentionedAtLeast3PeopleInPROrComment",
-  personal_description: "Mentioned at least 3 people in a PR description or in a comment.",
-  xp: 22.00,
+  xp: 22.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Mentioned at least 3 people in a PR description or in a comment.",
+  category: "Comment",
   affinity: "light",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 10.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Call to Arms",
     description: "Mention at least 3 people in a comment.",
@@ -1203,13 +1503,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "gotMentionedInCommentWhileHavingNoActivity",
-  personal_description: "Got mentioned in a comment when you have no activity.",
-  xp: 150.00,
+  xp: 150.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Got mentioned in a comment when you have no activity.",
+  category: "Comment",
   affinity: "light",
+  charisma: 10.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Enlisted",
     description: "Get mentioned 5 times in different PRs while having no activity on the PR.",
@@ -1221,13 +1526,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "mentionedSomeoneInPROrComment",
-  personal_description: "Mentioned someone in a PR or in a comment.",
-  xp: 7.00,
+  xp: 7.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Mentioned someone in a PR or in a comment.",
+  category: "Comment",
   affinity: "light",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 2.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Summoner",
     description: "Mention someone in a PR or in a comment 10 times.",
@@ -1239,13 +1549,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentNotRepliedAfterMentioned",
-  personal_description: "Comment not replied after getting mentioned.",
-  xp: 35.00,
+  xp: 35.0,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Comment not replied after getting mentioned.",
+  category: "Comment",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "The Ostrich",
     description: "Do not reply a comment after being mentioned.",
@@ -1257,13 +1572,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "prsCreatedWith5WordsOrLess",
-  personal_description: "PRs created with 5 words or less in description.",
-  xp: 11.00,
+  xp: 11.0,
   display_order: 111,
   main_counter: false,
-  category: "Pull Request",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "PRs created with 5 words or less in description.",
+  category: "Pull Request",
   affinity: "dark",
+  charisma: 0.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
   medals: [%Moc.Data.Schema.Medal{
     name: "Man of Few Words",
     description: "Create 25 PRs with 5 words or less in the description.",
@@ -1275,13 +1595,18 @@ Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
 
 Moc.Data.Repo.insert!(%Moc.Data.Schema.Counter{
   key: "commentedWithPicture",
-  personal_description: "Commented on a PR with a picture.",
   xp: 3.00,
   display_order: 111,
   main_counter: false,
-  category: "Comment",
+  main_description: nil,
   personal_counter: false,
+  personal_description: "Commented on a PR with a picture.",
+  category: "Comment",
   affinity: "neutral",
+  charisma: 1.0,
+  constitution: 0.0,
+  dexterity: 0.0,
+  wisdom: 0.0,
 	#  medals: [%Moc.Data.Schema.Medal{
 	#    name: "Man of Few Words",
 	#    description: "Create 25 PRs with 5 words or less in the description.",

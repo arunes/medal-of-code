@@ -1,4 +1,4 @@
-defmodule Moc.Data.Repo.Migrations.CreatePullRequestReviews do
+defmodule Moc.Db.Repo.Migrations.CreatePullRequestReviews do
   use Ecto.Migration
 
   def change do

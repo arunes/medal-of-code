@@ -4,7 +4,7 @@ defmodule Moc.Data.Repo.Migrations.CreateTitles do
   def change do
     create table("titles") do
       add :title, :string, null: false
-      add :xp, :integer, null: false
+      add :xp, :float, null: false
 
       timestamps()
     end

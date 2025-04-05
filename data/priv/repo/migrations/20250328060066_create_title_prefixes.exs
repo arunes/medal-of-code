@@ -4,7 +4,7 @@ defmodule Moc.Data.Repo.Migrations.CreateTitlePrefixes do
   def change do
     create table("title_prefixes") do
       add :prefix, :string, null: false
-      add :light_percent, :integer, null: false
+      add :light_percent, :float, null: false
 
       timestamps()
     end

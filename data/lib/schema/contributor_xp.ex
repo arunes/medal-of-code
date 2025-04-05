@@ -3,12 +3,12 @@ defmodule Moc.Data.Schema.ContributorXP do
 
   schema "contributor_xp" do
     field(:xp, :float)
-    field(:charisma, :integer, default: 0)
-    field(:constitution, :integer, default: 0)
+    field(:charisma, :float, default: 0.0)
+    field(:constitution, :float, default: 0.0)
     field(:dark_xp, :float)
-    field(:dexterity, :integer, default: 0)
+    field(:dexterity, :float, default: 0.0)
     field(:light_xp, :float)
-    field(:wisdom, :integer, default: 0)
+    field(:wisdom, :float, default: 0.0)
     belongs_to(:pull_request, Moc.Data.Schema.PullRequest)
     belongs_to(:contributor, Moc.Data.Schema.Contributor)
     timestamps()

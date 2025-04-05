@@ -3,7 +3,7 @@ defmodule Moc.Data.Schema.TitlePrefix do
 
   schema "title_prefixes" do
     field(:prefix, :string)
-    field(:light_percent, :integer)
+    field(:light_percent, :float)
     timestamps()
   end
 
