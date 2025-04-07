@@ -18,6 +18,8 @@ defmodule MocWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/leaderboard", LeaderboardController, :index
+    get "/stats", StatsController, :index
   end
 
   # Other scopes may use custom stacks.
