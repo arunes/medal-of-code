@@ -1,4 +1,5 @@
 defmodule MocWeb.StatsController do
+  alias Moc.Stats
   use MocWeb, :controller
 
   def index(conn, _params) do
@@ -18,6 +19,8 @@ defmodule MocWeb.StatsController do
 
     # active repo list
 
-    render(conn, :index)
+    repositories = Stats.list_repositories()
+
+    render(conn, :index, repositories: repositories)
   end
 end
