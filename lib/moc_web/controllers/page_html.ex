@@ -6,5 +6,5 @@ defmodule MocWeb.PageHTML do
   """
   use MocWeb, :html
 
-  embed_templates "page_html/*"
+  embed_templates "templates/page/*"
 end

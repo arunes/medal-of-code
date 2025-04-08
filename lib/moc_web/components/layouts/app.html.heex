@@ -1,32 +1,48 @@
-<header class="px-4 sm:px-6 lg:px-8">
-  <div class="flex items-center justify-between border-b border-zinc-100 py-3 text-sm">
-    <div class="flex items-center gap-4">
-      <a href="/">
-        <img src={~p"/images/logo.svg"} width="36" />
-      </a>
-      <p class="bg-brand/5 text-brand rounded-full px-2 font-medium leading-6">
-        v{Application.spec(:phoenix, :vsn)}
-      </p>
-    </div>
-    <div class="flex items-center gap-4 font-semibold leading-6 text-zinc-900">
-      <a href="https://twitter.com/elixirphoenix" class="hover:text-zinc-700">
-        @elixirphoenix
-      </a>
-      <a href="https://github.com/phoenixframework/phoenix" class="hover:text-zinc-700">
-        GitHub
-      </a>
-      <a
-        href="https://hexdocs.pm/phoenix/overview.html"
-        class="rounded-lg bg-zinc-100 px-2 py-1 hover:bg-zinc-200/80"
-      >
-        Get Started <span aria-hidden="true">&rarr;</span>
-      </a>
-    </div>
+<header class="header">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
+    <a href="/">
+      <img
+        src={~p"/images/logo-light.png"}
+        width="200"
+        height="28"
+        class="hidden dark:block"
+        alt="Medal of Code"
+      />
+      <img
+        src={~p"/images/logo-dark.png"}
+        width="200"
+        height="28"
+        class="dark:hidden"
+        alt="Medal of Code"
+      />
+    </a>
+    <div class="flex-grow"></div>
+    <ul class="font-medium flex flex-col mt-4 md:flex-row space-y-2 md:space-y-0 md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
+      <li class="flex flex-col justify-center">
+        <a href="/leaderboard" class="px-3 py-2 hover:bg-moc-2 rounded-lg hover:no-underline">
+          LEADERBOARD
+        </a>
+      </li>
+
+      <li class="flex flex-col justify-center">
+        <a href="/contributors" class="px-3 py-2 hover:bg-moc-2 rounded-lg hover:no-underline">
+          CONTRIBUTORS
+        </a>
+      </li>
+      <li class="flex flex-col justify-center">
+        <a href="/medals" class="px-3 py-2 hover:bg-moc-2 rounded-lg hover:no-underline">
+          MEDALS
+        </a>
+      </li>
+      <li class="flex flex-col justify-center">
+        <a href="/stats" class="px-3 py-2 hover:bg-moc-2 rounded-lg hover:no-underline">
+          STATS
+        </a>
+      </li>
+    </ul>
   </div>
 </header>
-<main class="px-4 py-20 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-2xl">
-    <.flash_group flash={@flash} />
-    {@inner_content}
-  </div>
+<main class="container py-8 max-w-5xl flex-grow">
+  <.flash_group flash={@flash} />
+  {@inner_content}
 </main>

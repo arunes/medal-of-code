@@ -1,0 +1,11 @@
+<h1>medal</h1>
+
+<ul>
+  <%= for medal <- @medals do %>
+    <li>
+      <a href={~p"/medals/#{medal.id}"}>
+        {medal.name}
+      </a>
+    </li>
+  <% end %>
+</ul>

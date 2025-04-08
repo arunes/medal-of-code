@@ -16,6 +16,7 @@ defmodule Moc.Application do
       Moc.Cache.MedalCache,
       Moc.Cache.GenericCache,
       Moc.Sync.Server,
+      Moc.Settings,
       # Start the Finch HTTP client for sending emails
       {Finch, name: Moc.Finch},
       # Start a worker by calling: Moc.Worker.start_link(arg)

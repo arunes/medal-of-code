@@ -20,6 +20,10 @@ defmodule MocWeb.Router do
     get "/", PageController, :home
     get "/leaderboard", LeaderboardController, :index
     get "/stats", StatsController, :index
+    get "/medals", MedalController, :index
+    get "/medals/:id", MedalController, :show
+    live "/contributors", ContributorLive
+    get "/contributors/:id", ContributorController, :show
   end
 
   # Other scopes may use custom stacks.

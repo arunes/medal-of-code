@@ -1,5 +1,195 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "./header.css";
 
-/* This file is for your main application CSS */
+@font-face {
+  font-family: "Varnished";
+  src:
+    url("/fonts/Varnished.woff2") format("woff2"),
+    url("/fonts/Varnished.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "M PLUS Code Latin";
+  src:
+    url("/fonts/MPLUSCodeLatin-Regular.woff2") format("woff2"),
+    url("/fonts/MPLUSCodeLatin-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.pixel {
+  font-family: "Varnished";
+}
+
+:root {
+  --affinity-light: #6abaf3;
+  --affinity-dark: #db351e;
+
+  --bg-main: rgb(255, 255, 255);
+  --bg-shade-1: rgb(241, 245, 249);
+  --bg-shade-2: rgb(226, 232, 240);
+  --bg-shade-3: rgb(203, 213, 225);
+  --bg-shade-4: rgb(148, 163, 184);
+  --bg-shade-5: rgb(148, 163, 184);
+  /*--bg-shade-5: rgb(100, 116, 139);*/
+  --fg-main: rgb(15, 23, 42);
+  --fg-shade-1: rgb(30, 41, 59);
+  --fg-shade-2: rgb(51, 65, 85);
+}
+
+.rarity-ultra-rare {
+  color: #d97544;
+}
+
+.rarity-very-rare {
+  color: #ffa500;
+}
+
+.rarity-rare {
+  color: #979714;
+}
+
+.rarity-uncommon {
+  color: #808080;
+}
+
+.rarity-common {
+  color: #000000;
+}
+
+.rarity-frequent {
+  color: #22a422;
+}
+
+.rarity-very-frequent {
+  color: #0000ff;
+}
+
+.rarity-universal {
+  color: #8b4513;
+}
+
+.dark {
+  --bg-main: rgb(15, 23, 42);
+  --bg-shade-1: rgb(30, 41, 59);
+  --bg-shade-2: rgb(51, 65, 85);
+  --bg-shade-3: rgb(71, 85, 105);
+  --bg-shade-4: rgb(100, 116, 139);
+  --bg-shade-5: rgb(148, 163, 184);
+  --fg-main: rgb(255, 255, 255);
+  --fg-shade-1: rgb(203, 213, 225);
+  --fg-shade-2: rgb(148, 163, 184);
+
+  .rarity-ultra-rare {
+    color: #ffd700;
+  }
+  .rarity-very-rare {
+    color: #ffa500;
+  }
+  .rarity-rare {
+    color: #ffff00;
+  }
+  .rarity-uncommon {
+    color: #808080;
+  }
+  .rarity-common {
+    color: #ffffff;
+  }
+  .rarity-frequent {
+    color: #00ff00;
+  }
+  .rarity-very-frequent {
+    color: #00cfff;
+  }
+  .rarity-universal {
+    color: #8b4513;
+  }
+}
+
+.affinity-dark {
+  color: var(--affinity-dark);
+}
+
+.affinity-light {
+  color: var(--affinity-light);
+}
+
+@layer components {
+  .text-moc {
+    color: var(--fg-main);
+  }
+  .text-moc-1 {
+    color: var(--fg-shade-1);
+  }
+  .text-moc-2 {
+    color: var(--fg-shade-2);
+  }
+
+  .bg-moc {
+    background-color: var(--bg-main);
+  }
+  .bg-moc-1 {
+    background-color: var(--bg-shade-1);
+  }
+  .bg-moc-2 {
+    background-color: var(--bg-shade-2);
+  }
+  .bg-moc-3 {
+    background-color: var(--bg-shade-3);
+  }
+  .bg-moc-4 {
+    background-color: var(--bg-shade-4);
+  }
+  .bg-moc-5 {
+    background-color: var(--bg-shade-5);
+  }
+
+  .border-moc {
+    border-color: var(--bg-main);
+  }
+  .border-moc-1 {
+    border-color: var(--bg-shade-1);
+  }
+  .border-moc-2 {
+    border-color: var(--bg-shade-2);
+  }
+  .border-moc-3 {
+    border-color: var(--bg-shade-3);
+  }
+  .border-moc-4 {
+    border-color: var(--bg-shade-4);
+  }
+  .border-moc-5 {
+    border-color: var(--bg-shade-5);
+  }
+
+  .box-link {
+    @apply hover:to-[var(--bg-shade-1)] hover:from-[--bg-shade-2] rounded-md p-4 relative inline-flex flex-col transition-all duration-300 ease-in-out hover:bg-gradient-to-tl hover:shadow-inner;
+    background-color: var(--bg-shade-1);
+  }
+
+  .box-link:hover {
+    text-decoration: none;
+  }
+}
+
+body {
+  color: var(--fg-main);
+  background: var(--bg-main);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
