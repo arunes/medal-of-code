@@ -7,9 +7,9 @@ defmodule MocWeb.MedalController do
     render(conn, :index, medals: medals)
   end
 
-  def show(conn, %{"id" => id}) do
+  def detail(conn, %{"id" => id}) do
     medal = Medal.get_medal(id)
 
-    render(conn, :show, medal: medal)
+    render(conn, :detail, medal: medal)
   end
 end
