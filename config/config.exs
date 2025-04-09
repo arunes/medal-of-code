@@ -11,6 +11,11 @@ config :moc,
   ecto_repos: [Moc.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+# Configure your database
+config :moc, Moc.Repo,
+  database: Path.expand("../moc.db", __DIR__),
+  timestamps_opts: [type: :naive_datetime]
+
 # Configures the endpoint
 config :moc, MocWeb.Endpoint,
   url: [host: "localhost"],

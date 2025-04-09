@@ -32,3 +32,9 @@ jobs:
       run: mix deps.get
     - name: Run tests
       run: mix test
+    - name: Build the Docker image
+      run: docker build . -t ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
+    - name: Log in to registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+    - name: Push image
+      run: docker push ghcr.io/${{ github.actor }}/${{ github.event.repository.name }}:latest
