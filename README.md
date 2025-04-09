@@ -1,4 +1,4 @@
-![test workflow](https://github.com/arunes/medal-of-code/actions/workflows/test.yml/badge.svg)
+[![Build, Test & Release](https://github.com/arunes/medal-of-code/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/arunes/medal-of-code/actions/workflows/build-test-publish.yml)
 
 # Medal of code
 
