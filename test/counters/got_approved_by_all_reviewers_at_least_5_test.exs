@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.GotApprovedByAllReviewersAtLeast5Test do
   use ExUnit.Case
 
-  alias Moc.Counters.GotApprovedByAllReviewersAtLeast5
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.GotApprovedByAllReviewersAtLeast5
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no reviews" do
     input = %Type.Input{created_by_id: 1, reviews: []}

@@ -1,6 +1,6 @@
 defmodule Moc.Sync.Register do
   import Moc.Utils.Date, only: [utc_now: 0]
-  alias Moc.Connector
+  alias Moc.Sync.Connector
   alias Moc.Schema.Repository
   alias Moc.Schema.Project
   alias Moc.Schema.Organization

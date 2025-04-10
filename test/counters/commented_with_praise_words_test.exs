@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentedWithPraiseWordsTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentedWithPraiseWords
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentedWithPraiseWords
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{comments: []}

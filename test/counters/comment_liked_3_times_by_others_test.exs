@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentLiked3TimesByOthersTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentLiked3TimesByOthers
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentLiked3TimesByOthers
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{comments: []}

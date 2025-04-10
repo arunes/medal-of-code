@@ -3,7 +3,7 @@ defmodule Moc.Sync.PullRequests do
   import Ecto.Query
   import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
   alias Moc.Cache.ContributorCache
-  alias Moc.Connector
+  alias Moc.Sync.Connector
   alias Moc.Schema
   alias Moc.Repo
 

@@ -1,9 +1,9 @@
 defmodule MocWeb.ContributorController do
-  alias Moc.Contributor
+  alias Moc.Contributors
   use MocWeb, :controller
 
   def detail(conn, %{"id" => id}) do
-    contributor = Contributor.get_contributor(id)
+    contributor = Contributors.get_contributor(id)
 
     render(conn, :detail, contributor: contributor)
   end

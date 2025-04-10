@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.Commented10TimesOnSamePRTest do
   use ExUnit.Case
 
-  alias Moc.Counters.Commented10TimesOnSamePR
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.Commented10TimesOnSamePR
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{comments: []}

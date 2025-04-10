@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentsRepliedLessThan5MinutesTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentsRepliedLessThan5Minutes
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentsRepliedLessThan5Minutes
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{comments: []}

@@ -12,11 +12,12 @@ defmodule Moc.Application do
       Moc.Repo,
       {DNSCluster, query: Application.get_env(:moc, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Moc.PubSub},
+      Moc.Settings,
       Moc.Cache.ContributorCache,
       Moc.Cache.MedalCache,
       Moc.Cache.GenericCache,
       Moc.Sync.Server,
-      Moc.Settings,
+
       # Start the Finch HTTP client for sending emails
       {Finch, name: Moc.Finch},
       # Start a worker by calling: Moc.Worker.start_link(arg)

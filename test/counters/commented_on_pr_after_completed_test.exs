@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentedOnPRAfterCompletedTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentedOnPRAfterCompleted
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentedOnPRAfterCompleted
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{closed_on: ~N[2022-01-01 12:00:00], comments: []}

@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentedOwnPRBeforeOthersTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentedOwnPRBeforeOthers
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentedOwnPRBeforeOthers
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{created_by_id: 1, comments: []}

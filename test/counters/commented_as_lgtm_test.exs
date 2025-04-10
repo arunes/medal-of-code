@@ -1,8 +1,8 @@
 defmodule Moc.Tests.Counters.CommentedAsLGTMTest do
   use ExUnit.Case
 
-  alias Moc.Counters.CommentedAsLGTM
-  alias Moc.Counters.Type
+  alias Moc.Sync.Counters.CommentedAsLGTM
+  alias Moc.Sync.Counters.Type
 
   test "returns an empty list when there are no comments" do
     input = %Type.Input{comments: []}
