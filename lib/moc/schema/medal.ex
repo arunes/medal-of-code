@@ -1,4 +1,5 @@
 defmodule Moc.Schema.Medal do
+  alias Moc.Schema.ContributorMedal
   use TypedEctoSchema
 
   typed_schema "medals" do
@@ -7,6 +8,7 @@ defmodule Moc.Schema.Medal do
     field(:count_to_award, :integer)
     field(:lore, :string)
     field(:affinity, :string, default: "neutral")
+    has_many :contributors, ContributorMedal
     belongs_to(:counter, Moc.Schema.Counter)
     timestamps()
   end
