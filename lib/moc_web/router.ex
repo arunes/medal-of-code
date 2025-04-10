@@ -17,13 +17,19 @@ defmodule MocWeb.Router do
   scope "/", MocWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", HomeController, :index
     get "/leaderboard", LeaderboardController, :index
     get "/stats", StatsController, :index
     get "/medals", MedalController, :index
     get "/medals/:id", MedalController, :detail
     live "/contributors", ContributorLive
     get "/contributors/:id", ContributorController, :detail
+  end
+
+  scope "/admin", MocWeb do
+    pipe_through :browser
+
+    get "/", Admin.DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
