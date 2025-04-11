@@ -1,4 +1,5 @@
 defmodule Moc.Sync.Connector.Type do
+  @type provider :: :azure
   @type contributor :: %{id: String.t(), name: String.t(), email: String.t()}
   @type project :: %{id: String.t(), name: String.t(), description: String.t(), url: String.t()}
   @type repository :: %{id: String.t(), name: String.t(), url: String.t()}

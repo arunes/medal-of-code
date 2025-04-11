@@ -1,6 +1,4 @@
 defmodule Moc.Sync.Type do
-  @type provider :: :azure
-
   @type counter_result :: %{contributor_id: pos_integer(), count: non_neg_integer()}
 
   @type counter_result_set :: %{
