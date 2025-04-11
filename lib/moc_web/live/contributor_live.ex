@@ -65,7 +65,6 @@ defmodule MocWeb.ContributorLive do
   # Queries
   defp query_get_contributors(query \\ "") do
     settings = Settings.get()
-    settings |> IO.inspect()
 
     from(cnt in ContributorOverview,
       where: ^query == "" or like(cnt.name, ^"%#{query}%"),
@@ -79,7 +78,7 @@ defmodule MocWeb.ContributorLive do
         number_of_medals: cnt.number_of_medals
       }
     )
-    |> sort_contributors(settings.contributors.ranks |> IO.inspect())
+    |> sort_contributors(settings.contributors.ranks)
   end
 
   defp sort_contributors(query, true), do: query |> order_by([c], asc: c.rank)

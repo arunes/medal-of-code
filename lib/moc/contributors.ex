@@ -34,7 +34,7 @@ defmodule Moc.Contributors do
         number_of_medals: cnt.number_of_medals
       }
     )
-    |> sort_contributors(settings.contributors.ranks |> IO.inspect())
+    |> sort_contributors(settings.contributors.ranks)
   end
 
   def query_get_contributor(id) when is_integer(id) do
