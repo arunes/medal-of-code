@@ -3,12 +3,13 @@ defmodule Moc.Sync.Scoring.CounterService do
   import Ecto.Query
   import Moc.Utils.String, only: [capitalize_first: 1]
   import Moc.Utils.List, only: [flatten: 1]
+  alias Moc.Cache.ContributorCache
   alias Moc.Sync.Scoring.Type
   alias Ecto.Repo.Schema
   alias Moc.Repo
   alias Moc.Schema
 
-  @spec get_result_sets() :: Type.counter_result_set()
+  @spec get_result_sets() :: list(Type.counter_result_set())
   def get_result_sets do
     # pulls the data to sync, every row will have id (pr id) 
     # and comma separated counter ids to run for the pr
@@ -74,8 +75,7 @@ defmodule Moc.Sync.Scoring.CounterService do
   end
 
   defp counter_data_provider(:contributor_by_id, contributor_id) do
-    IO.puts("counter wants #{contributor_id} contributor_by_id")
-    1
+    ContributorCache.get_by_id(contributor_id)
   end
 
   defp run_counter(counter, pr) do

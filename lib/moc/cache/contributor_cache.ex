@@ -8,7 +8,7 @@ defmodule Moc.Cache.ContributorCache do
   @me __MODULE__
   use Agent
   import Ecto.Query
-  alias Moc.Connector.Type
+  alias Moc.Sync.Connector.Type
   alias Ecto.Repo.Schema
   alias Moc.Repo
   alias Moc.Schema

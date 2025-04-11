@@ -20,7 +20,7 @@ lore
           x{@medal.total_awarded}
         </span>
       <% end %>
-      <span class="absolute inline-flex flex-col top-2 start-3 text-sm ${medal.rarity?.className}">
+      <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{@medal.rarity.class_name}"}>
         {@medal.rarity.name}
       </span>
       <.medal name={@medal.name} size={128} affinity={@medal.affinity} />

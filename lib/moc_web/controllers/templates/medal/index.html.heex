@@ -4,7 +4,7 @@
       <%= if medal.total_awarded > 0 do %>
         <span class="absolute inline-flex top-1 end-2">x{medal.total_awarded}</span>
       <% end %>
-      <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{medal.rarity.className}"}>
+      <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{medal.rarity.class_name}"}>
         {medal.rarity.name}
       </span>
       <.medal id={medal.id} name={medal.name} size="82" affinity={medal.affinity} />

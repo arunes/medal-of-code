@@ -1,10 +1,10 @@
 import { createAvatar } from "@dicebear/core";
-import { shapes, bottts } from "@dicebear/collection";
+import { shapes as medals, bottts as avatars } from "@dicebear/collection";
 
 window.addEventListener("moc:set_medal", (event) => {
   const elm = event.target;
 
-  const avatar = createAvatar(shapes, {
+  const avatar = createAvatar(medals, {
     seed: elm.alt,
     size: elm.width,
     shape1Color: [elm.getAttribute("data-colors-1")],
@@ -19,7 +19,7 @@ window.addEventListener("moc:set_medal", (event) => {
 window.addEventListener("moc:set_avatar", (event) => {
   const elm = event.target;
 
-  const avatar = createAvatar(bottts, {
+  const avatar = createAvatar(avatars, {
     seed: elm.alt,
     size: elm.width,
   }).toDataUri();

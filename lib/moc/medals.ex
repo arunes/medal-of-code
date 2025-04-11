@@ -5,9 +5,10 @@ defmodule Moc.Medal do
     :description,
     :lore,
     :affinity,
-    :total_awarded,
     :rarity_percentage,
     :rarity,
+    :winners,
+    total_awarded: 0,
     is_new: false
   ]
 end
@@ -16,7 +17,6 @@ defmodule Moc.Medals do
   import Ecto.Query
   import Moc.Utils.Rarity, only: [get_rarity: 1]
   alias Moc.Contributor
-  alias Moc.Contributors
   alias Moc.Schema
   alias Moc.Repo
 
@@ -38,9 +38,20 @@ defmodule Moc.Medals do
     query_winners(medal_id) |> Repo.all()
   end
 
+  defp parse_winners(nil), do: []
+  defp parse_winners(list), do: list |> String.split(",") |> Enum.map(&String.to_integer/1)
+
   defp calculate_rarity(%Moc.Medal{} = medal, total_contributors) do
-    rarity_percentage = medal.total_awarded / total_contributors * 100.0
-    %{medal | rarity_percentage: rarity_percentage, rarity: get_rarity(rarity_percentage)}
+    winners = parse_winners(medal.winners)
+    unique_winners = winners |> Enum.uniq() |> length()
+    rarity_percentage = unique_winners / total_contributors * 100.0
+
+    %{
+      medal
+      | total_awarded: length(winners),
+        rarity_percentage: rarity_percentage,
+        rarity: get_rarity(rarity_percentage)
+    }
   end
 
   # queries
@@ -57,8 +68,9 @@ defmodule Moc.Medals do
         prefix: cnt.prefix,
         title: cnt.title,
         rank: cnt.rank,
-        number_of_medals: count(cm.id)
-      }
+        number_of_medals: count(cm.id) |> selected_as(:count_medals)
+      },
+      order_by: [desc: selected_as(:count_medals)]
     )
   end
 
@@ -72,7 +84,7 @@ defmodule Moc.Medals do
         description: md.description,
         lore: md.lore,
         affinity: md.affinity,
-        total_awarded: count(cnt.id)
+        winners: fragment("GROUP_CONCAT(?)", cnt.contributor_id)
       }
     )
   end

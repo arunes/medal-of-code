@@ -5,7 +5,7 @@ defmodule Moc.Sync.Scoring.SaveCounterResults do
   alias Moc.Schema
   alias Moc.Sync.Scoring.Type
 
-  @spec run(Type.result_set()) :: Type.result_set()
+  @spec run(Type.counter_result_set()) :: Type.counter_result_set()
   def run(result_set) do
     Logger.info("Saving counter results for counter with id #{result_set.counter_id}")
 

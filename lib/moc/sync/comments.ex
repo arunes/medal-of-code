@@ -2,6 +2,7 @@ defmodule Moc.Sync.Comments do
   require Logger
   import Ecto.Query
   import Moc.Utils.Date, only: [utc_now: 0, string_to_utc: 1]
+  import Moc.Utils.Any, only: [if_nil: 1]
   alias Moc.Cache.ContributorCache
   alias Moc.Sync.Connector
   alias Moc.Schema
@@ -45,7 +46,7 @@ defmodule Moc.Sync.Comments do
           thread_id: cmt.thread_id,
           thread_status: cmt.thread_status,
           parent_comment_id: cmt.parent_comment_id,
-          content: cmt.content,
+          content: if_nil(cmt.content),
           comment_type: cmt.comment_type,
           published_on: cmt.published_on |> string_to_utc,
           updated_on: cmt.updated_on |> string_to_utc,
