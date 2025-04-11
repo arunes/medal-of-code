@@ -3,7 +3,7 @@ defmodule Moc.Repo.Migrations.CreateUpdates do
 
   def change do
     create table("updates") do
-      add :type, :string
+      add :type, :string, null: false
       add :xp, :float, null: true
       add :level, :float, null: true
       add :title, :string, null: true

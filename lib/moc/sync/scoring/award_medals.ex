@@ -6,12 +6,11 @@ defmodule Moc.Sync.Scoring.AwardMedals do
   alias Moc.Sync.Scoring.Type
   alias Moc.Cache.MedalCache
 
-  @spec run(Type.result_set()) :: Type.result_set()
+  @spec run(Type.counter_result_set()) :: list(Type.medal_winner())
   def run(result_set) do
     Logger.info("Awarding Medals for counter with id #{result_set.counter_id}")
 
     result_set |> get_winners() |> insert_to_db()
-    result_set
   end
 
   defp get_winners(result_set) do
@@ -50,6 +49,10 @@ defmodule Moc.Sync.Scoring.AwardMedals do
     end)
   end
 
-  defp insert_to_db([]), do: {:ok, []}
-  defp insert_to_db(winners), do: Repo.insert_all(Schema.ContributorMedal, winners)
+  defp insert_to_db([]), do: []
+
+  defp insert_to_db(winners) do
+    Repo.insert_all(Schema.ContributorMedal, winners)
+    winners
+  end
 end

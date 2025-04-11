@@ -1,7 +1,7 @@
 defmodule MocWeb.ContributorLive do
   use MocWeb, :live_view
   import Ecto.Query
-  import MocWeb.Components
+  import MocWeb.Components.ContributorBox
   alias Moc.Repo
   alias Moc.Schema.ContributorOverview
   alias Moc.Settings

@@ -21,4 +21,9 @@ defmodule Moc.Sync.Scoring.Type do
               })
           }
         }
+
+  @type medal_winner :: %{
+          contributor_id: pos_integer(),
+          medal_id: pos_integer()
+        }
 end

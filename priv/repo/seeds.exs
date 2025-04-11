@@ -100,7 +100,7 @@ Moc.Repo.insert!(%Moc.Schema.Level{level: 98, xp: 6_509_599.0})
 Moc.Repo.insert!(%Moc.Schema.Level{level: 99, xp: 6_987_291.0})
 Moc.Repo.insert!(%Moc.Schema.Level{level: 100, xp: 7_500_000.0})
 
-# Titl.0es
+# Titles
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Wanderer", xp: 0.0})
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Novice", xp: 2500.0})
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Apprentice", xp: 5625.0})
@@ -120,6 +120,22 @@ Moc.Repo.insert!(%Moc.Schema.Title{title: "Architect", xp: 274_218.0})
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Wizard", xp: 345_272.0})
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Dynamo", xp: 434_090.0})
 Moc.Repo.insert!(%Moc.Schema.Title{title: "Grandmaster", xp: 545_112.0})
+
+# Title prefixes
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Corrupted", light_percent: 0.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Tainted", light_percent: 5.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Shadowed", light_percent: 15.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Darkening", light_percent: 25.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Dark", light_percent: 35.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Balanced", light_percent: 45.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Fair", light_percent: 65.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Harmonious", light_percent: 70.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Virtuous", light_percent: 75.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Luminous", light_percent: 80.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Radiant", light_percent: 85.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Shining", light_percent: 90.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Illuminated", light_percent: 95.0})
+Moc.Repo.insert!(%Moc.Schema.TitlePrefix{prefix: "Neutral", light_percent: 55.0})
 
 Moc.Repo.insert!(%Moc.Schema.Counter{
   key: "commentedWithQuestion",

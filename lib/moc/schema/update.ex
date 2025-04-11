@@ -31,7 +31,7 @@ defmodule Moc.Schema.Update do
       :medal_id,
       :contributor_id
     ])
-    |> Ecto.Changeset.validate_required([:contributor_id])
+    |> Ecto.Changeset.validate_required([:type, :contributor_id])
     |> Ecto.Changeset.assoc_constraint(:medal)
     |> Ecto.Changeset.assoc_constraint(:contributor)
   end
