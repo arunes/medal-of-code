@@ -1,11 +1,25 @@
-<h1>medal</h1>
-
-<ul>
+<section class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 h-full">
   <%= for medal <- @medals do %>
-    <li>
-      <a href={~p"/medals/#{medal.id}"}>
+    <a href={"/medals/#{medal.id}"} class="box-link">
+      <%= if medal.total_awarded > 0 do %>
+        <span class="absolute inline-flex top-1 end-2">x{medal.total_awarded}</span>
+      <% end %>
+      <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{medal.rarity.className}"}>
+        {medal.rarity.name}
+      </span>
+      <.medal id={medal.id} name={medal.name} size="82" affinity={medal.affinity} />
+      <p class="text-center">
         {medal.name}
-      </a>
-    </li>
+        <%= if medal.is_new do %>
+          <span title="NEW">🎉</span>
+        <% end %>
+      </p>
+      <p class="text-center text-sm font-light mb-2">
+        {medal.description}
+      </p>
+      <p class="text-center text-xs border-t border-dashed pt-2 mt-auto border-moc-3 text-moc-2">
+        {medal.rarity_percentage |> to_fixed(2)}% of contributors have this medal.
+      </p>
+    </a>
   <% end %>
-</ul>
+</section>

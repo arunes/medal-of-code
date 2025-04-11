@@ -82,11 +82,12 @@ defmodule Moc.Sync.Scoring.CounterService do
     module =
       Module.safe_concat([
         "Moc",
+        "Sync",
         "Counters",
         capitalize_first(counter.key)
       ])
 
-    input = struct(Sync.Counters.Type.Input, Map.from_struct(pr))
+    input = struct(Moc.Sync.Counters.Type.Input, Map.from_struct(pr))
 
     apply(module, :count, [input, &counter_data_provider/2])
     |> Enum.map(fn r ->

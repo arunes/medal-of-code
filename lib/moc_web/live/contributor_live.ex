@@ -24,6 +24,7 @@ defmodule MocWeb.ContributorLive do
   def render(assigns) do
     ~H"""
     <section class="grid gap-3 md:grid-cols-2">
+      <!--
       <div class="md:col-span-2">
         <input
           type="text"
@@ -33,6 +34,7 @@ defmodule MocWeb.ContributorLive do
           phx-debounce="500"
         />
       </div>
+      -->
 
       <%= if length(@contributors) == 0 do %>
         <p class="col-span-2 font-light italic px-4 text-center">

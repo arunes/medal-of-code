@@ -1,5 +1,49 @@
-<h1>medal detail</h1>
+<!-- 
+id: 63, 
+name: "The Ostrich", 
+description: "Do not reply a comment after being mentioned.", 
+affinity: "dark", 
+total_awarded: 4, 
+rarity_percentage: 57.14285714285714, 
+rarity: %{name: "Frequent", rarity: 60, class: "rarity-frequent"}, 
+is_new: false
 
-<pre>
-  {inspect @medal}
-</pre>
+lore
+-->
+
+<div class="space-y-12">
+  <section>
+    <div class="relative flex flex-col items-center">
+      <!-- user.settings.contributors.medalCounts -->
+      <%= if true do %>
+        <span class="absolute inline-flex flex-col top-2 end-3">
+          x{@medal.total_awarded}
+        </span>
+      <% end %>
+      <span class="absolute inline-flex flex-col top-2 start-3 text-sm ${medal.rarity?.className}">
+        {@medal.rarity.name}
+      </span>
+      <.medal name={@medal.name} size={128} affinity={@medal.affinity} />
+      <p class="text-2xl text-center">{@medal.name}</p>
+      <p class="text-sm text-center text-moc-2">{@medal.description}</p>
+    </div>
+  </section>
+  <section>
+    <blockquote class="font-light italic p-4 text-center border-y border-dashed text-moc-2 border-moc-3">
+      &quot;{@medal.lore}&quot;
+    </blockquote>
+  </section>
+  <section class="grid gap-3 md:grid-cols-2">
+    <%= for contributor <- @winners do %>
+      <.contributor_box
+        contributor={contributor}
+        settings={@settings}
+        current_contributor_id={@current_contributor_id}
+      />
+    <% end %>
+    <p class="w-full col-span-full italic text-center text-sm font-light mt-2">
+      * {@medal.rarity_percentage |> to_fixed(2)}% of contributors have this
+      medal.
+    </p>
+  </section>
+</div>
