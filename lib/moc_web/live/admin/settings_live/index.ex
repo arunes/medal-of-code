@@ -1,4 +1,4 @@
-defmodule MocWeb.Admin.SettingsLive do
+defmodule MocWeb.Admin.SettingsLive.Index do
   alias Moc.Runtime.Setup
   use MocWeb, :live_view
   import MocWeb.Components.AdminNav

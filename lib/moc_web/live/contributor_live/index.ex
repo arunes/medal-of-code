@@ -1,4 +1,4 @@
-defmodule MocWeb.ContributorLive do
+defmodule MocWeb.ContributorLive.Index do
   use MocWeb, :live_view
   import Ecto.Query
   import MocWeb.Components.ContributorBox

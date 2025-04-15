@@ -1,4 +1,4 @@
-defmodule MocWeb.Admin.InitLive do
+defmodule MocWeb.Admin.InitLive.Index do
   use MocWeb, :live_view
   alias Moc.Runtime.Setup
   alias Moc.Users

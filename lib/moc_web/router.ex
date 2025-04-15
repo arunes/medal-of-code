@@ -43,16 +43,19 @@ defmodule MocWeb.Router do
     get "/stats", StatsController, :index
     get "/medals", MedalController, :index
     get "/medals/:id", MedalController, :detail
-    live "/contributors", ContributorLive
+    live "/contributors", ContributorLive.Index
     get "/contributors/:id", ContributorController, :detail
   end
 
   scope "/admin", MocWeb do
     pipe_through :browser
 
-    live "/", Admin.OrganizationsLive
-    live "/init", Admin.InitLive
-    live "/settings", Admin.SettingsLive
+    live "/", Admin.DashboardLive.Index
+    live "/organizations", Admin.OrganizationLive.Index
+    live "/organizations/:org_id", Admin.OrganizationLive.Projects
+    live "/organizations/:org_id/:prj_id", Admin.OrganizationLive.Repositories
+    live "/init", Admin.InitLive.Index
+    live "/settings", Admin.SettingsLive.Index
   end
 
   # Other scopes may use custom stacks.

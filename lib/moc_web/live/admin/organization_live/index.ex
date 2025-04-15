@@ -1,4 +1,4 @@
-defmodule MocWeb.Admin.OrganizationsLive do
+defmodule MocWeb.Admin.OrganizationLive.Index do
   use MocWeb, :live_view
   import MocWeb.Components.AdminNav
 
@@ -27,15 +27,6 @@ defmodule MocWeb.Admin.OrganizationsLive do
             <th scope="col" class="px-6 py-3">
               Repos (In sync/total)
             </th>
-            <th scope="col" class="px-6 py-3">
-              PRs
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Reviews
-            </th>
-            <th scope="col" class="px-6 py-3">
-              Comments
-            </th>
             <th scope="col" class="px-6 py-3"></th>
           </tr>
         </thead>
@@ -46,7 +37,7 @@ defmodule MocWeb.Admin.OrganizationsLive do
                 scope="row"
                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
               >
-                {org.external_id}
+                <a href={~p"/admin/organizations/#{org.id}"}>{org.external_id}</a>
               </th>
               <td class="px-6 py-4">
                 {org.provider}
@@ -57,18 +48,9 @@ defmodule MocWeb.Admin.OrganizationsLive do
               <td class="px-6 py-4">
                 {org.total_active_repos}/{org.total_repos}
               </td>
-              <td class="px-6 py-4">
-                {org.total_prs}
-              </td>
-              <td class="px-6 py-4">
-                {org.total_reviews}
-              </td>
-              <td class="px-6 py-4">
-                {org.total_comments}
-              </td>
               <td>
                 <button type="button" class="group p-2" aria-label={gettext("close")}>
-                  <.icon name="hero-trash" class="h-5 w-5 " />
+                  <.icon name="hero-trash" class="h-5 w-5" />
                 </button>
               </td>
             </tr>
