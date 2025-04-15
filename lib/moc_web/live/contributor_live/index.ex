@@ -74,7 +74,7 @@ defmodule MocWeb.ContributorLive.Index do
         number_of_medals: cnt.number_of_medals
       }
     )
-    |> sort_contributors(Settings.get_bool("contributor.show_rank"))
+    |> sort_contributors(Settings.get_bool("contributor.show_rank") |> IO.inspect())
   end
 
   defp sort_contributors(query, true), do: query |> order_by([c], asc: c.rank)

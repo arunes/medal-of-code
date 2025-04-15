@@ -74,8 +74,6 @@ defmodule MocWeb.Admin.OrganizationLive.Repositories do
         </tbody>
       </table>
     </div>
-
-    <.flash_group flash={@flash} />
     """
   end
 end

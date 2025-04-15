@@ -4,43 +4,6 @@ defmodule MocWeb.Admin.InitLive.Index do
   alias Moc.Users
   alias Moc.Schema
 
-  def render(assigns) do
-    ~H"""
-    <section class="bg-gray-50 dark:bg-gray-900">
-      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <a
-          href="#"
-          class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
-        >
-          <img
-            src={~p"/images/logo-light.png"}
-            width="250"
-            class="hidden dark:block"
-            alt="Medal of Code"
-          />
-          <img src={~p"/images/logo-dark.png"} width="250" class="dark:hidden" alt="Medal of Code" />
-        </a>
-        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <.header class="text-center">Create an admin account</.header>
-            <.form for={@form} phx-change="validate" phx-submit="save" class="space-y-4 md:space-y-6">
-              <.input type="email" field={@form[:email]} label="Your email" required />
-              <.input type="password" field={@form[:password]} label="Password" required />
-              <.input
-                type="password"
-                field={@form[:password_confirmation]}
-                label="Confirm password"
-                required
-              />
-              <.button class="w-full">Register</.button>
-            </.form>
-          </div>
-        </div>
-      </div>
-    </section>
-    """
-  end
-
   def mount(_params, _session, socket) do
     changeset = Users.change_registration(%Schema.User{})
 
@@ -80,5 +43,42 @@ defmodule MocWeb.Admin.InitLive.Index do
     else
       assign(socket, form: form)
     end
+  end
+
+  def render(assigns) do
+    ~H"""
+    <section class="bg-gray-50 dark:bg-gray-900">
+      <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <a
+          href="#"
+          class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+        >
+          <img
+            src={~p"/images/logo-light.png"}
+            width="250"
+            class="hidden dark:block"
+            alt="Medal of Code"
+          />
+          <img src={~p"/images/logo-dark.png"} width="250" class="dark:hidden" alt="Medal of Code" />
+        </a>
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <.header class="text-center">Create an admin account</.header>
+            <.form for={@form} phx-change="validate" phx-submit="save" class="space-y-4 md:space-y-6">
+              <.input type="email" field={@form[:email]} label="Your email" required />
+              <.input type="password" field={@form[:password]} label="Password" required />
+              <.input
+                type="password"
+                field={@form[:password_confirmation]}
+                label="Confirm password"
+                required
+              />
+              <.button class="w-full">Register</.button>
+            </.form>
+          </div>
+        </div>
+      </div>
+    </section>
+    """
   end
 end

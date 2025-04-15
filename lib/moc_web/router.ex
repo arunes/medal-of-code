@@ -52,6 +52,7 @@ defmodule MocWeb.Router do
 
     live "/", Admin.DashboardLive.Index
     live "/organizations", Admin.OrganizationLive.Index
+    live "/organizations/new", Admin.OrganizationLive.Form
     live "/organizations/:org_id", Admin.OrganizationLive.Projects
     live "/organizations/:org_id/:prj_id", Admin.OrganizationLive.Repositories
     live "/init", Admin.InitLive.Index

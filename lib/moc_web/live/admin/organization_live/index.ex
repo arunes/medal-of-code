@@ -31,6 +31,11 @@ defmodule MocWeb.Admin.OrganizationLive.Index do
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td :if={length(@organizations) == 0} colspan="5" class="text-center text-sm p-3">
+              No organization found!, add an organization to start using Medal of Code
+            </td>
+          </tr>
           <%= for org <- @organizations do %>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
               <th
@@ -57,6 +62,8 @@ defmodule MocWeb.Admin.OrganizationLive.Index do
           <% end %>
         </tbody>
       </table>
+
+      <a href={~p"/admin/organizations/new"}>Add Organization</a>
     </div>
     """
   end
