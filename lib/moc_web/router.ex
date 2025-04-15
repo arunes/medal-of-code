@@ -8,16 +8,37 @@ defmodule MocWeb.Router do
     plug :put_root_layout, html: {MocWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :check_setup
   end
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
+  def check_setup(conn, _opts) do
+    Moc.Runtime.Setup.get_status() |> handle_setup_status(conn)
+  end
+
+  # don't show init again if admin is setup
+  def handle_setup_status(status, %{request_path: "/admin/init"} = conn)
+      when status != :no_admin do
+    redirect(conn, to: "/admin") |> halt()
+  end
+
+  # if no admin, and already on the init page
+  def handle_setup_status(:no_admin, %{request_path: "/admin/init"} = conn), do: conn
+
+  def handle_setup_status(:no_admin, conn) do
+    redirect(conn, to: "/admin/init") |> halt()
+  end
+
+  def handle_setup_status(_status, conn), do: conn
+
   scope "/", MocWeb do
     pipe_through :browser
 
     get "/", HomeController, :index
+    get "/setup-incomplete", HomeController, :setup_incomplete
     get "/leaderboard", LeaderboardController, :index
     get "/stats", StatsController, :index
     get "/medals", MedalController, :index
@@ -29,7 +50,9 @@ defmodule MocWeb.Router do
   scope "/admin", MocWeb do
     pipe_through :browser
 
-    get "/", Admin.DashboardController, :index
+    live "/", Admin.OrganizationsLive
+    live "/init", Admin.InitLive
+    live "/settings", Admin.SettingsLive
   end
 
   # Other scopes may use custom stacks.

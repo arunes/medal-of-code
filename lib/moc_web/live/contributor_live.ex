@@ -2,9 +2,9 @@ defmodule MocWeb.ContributorLive do
   use MocWeb, :live_view
   import Ecto.Query
   import MocWeb.Components.ContributorBox
+  alias Moc.Utils.Settings
   alias Moc.Repo
   alias Moc.Schema.ContributorOverview
-  alias Moc.Settings
 
   def mount(_params, _session, socket) do
     contributors = query_get_contributors() |> Repo.all()
@@ -14,7 +14,6 @@ defmodule MocWeb.ContributorLive do
         socket,
         query: "",
         contributors: contributors,
-        settings: Settings.get(),
         current_contributor_id: 1
       )
 
@@ -47,7 +46,6 @@ defmodule MocWeb.ContributorLive do
         <%= for contributor <- @contributors do %>
           <.contributor_box
             contributor={contributor}
-            settings={@settings}
             current_contributor_id={@current_contributor_id}
           />
         <% end %>
@@ -64,8 +62,6 @@ defmodule MocWeb.ContributorLive do
 
   # Queries
   defp query_get_contributors(query \\ "") do
-    settings = Settings.get()
-
     from(cnt in ContributorOverview,
       where: ^query == "" or like(cnt.name, ^"%#{query}%"),
       select: %{
@@ -78,7 +74,7 @@ defmodule MocWeb.ContributorLive do
         number_of_medals: cnt.number_of_medals
       }
     )
-    |> sort_contributors(settings.contributors.ranks)
+    |> sort_contributors(Settings.get_bool("contributor.show_rank"))
   end
 
   defp sort_contributors(query, true), do: query |> order_by([c], asc: c.rank)

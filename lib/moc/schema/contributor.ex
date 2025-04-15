@@ -1,27 +1,23 @@
 defmodule Moc.Schema.Contributor do
   use Ecto.Schema
+  import Ecto.Changeset
 
   schema "contributors" do
     field(:external_id, :string)
     field(:name, :string)
     field(:email, :string)
     field(:avatar, :string)
-    field(:active, :boolean)
-    field(:last_logged_in, :naive_datetime)
+    field(:is_visible, :boolean)
     timestamps()
   end
 
-  def changeset(contributor, params \\ %{}) do
+  def create_changeset(contributor, params \\ %{}) do
     contributor
-    |> Ecto.Changeset.cast(params, [
-      :external_id,
+    |> cast(params, [
       :name,
-      :email,
-      :avatar,
-      :active,
-      :last_logged_in
+      :external_id,
+      :email
     ])
-    |> Ecto.Changeset.validate_required([:external_id, :name, :active])
-    |> Ecto.Changeset.validate_format(:email, ~r/@/)
+    |> validate_required([:name, :external_id])
   end
 end

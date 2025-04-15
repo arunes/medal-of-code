@@ -12,7 +12,7 @@ defmodule Moc.Application do
       Moc.Repo,
       {DNSCluster, query: Application.get_env(:moc, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Moc.PubSub},
-      Moc.Settings,
+      Moc.Runtime.Setup,
       Moc.Cache.ContributorCache,
       Moc.Cache.MedalCache,
       Moc.Cache.GenericCache,

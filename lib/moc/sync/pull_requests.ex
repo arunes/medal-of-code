@@ -102,7 +102,9 @@ defmodule Moc.Sync.PullRequests do
       token: repo.org_token
     }
 
-    completed_pr_cutoff_date = repo.last_completed_pr_date || repo.cutoff_date
+    completed_pr_cutoff_date =
+      repo.last_completed_pr_date || repo.cutoff_date |> NaiveDateTime.add(1, :millisecond)
+
     Logger.info("Getting completed PRs completed after '#{completed_pr_cutoff_date}'.")
 
     completed_prs =
@@ -113,7 +115,9 @@ defmodule Moc.Sync.PullRequests do
         completed_pr_cutoff_date
       )
 
-    abandoned_pr_cutoff_date = repo.last_abandoned_pr_date || repo.cutoff_date
+    abandoned_pr_cutoff_date =
+      repo.last_abandoned_pr_date || repo.cutoff_date |> NaiveDateTime.add(1, :millisecond)
+
     Logger.info("Getting abandoned PRs abandoned after '#{abandoned_pr_cutoff_date}'.")
 
     abandoned_prs =
@@ -121,7 +125,7 @@ defmodule Moc.Sync.PullRequests do
         settings,
         repo.repo_external_id,
         "abandoned",
-        completed_pr_cutoff_date
+        abandoned_pr_cutoff_date
       )
 
     all_prs = completed_prs ++ abandoned_prs

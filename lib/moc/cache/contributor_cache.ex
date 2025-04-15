@@ -48,11 +48,10 @@ defmodule Moc.Cache.ContributorCache do
 
   defp create_contributor(contributor) do
     {:ok, resp} =
-      Schema.Contributor.changeset(%Schema.Contributor{
+      Schema.Contributor.create_changeset(%Schema.Contributor{
         external_id: contributor.id,
         name: contributor.name,
-        email: contributor.email,
-        active: true
+        email: contributor.email
       })
       |> Repo.insert()
 

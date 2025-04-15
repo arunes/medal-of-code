@@ -1,6 +1,7 @@
 defmodule MocWeb.Components.ContributorBox do
   use Phoenix.Component
   import MocWeb.Components.Avatar
+  import Moc.Utils.Settings, only: [get_bool: 1]
 
   def contributor_box(assigns) do
     ~H"""
@@ -10,14 +11,14 @@ defmodule MocWeb.Components.ContributorBox do
         <div>
           <h3 class="text-base font-semibold leading-7 tracking-tight">
             {@contributor.name}
-            <%= if @settings.contributors.levels do %>
+            <%= if get_bool("contributor.show_level") do %>
               <span class="ml-2 font-light text-xs">lvl {@contributor.level}</span>
             <% end %>
           </h3>
           <p class="text-sm text-moc-2">
             {@contributor.prefix} {@contributor.title}
 
-            <%= if @settings.contributors.medalCounts || @current_contributor_id == @contributor.id do %>
+            <%= if get_bool("contributor.show_medal_count") || @current_contributor_id == @contributor.id do %>
               <span class="block md:inline">
                 🎖️{@contributor.number_of_medals}
               </span>
@@ -25,7 +26,7 @@ defmodule MocWeb.Components.ContributorBox do
           </p>
         </div>
 
-        <%= if @settings.contributors.ranks do %>
+        <%= if get_bool("contributor.show_rank") do %>
           <span class="flex absolute size-8 md:size-10 items-center justify-center bottom-0 right-0 md:top md:bottom-auto rounded-full p-1 bg-moc-2">
             {@contributor.rank}
             <sup class="font-light">{MocWeb.ViewHelpers.get_ordinal(@contributor.rank)}</sup>

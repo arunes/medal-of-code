@@ -53,7 +53,7 @@ defmodule Moc.Repo.Migrations.CreateContributorOverviewView do
               contributor_id
           ) t ON t.contributor_id = c.id
         WHERE 
-          c.active = 1
+          c.is_visible = 1
       ) tr
     """
   end

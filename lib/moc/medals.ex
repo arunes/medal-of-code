@@ -41,6 +41,14 @@ defmodule Moc.Medals do
   defp parse_winners(nil), do: []
   defp parse_winners(list), do: list |> String.split(",") |> Enum.map(&String.to_integer/1)
 
+  defp calculate_rarity(%Moc.Medal{} = medal, 0),
+    do: %{
+      medal
+      | total_awarded: 0,
+        rarity_percentage: 0.0,
+        rarity: get_rarity(0.0)
+    }
+
   defp calculate_rarity(%Moc.Medal{} = medal, total_contributors) do
     winners = parse_winners(medal.winners)
     unique_winners = winners |> Enum.uniq() |> length()

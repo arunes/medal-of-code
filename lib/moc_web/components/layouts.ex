@@ -8,7 +8,10 @@ defmodule MocWeb.Layouts do
   layout on both `use MocWeb, :controller` and
   `use MocWeb, :live_view`.
   """
+  alias Moc.Utils.Settings
   use MocWeb, :html
+
+  def get_bool_setting(key), do: Settings.get_bool(key)
 
   embed_templates "layouts/*"
 end

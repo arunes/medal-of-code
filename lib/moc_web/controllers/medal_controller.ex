@@ -1,5 +1,4 @@
 defmodule MocWeb.MedalController do
-  alias Moc.Settings
   alias Moc.Medals
   use MocWeb, :controller
 
@@ -14,7 +13,6 @@ defmodule MocWeb.MedalController do
     render(conn, :detail,
       medal: medal,
       winners: Medals.get_winners(id),
-      settings: Settings.get(),
       current_contributor_id: 1
     )
   end

@@ -1,37 +1,20 @@
 <header class="header">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
     <a href="/">
-      <img
-        src={~p"/images/logo-light.png"}
-        width="200"
-        height="28"
-        class="hidden dark:block"
-        alt="Medal of Code"
-      />
-      <img
-        src={~p"/images/logo-dark.png"}
-        width="200"
-        height="28"
-        class="dark:hidden"
-        alt="Medal of Code"
-      />
+      <img src={~p"/images/logo-light.png"} width="200" height="28" class="hidden dark:block" alt="Medal of Code" />
+      <img src={~p"/images/logo-dark.png"} width="200" height="28" class="dark:hidden" alt="Medal of Code" />
     </a>
     <div class="flex-grow"></div>
-    <ul class="font-medium flex flex-col mt-4 md:flex-row space-y-2 md:space-y-0 md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
+    <ul
+      class="font-medium flex flex-col mt-4 md:flex-row space-y-2 md:space-y-0 md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
       <li class="flex flex-col justify-center">
-        <a
-          href="/leaderboard"
-          class="px-3 py-2 hover:bg-moc-2 rounded-lg uppercase hover:no-underline"
-        >
+        <a href="/leaderboard" class="px-3 py-2 hover:bg-moc-2 rounded-lg uppercase hover:no-underline">
           Leaderboard
         </a>
       </li>
 
       <li class="flex flex-col justify-center">
-        <a
-          href="/contributors"
-          class="px-3 py-2 hover:bg-moc-2 rounded-lg uppercase hover:no-underline"
-        >
+        <a href="/contributors" class="px-3 py-2 hover:bg-moc-2 rounded-lg uppercase hover:no-underline">
           Contributors
         </a>
       </li>
@@ -54,6 +37,5 @@
   </div>
 </header>
 <main class="container py-8 max-w-5xl flex-grow">
-  <.flash_group flash={@flash} />
   {@inner_content}
 </main>

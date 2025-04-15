@@ -19,13 +19,13 @@ lore
         <span class="absolute inline-flex flex-col top-2 end-3">
           x{@medal.total_awarded}
         </span>
-      <% end %>
-      <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{@medal.rarity.class_name}"}>
-        {@medal.rarity.name}
-      </span>
-      <.medal name={@medal.name} size={128} affinity={@medal.affinity} />
-      <p class="text-2xl text-center">{@medal.name}</p>
-      <p class="text-sm text-center text-moc-2">{@medal.description}</p>
+        <% end %>
+          <span class={"absolute inline-flex flex-col top-2 start-3 text-sm #{@medal.rarity.class_name}"}>
+            {@medal.rarity.name}
+          </span>
+          <.medal name={@medal.name} size={128} affinity={@medal.affinity} />
+          <p class="text-2xl text-center">{@medal.name}</p>
+          <p class="text-sm text-center text-moc-2">{@medal.description}</p>
     </div>
   </section>
   <section>
@@ -35,15 +35,11 @@ lore
   </section>
   <section class="grid gap-3 md:grid-cols-2">
     <%= for contributor <- @winners do %>
-      <.contributor_box
-        contributor={contributor}
-        settings={@settings}
-        current_contributor_id={@current_contributor_id}
-      />
-    <% end %>
-    <p class="w-full col-span-full italic text-center text-sm font-light mt-2">
-      * {@medal.rarity_percentage |> to_fixed(2)}% of contributors have this
-      medal.
-    </p>
+      <.contributor_box contributor={contributor} current_contributor_id={@current_contributor_id} />
+      <% end %>
+        <p class="w-full col-span-full italic text-center text-sm font-light mt-2">
+          * {@medal.rarity_percentage |> to_fixed(2)}% of contributors have this
+          medal.
+        </p>
   </section>
 </div>

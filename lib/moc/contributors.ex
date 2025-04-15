@@ -4,7 +4,7 @@ end
 
 defmodule Moc.Contributors do
   import Ecto.Query
-  alias Moc.Settings
+  alias Moc.Utils.Settings
   alias Moc.Repo
   alias Moc.Schema
 
@@ -21,8 +21,6 @@ defmodule Moc.Contributors do
 
   # Queries
   defp query_all do
-    settings = Settings.get()
-
     from(cnt in Schema.ContributorOverview,
       select: %Moc.Contributor{
         id: cnt.id,
@@ -34,7 +32,7 @@ defmodule Moc.Contributors do
         number_of_medals: cnt.number_of_medals
       }
     )
-    |> sort_contributors(settings.contributors.ranks)
+    |> sort_contributors(Settings.get_bool("contributor.show_rank"))
   end
 
   def query_get_contributor(id) when is_integer(id) do
