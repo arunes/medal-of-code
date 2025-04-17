@@ -1,0 +1,27 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* moc styles */
+@import "./variables.css";
+@import "./fonts.css";
+@import "./components.css";
+@import "./utilities.css";
+@import "./rarity.css";
+
+.affinity-dark {
+  color: var(--affinity-dark);
+}
+
+.affinity-light {
+  color: var(--affinity-light);
+}
+
+body {
+  color: var(--fg-main);
+  background: var(--bg-main);
+}
+
+a:hover {
+  text-decoration: underline;
+}

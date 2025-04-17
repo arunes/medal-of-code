@@ -1,0 +1,58 @@
+@layer components {
+  .text-moc {
+    color: var(--fg-main);
+  }
+  .text-moc-1 {
+    color: var(--fg-shade-1);
+  }
+  .text-moc-2 {
+    color: var(--fg-shade-2);
+  }
+
+  .bg-moc {
+    background-color: var(--bg-main);
+  }
+  .bg-moc-1 {
+    background-color: var(--bg-shade-1);
+  }
+  .bg-moc-2 {
+    background-color: var(--bg-shade-2);
+  }
+  .bg-moc-3 {
+    background-color: var(--bg-shade-3);
+  }
+  .bg-moc-4 {
+    background-color: var(--bg-shade-4);
+  }
+  .bg-moc-5 {
+    background-color: var(--bg-shade-5);
+  }
+
+  .border-moc {
+    border-color: var(--bg-main);
+  }
+  .border-moc-1 {
+    border-color: var(--bg-shade-1);
+  }
+  .border-moc-2 {
+    border-color: var(--bg-shade-2);
+  }
+  .border-moc-3 {
+    border-color: var(--bg-shade-3);
+  }
+  .border-moc-4 {
+    border-color: var(--bg-shade-4);
+  }
+  .border-moc-5 {
+    border-color: var(--bg-shade-5);
+  }
+
+  .box-link {
+    @apply hover:to-[var(--bg-shade-1)] hover:from-[--bg-shade-2] rounded-md p-4 relative inline-flex flex-col transition-all duration-300 ease-in-out hover:bg-gradient-to-tl hover:shadow-inner;
+    background-color: var(--bg-shade-1);
+  }
+
+  .box-link:hover {
+    text-decoration: none;
+  }
+}

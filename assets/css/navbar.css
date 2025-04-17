@@ -1,0 +1,19 @@
+.navbar {
+  background: var(--bg-shade-1);
+
+  & > button {
+    color: var(--fg-shade-1);
+  }
+
+  & > button:hover {
+    background-color: var(--bg-shade-2);
+  }
+
+  & > button:focus {
+    outline-color: #fff;
+  }
+
+  .activeLink {
+    background-color: var(--bg-shade-2);
+  }
+}

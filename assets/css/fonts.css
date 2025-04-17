@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Varnished";
+  src:
+    url("/fonts/Varnished.woff2") format("woff2"),
+    url("/fonts/Varnished.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "M PLUS Code Latin";
+  src:
+    url("/fonts/MPLUSCodeLatin-Regular.woff2") format("woff2"),
+    url("/fonts/MPLUSCodeLatin-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-pixel {
+  font-family: "Varnished";
+}

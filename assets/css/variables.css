@@ -1,0 +1,27 @@
+:root {
+  --affinity-light: #6abaf3;
+  --affinity-dark: #db351e;
+
+  /* light */
+  --bg-main: rgb(255, 255, 255);
+  --bg-shade-1: rgb(241, 245, 249);
+  --bg-shade-2: rgb(226, 232, 240);
+  --bg-shade-3: rgb(203, 213, 225);
+  --bg-shade-4: rgb(148, 163, 184);
+  --bg-shade-5: rgb(148, 163, 184);
+  --fg-main: rgb(15, 23, 42);
+  --fg-shade-1: rgb(30, 41, 59);
+  --fg-shade-2: rgb(51, 65, 85);
+}
+
+.dark {
+  --bg-main: rgb(15, 23, 42);
+  --bg-shade-1: rgb(30, 41, 59);
+  --bg-shade-2: rgb(51, 65, 85);
+  --bg-shade-3: rgb(71, 85, 105);
+  --bg-shade-4: rgb(100, 116, 139);
+  --bg-shade-5: rgb(148, 163, 184);
+  --fg-main: rgb(255, 255, 255);
+  --fg-shade-1: rgb(203, 213, 225);
+  --fg-shade-2: rgb(148, 163, 184);
+}

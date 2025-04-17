@@ -1,0 +1,17 @@
+<MocWeb.Nav.nav />
+<main class="container py-8 max-w-5xl flex-grow">
+  <.flash_group flash={@flash} />
+  {@inner_content}
+</main>
+<footer class="bg-moc-1">
+  <div class="max-w-screen-xl mx-auto p-4 md:flex md:items-center md:justify-between">
+    <span class="text-sm text-moc-2">
+      ©2025 Medal of Code v{Application.spec(:moc, :vsn)}
+    </span>
+    <ul class="flex flex-wrap text-sm space-x-4">
+      <li>
+        <.link navigate={~p"/privacy"}>Privacy Policy</.link>
+      </li>
+    </ul>
+  </div>
+</footer>

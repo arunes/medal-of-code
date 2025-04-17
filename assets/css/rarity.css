@@ -1,0 +1,58 @@
+.rarity-ultra-rare {
+  color: #d97544;
+}
+
+.rarity-very-rare {
+  color: #ffa500;
+}
+
+.rarity-rare {
+  color: #979714;
+}
+
+.rarity-uncommon {
+  color: #808080;
+}
+
+.rarity-common {
+  color: #000000;
+}
+
+.rarity-frequent {
+  color: #22a422;
+}
+
+.rarity-very-frequent {
+  color: #0000ff;
+}
+
+.rarity-universal {
+  color: #8b4513;
+}
+
+.dark {
+  .rarity-ultra-rare {
+    color: #ffd700;
+  }
+  .rarity-very-rare {
+    color: #ffa500;
+  }
+  .rarity-rare {
+    color: #ffff00;
+  }
+  .rarity-uncommon {
+    color: #808080;
+  }
+  .rarity-common {
+    color: #ffffff;
+  }
+  .rarity-frequent {
+    color: #00ff00;
+  }
+  .rarity-very-frequent {
+    color: #00cfff;
+  }
+  .rarity-universal {
+    color: #8b4513;
+  }
+}
