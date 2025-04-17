@@ -54,7 +54,12 @@ defmodule Moc.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:httpoison, "~> 2.2"},
+      {:emojix, "~> 0.4.0"},
+      {:ecto_sqlite3_extras, "~> 1.2"},
+      {:bandit, "~> 1.5"},
+      {:bcrypt, "~> 1.2"},
+      {:bcrypt_elixir, "~> 3.2"}
     ]
   end
 
