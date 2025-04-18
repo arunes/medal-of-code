@@ -10,9 +10,8 @@ defmodule Moc.Application do
     children = [
       MocWeb.Telemetry,
       Moc.Repo,
-      {Ecto.Migrator,
-        repos: Application.fetch_env!(:moc, :ecto_repos),
-        skip: skip_migrations?()},
+      Moc.Instance,
+      {Ecto.Migrator, repos: Application.fetch_env!(:moc, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:moc, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Moc.PubSub},
       # Start a worker by calling: Moc.Worker.start_link(arg)

@@ -19,76 +19,6 @@ defmodule MocWeb.CoreComponents do
   alias Phoenix.LiveView.JS
 
   @doc """
-  Renders a modal.
-
-  ## Examples
-
-      <.modal id="confirm-modal">
-        This is a modal.
-      </.modal>
-
-  JS commands may be passed to the `:on_cancel` to configure
-  the closing/cancel event, for example:
-
-      <.modal id="confirm" on_cancel={JS.navigate(~p"/posts")}>
-        This is another modal.
-      </.modal>
-
-  """
-  attr :id, :string, required: true
-  attr :show, :boolean, default: false
-  attr :on_cancel, JS, default: %JS{}
-  slot :inner_block, required: true
-
-  def modal(assigns) do
-    ~H"""
-    <div
-      id={@id}
-      phx-mounted={@show && show_modal(@id)}
-      phx-remove={hide_modal(@id)}
-      data-cancel={JS.exec(@on_cancel, "phx-remove")}
-      class="relative z-50 hidden"
-    >
-      <div id={"#{@id}-bg"} class="bg-zinc-50/90 fixed inset-0 transition-opacity" aria-hidden="true" />
-      <div
-        class="fixed inset-0 overflow-y-auto"
-        aria-labelledby={"#{@id}-title"}
-        aria-describedby={"#{@id}-description"}
-        role="dialog"
-        aria-modal="true"
-        tabindex="0"
-      >
-        <div class="flex min-h-full items-center justify-center">
-          <div class="w-full max-w-3xl p-4 sm:p-6 lg:py-8">
-            <.focus_wrap
-              id={"#{@id}-container"}
-              phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
-              phx-key="escape"
-              phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
-              class="shadow-zinc-700/10 ring-zinc-700/10 relative hidden rounded-2xl bg-white p-14 shadow-lg ring-1 transition"
-            >
-              <div class="absolute top-6 right-5">
-                <button
-                  phx-click={JS.exec("data-cancel", to: "##{@id}")}
-                  type="button"
-                  class="-m-3 flex-none p-3 opacity-20 hover:opacity-40"
-                  aria-label="close"
-                >
-                  <.icon name="hero-x-mark-solid" class="h-5 w-5" />
-                </button>
-              </div>
-              <div id={"#{@id}-content"}>
-                {render_slot(@inner_block)}
-              </div>
-            </.focus_wrap>
-          </div>
-        </div>
-      </div>
-    </div>
-    """
-  end
-
-  @doc """
   Renders flash notices.
 
   ## Examples
@@ -156,8 +86,7 @@ defmodule MocWeb.CoreComponents do
         phx-connected={hide("#client-error")}
         hidden
       >
-        Attempting to reconnect
-        <.icon name="hero-arrow-path" class="ml-1 h-3 w-3 animate-spin" />
+        Attempting to reconnect <.icon name="hero-arrow-path" class="ml-1 h-3 w-3 animate-spin" />
       </.flash>
 
       <.flash
@@ -172,42 +101,6 @@ defmodule MocWeb.CoreComponents do
         <.icon name="hero-arrow-path" class="ml-1 h-3 w-3 animate-spin" />
       </.flash>
     </div>
-    """
-  end
-
-  @doc """
-  Renders a simple form.
-
-  ## Examples
-
-      <.simple_form for={@form} phx-change="validate" phx-submit="save">
-        <.input field={@form[:email]} label="Email"/>
-        <.input field={@form[:username]} label="Username" />
-        <:actions>
-          <.button>Save</.button>
-        </:actions>
-      </.simple_form>
-  """
-  attr :for, :any, required: true, doc: "the data structure for the form"
-  attr :as, :any, default: nil, doc: "the server side parameter to collect all input under"
-
-  attr :rest, :global,
-    include: ~w(autocomplete name rel action enctype method novalidate target multipart),
-    doc: "the arbitrary HTML attributes to apply to the form tag"
-
-  slot :inner_block, required: true
-  slot :actions, doc: "the slot for form actions, such as a submit button"
-
-  def simple_form(assigns) do
-    ~H"""
-    <.form :let={f} for={@for} as={@as} {@rest}>
-      <div class="mt-10 space-y-8 bg-white">
-        {render_slot(@inner_block, f)}
-        <div :for={action <- @actions} class="mt-2 flex items-center justify-between gap-6">
-          {render_slot(action, f)}
-        </div>
-      </div>
-    </.form>
     """
   end
 
@@ -230,8 +123,8 @@ defmodule MocWeb.CoreComponents do
     <button
       type={@type}
       class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-zinc-900 hover:bg-zinc-700 py-2 px-3",
-        "text-sm font-semibold leading-6 text-white active:text-white/80",
+        "phx-submit-loading:opacity-75 rounded-lg bg-moc-4 hover:bg-moc-5 py-2 px-3",
+        "text-sm font-semibold leading-6 text-white active:text-moc",
         @class
       ]}
       {@rest}
@@ -309,7 +202,7 @@ defmodule MocWeb.CoreComponents do
 
     ~H"""
     <div>
-      <label class="flex items-center gap-4 text-sm leading-6 text-zinc-600">
+      <label class="flex items-center gap-4 text-sm leading-6 text-moc-1">
         <input type="hidden" name={@name} value="false" disabled={@rest[:disabled]} />
         <input
           type="checkbox"
@@ -317,7 +210,7 @@ defmodule MocWeb.CoreComponents do
           name={@name}
           value="true"
           checked={@checked}
-          class="rounded border-zinc-300 text-zinc-900 focus:ring-0"
+          class="rounded border-zinc-300 text-moc focus:ring-0"
           {@rest}
         />
         {@label}
@@ -354,7 +247,7 @@ defmodule MocWeb.CoreComponents do
         id={@id}
         name={@name}
         class={[
-          "mt-2 block w-full rounded-lg text-zinc-900 focus:ring-0 sm:text-sm sm:leading-6 min-h-[6rem]",
+          "mt-2 block w-full rounded-lg text-moc focus:ring-0 sm:text-sm sm:leading-6 min-h-[6rem]",
           @errors == [] && "border-zinc-300 focus:border-zinc-400",
           @errors != [] && "border-rose-400 focus:border-rose-400"
         ]}
@@ -376,9 +269,9 @@ defmodule MocWeb.CoreComponents do
         id={@id}
         value={Phoenix.HTML.Form.normalize_value(@type, @value)}
         class={[
-          "mt-2 block w-full rounded-lg text-zinc-900 focus:ring-0 sm:text-sm sm:leading-6",
-          @errors == [] && "border-zinc-300 focus:border-zinc-400",
-          @errors != [] && "border-rose-400 focus:border-rose-400"
+          "mt-1 block w-full rounded-lg text-moc focus:ring-0 sm:text-sm sm:leading-6",
+          @errors == [] && "border-moc-3 focus:border-moc-4",
+          @errors != [] && "border-red-500 focus:border-red-500"
         ]}
         {@rest}
       />
@@ -395,7 +288,7 @@ defmodule MocWeb.CoreComponents do
 
   def label(assigns) do
     ~H"""
-    <label for={@for} class="block text-sm font-semibold leading-6 text-zinc-800">
+    <label for={@for} class="block text-sm font-semibold leading-6 text-moc">
       {render_slot(@inner_block)}
     </label>
     """
@@ -408,35 +301,10 @@ defmodule MocWeb.CoreComponents do
 
   def error(assigns) do
     ~H"""
-    <p class="mt-3 flex gap-3 text-sm leading-6 text-rose-600">
+    <p class="mt-3 flex gap-3 text-sm leading-6 text-red-500 dark:text-red-300">
       <.icon name="hero-exclamation-circle-mini" class="mt-0.5 h-5 w-5 flex-none" />
       {render_slot(@inner_block)}
     </p>
-    """
-  end
-
-  @doc """
-  Renders a header with title.
-  """
-  attr :class, :string, default: nil
-
-  slot :inner_block, required: true
-  slot :subtitle
-  slot :actions
-
-  def header(assigns) do
-    ~H"""
-    <header class={[@actions != [] && "flex items-center justify-between gap-6", @class]}>
-      <div>
-        <h1 class="text-lg font-semibold leading-8 text-zinc-800">
-          {render_slot(@inner_block)}
-        </h1>
-        <p :if={@subtitle != []} class="mt-2 text-sm leading-6 text-zinc-600">
-          {render_slot(@subtitle)}
-        </p>
-      </div>
-      <div class="flex-none">{render_slot(@actions)}</div>
-    </header>
     """
   end
 
@@ -474,7 +342,7 @@ defmodule MocWeb.CoreComponents do
     ~H"""
     <div class="overflow-y-auto px-4 sm:overflow-visible sm:px-0">
       <table class="w-[40rem] mt-11 sm:w-full">
-        <thead class="text-sm text-left leading-6 text-zinc-500">
+        <thead class="text-sm text-left leading-6 text-moc-2">
           <tr>
             <th :for={col <- @col} class="p-0 pb-4 pr-6 font-normal">{col[:label]}</th>
             <th :if={@action != []} class="relative p-0 pb-4">
@@ -485,7 +353,7 @@ defmodule MocWeb.CoreComponents do
         <tbody
           id={@id}
           phx-update={match?(%Phoenix.LiveView.LiveStream{}, @rows) && "stream"}
-          class="relative divide-y divide-zinc-100 border-t border-zinc-200 text-sm leading-6 text-zinc-700"
+          class="relative divide-y divide-zinc-100 border-t border-zinc-200 text-sm leading-6 text-moc-1"
         >
           <tr :for={row <- @rows} id={@row_id && @row_id.(row)} class="group hover:bg-zinc-50">
             <td
@@ -495,7 +363,7 @@ defmodule MocWeb.CoreComponents do
             >
               <div class="block py-4 pr-6">
                 <span class="absolute -inset-y-px right-0 -left-4 group-hover:bg-zinc-50 sm:rounded-l-xl" />
-                <span class={["relative", i == 0 && "font-semibold text-zinc-900"]}>
+                <span class={["relative", i == 0 && "font-semibold text-moc"]}>
                   {render_slot(col, @row_item.(row))}
                 </span>
               </div>
@@ -505,7 +373,7 @@ defmodule MocWeb.CoreComponents do
                 <span class="absolute -inset-y-px -right-4 left-0 group-hover:bg-zinc-50 sm:rounded-r-xl" />
                 <span
                   :for={action <- @action}
-                  class="relative ml-4 font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
+                  class="relative ml-4 font-semibold leading-6 text-moc hover:text-moc-1"
                 >
                   {render_slot(action, @row_item.(row))}
                 </span>
@@ -514,57 +382,6 @@ defmodule MocWeb.CoreComponents do
           </tr>
         </tbody>
       </table>
-    </div>
-    """
-  end
-
-  @doc """
-  Renders a data list.
-
-  ## Examples
-
-      <.list>
-        <:item title="Title">{@post.title}</:item>
-        <:item title="Views">{@post.views}</:item>
-      </.list>
-  """
-  slot :item, required: true do
-    attr :title, :string, required: true
-  end
-
-  def list(assigns) do
-    ~H"""
-    <div class="mt-14">
-      <dl class="-my-4 divide-y divide-zinc-100">
-        <div :for={item <- @item} class="flex gap-4 py-4 text-sm leading-6 sm:gap-8">
-          <dt class="w-1/4 flex-none text-zinc-500">{item.title}</dt>
-          <dd class="text-zinc-700">{render_slot(item)}</dd>
-        </div>
-      </dl>
-    </div>
-    """
-  end
-
-  @doc """
-  Renders a back navigation link.
-
-  ## Examples
-
-      <.back navigate={~p"/posts"}>Back to posts</.back>
-  """
-  attr :navigate, :any, required: true
-  slot :inner_block, required: true
-
-  def back(assigns) do
-    ~H"""
-    <div class="mt-16">
-      <.link
-        navigate={@navigate}
-        class="text-sm font-semibold leading-6 text-zinc-900 hover:text-zinc-700"
-      >
-        <.icon name="hero-arrow-left-solid" class="h-3 w-3" />
-        {render_slot(@inner_block)}
-      </.link>
     </div>
     """
   end
@@ -649,15 +466,6 @@ defmodule MocWeb.CoreComponents do
   Translates an error message using gettext.
   """
   def translate_error({msg, opts}) do
-    # You can make use of gettext to translate error messages by
-    # uncommenting and adjusting the following code:
-
-    # if count = opts[:count] do
-    #   Gettext.dngettext(MocWeb.Gettext, "errors", msg, msg, count, opts)
-    # else
-    #   Gettext.dgettext(MocWeb.Gettext, "errors", msg, opts)
-    # end
-
     Enum.reduce(opts, msg, fn {key, value}, acc ->
       String.replace(acc, "%{#{key}}", fn _ -> to_string(value) end)
     end)
