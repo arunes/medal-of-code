@@ -1,5 +1,4 @@
 function darkExpected() {
-  console.log(localStorage.theme);
   return (
     localStorage.theme === "dark" ||
     (!("theme" in localStorage) &&
@@ -8,7 +7,6 @@ function darkExpected() {
 }
 
 function initDarkMode() {
-  console.log("UUU2");
   if (darkExpected()) {
     document.documentElement.classList.add("dark");
   } else {
@@ -17,7 +15,6 @@ function initDarkMode() {
 }
 
 window.addEventListener("toggle-darkmode", (_event) => {
-  console.log("UUU");
   if (darkExpected()) {
     localStorage.theme = "light";
   } else {

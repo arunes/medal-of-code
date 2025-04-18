@@ -1,4 +1,4 @@
-<MocWeb.Nav.nav />
+<MocWeb.Nav.nav user={@current_user} />
 <main class="container py-8 max-w-5xl flex-grow">
   <.flash_group flash={@flash} />
   {@inner_content}
@@ -10,6 +10,8 @@
     </span>
     <ul class="flex flex-wrap text-sm space-x-4">
       <li>
+        <.link :if={@current_user.is_admin} navigate={~p"/admin"}>Admin</.link>
+        <span :if={@current_user.is_admin}>|</span>
         <.link navigate={~p"/privacy"}>Privacy Policy</.link>
       </li>
     </ul>

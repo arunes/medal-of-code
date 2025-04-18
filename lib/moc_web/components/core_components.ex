@@ -269,7 +269,7 @@ defmodule MocWeb.CoreComponents do
         id={@id}
         value={Phoenix.HTML.Form.normalize_value(@type, @value)}
         class={[
-          "mt-1 block w-full rounded-lg text-moc focus:ring-0 sm:text-sm sm:leading-6",
+          "mt-1 block w-full rounded-lg text-black focus:ring-0 sm:text-sm sm:leading-6",
           @errors == [] && "border-moc-3 focus:border-moc-4",
           @errors != [] && "border-red-500 focus:border-red-500"
         ]}

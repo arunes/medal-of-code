@@ -28,7 +28,6 @@ defmodule MocWeb.Nav do
           <.logo width={200} />
         </.link>
         <div class="flex-grow"></div>
-        <!-- user menu -->
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -55,6 +54,9 @@ defmodule MocWeb.Nav do
         </button>
         <div class={["w-full md:block md:w-auto"]} id="navbar-default">
           <ul class="font-medium flex flex-col mt-4 md:flex-row space-y-2 md:space-y-0 md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0">
+            <li>
+              <.theme_switch />
+            </li>
             <li :for={link <- @links} class="flex flex-col justify-center">
               <.link
                 href={link.path}
@@ -63,8 +65,10 @@ defmodule MocWeb.Nav do
                 {link.title}
               </.link>
             </li>
-            <li>
-              <.theme_switch />
+            <li class="flex flex-col justify-center">
+              <.link href={~p"/users/log_out"} method="delete">
+                <.icon name="hero-arrow-right-start-on-rectangle" />
+              </.link>
             </li>
           </ul>
         </div>

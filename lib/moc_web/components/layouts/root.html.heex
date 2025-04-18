@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="[scrollbar-gutter:stable] h-full">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="csrf-token" content={get_csrf_token()} />
-    <.live_title default="Home" suffix=" · Medal of Code">
-      {assigns[:page_title]}
-    </.live_title>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" sizes="48x48" />
-    <meta
-      name="description"
-      content="Turn your development work into a playful quest for glory with Medal of Code — the gamified dev experience!"
-    />
-    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
-    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
-    </script>
-  </head>
 
-  <body class="h-full">
-    {@inner_content}
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="csrf-token" content={get_csrf_token()} />
+  <.live_title default="Home" suffix=" · Medal of Code">
+    {assigns[:page_title]}
+  </.live_title>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" sizes="48x48" />
+  <meta name="description"
+    content="Turn your development work into a playful quest for glory with Medal of Code — the gamified dev experience!" />
+  <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+  <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+  </script>
+</head>
+
+<body class="h-full">
+  {@inner_content}
+</body>
+
 </html>

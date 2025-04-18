@@ -1,25 +1,22 @@
-defmodule MocWeb.HomeLive.Init do
+defmodule MocWeb.InitLive do
   use MocWeb, :live_view
   alias Moc.Accounts
   alias Moc.Accounts.User
   alias Moc.Instance
 
   def mount(_params, _session, socket) do
-    form = Accounts.change_registration(%User{}) |> to_form(as: "user")
+    form = Accounts.change_user_registration(%User{}) |> to_form(as: "user")
 
-    socket = assign(socket, :form, form)
-    {:ok, socket, layout: false}
+    socket = assign(socket, form: form, trigger_submit: false)
+    {:ok, socket, layout: {MocWeb.Layouts, :empty}}
   end
 
   def handle_event("save", %{"user" => params}, socket) do
-    case Accounts.register_admin(params) do
-      {:ok, _} ->
+    case Accounts.register_user(Map.put(params, "is_admin", true)) do
+      {:ok, user} ->
         Instance.reload()
-
-        {:noreply,
-         socket
-         |> put_flash(:info, "Admin account created successfully.")
-         |> redirect(to: ~p"/admin")}
+        form = Accounts.change_user_registration(user) |> to_form(as: "user")
+        {:noreply, socket |> assign(form: form, trigger_submit: true)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         form = changeset |> to_form(as: "user")
@@ -30,7 +27,7 @@ defmodule MocWeb.HomeLive.Init do
 
   def handle_event("validate", %{"user" => params}, socket) do
     form =
-      Accounts.change_registration(%User{}, params)
+      Accounts.change_user_registration(%User{}, params)
       |> Map.put(:action, :validate)
       |> to_form(as: "user")
 
@@ -53,7 +50,7 @@ defmodule MocWeb.HomeLive.Init do
                 You need to create a default admin account to start using Medal of Code.
               </:subtitle>
             </.title>
-            <.register_form form={@form} />
+            <.register_form form={@form} trigger_submit={@trigger_submit} />
           </div>
         </div>
       </div>
@@ -68,6 +65,9 @@ defmodule MocWeb.HomeLive.Init do
       id="register-form"
       phx-change="validate"
       phx-submit="save"
+      phx-trigger-action={@trigger_submit}
+      action={~p"/users/log_in?_action=registered"}
+      method="post"
       novalidate
       class="space-y-4 md:space-y-6"
     >

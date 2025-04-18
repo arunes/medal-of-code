@@ -6,6 +6,7 @@ import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
 // Import custom js
 import "./darkMode.js";
+import "./avatar.js";
 
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")
@@ -28,7 +29,3 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
-
-window.addEventListener("toggle-darkmode", (_event) => {
-  console.log("UUU");
-});
