@@ -18,7 +18,10 @@ defmodule MocWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     live_session :require_authenticated_user,
-      on_mount: [{MocWeb.UserAuth, :ensure_authenticated}] do
+      on_mount: [
+        {MocWeb.UserAuth, :ensure_authenticated},
+        {MocWeb.SaveRequestUri, :save_request_path}
+      ] do
       live "/", HomeLive.Index
       live "/contributors", ContributorLive.Index
       live "/contributors/:id", ContributorLive.Show
@@ -35,7 +38,10 @@ defmodule MocWeb.Router do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     live_session :redirect_if_user_is_authenticated,
-      on_mount: [{MocWeb.UserAuth, :redirect_if_user_is_authenticated}] do
+      on_mount: [
+        {MocWeb.UserAuth, :redirect_if_user_is_authenticated},
+        {MocWeb.SaveRequestUri, :save_request_path}
+      ] do
       live "/init", InitLive
       live "/users/log_in", UserLoginLive, :new
     end
@@ -49,8 +55,22 @@ defmodule MocWeb.Router do
     delete "/users/log_out", UserSessionController, :delete
   end
 
-  scope "/admin", MocWeb do
-    pipe_through :browser
+  scope "/", MocWeb do
+    pipe_through [:browser, :require_admin_user]
+
+    live_session :require_admin_user,
+      on_mount: [{MocWeb.UserAuth, :ensure_is_admin}, {MocWeb.SaveRequestUri, :save_request_path}] do
+      live "/admin", AdminLive.Index
+      live "/admin/organizations", AdminLive.Organization.Index
+      live "/admin/organizations/new", AdminLive.Organization.Create
+      live "/admin/organizations/:organization_id", AdminLive.Organization.Projects
+
+      live "/admin/organizations/:organization_id/:project_id",
+           AdminLive.Organization.Repositories
+
+      live "/admin/settings", AdminLive.Settings
+      live "/admin/users", AdminLive.Users
+    end
   end
 
   def redirect_if_setup_incomplete(%{request_path: path} = conn, _opts) do

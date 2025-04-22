@@ -163,6 +163,17 @@ defmodule MocWeb.UserAuth do
     end
   end
 
+  def on_mount(:ensure_is_admin, _params, session, socket) do
+    socket = mount_current_user(socket, session)
+
+    if socket.assigns.current_user && socket.assigns.current_user.is_admin do
+      {:cont, socket}
+    else
+      socket = socket |> Phoenix.LiveView.redirect(to: ~p"/")
+      {:halt, socket}
+    end
+  end
+
   def on_mount(:redirect_if_user_is_authenticated, _params, session, socket) do
     socket = mount_current_user(socket, session)
 
@@ -207,6 +218,17 @@ defmodule MocWeb.UserAuth do
       conn
       |> maybe_store_return_to()
       |> redirect(to: ~p"/users/log_in")
+      |> halt()
+    end
+  end
+
+  def require_admin_user(conn, _opts) do
+    if conn.assigns[:current_user] && conn.assigns[:current_user].is_admin do
+      conn
+    else
+      conn
+      |> maybe_store_return_to()
+      |> redirect(to: ~p"/")
       |> halt()
     end
   end

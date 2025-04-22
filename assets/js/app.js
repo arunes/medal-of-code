@@ -7,6 +7,7 @@ import topbar from "../vendor/topbar";
 // Import custom js
 import "./darkMode.js";
 import "./avatar.js";
+import "./dateTime.js";
 
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")

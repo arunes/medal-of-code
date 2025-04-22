@@ -44,7 +44,7 @@ defmodule MocWeb.InitLive do
         </div>
         <div class="w-full bg-moc-1 rounded-lg shadow border-moc-3 md:mt-0 sm:max-w-md xl:p-0">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <.title size={:xl}>
+            <.title size="xl">
               Create an admin account
               <:subtitle>
                 You need to create a default admin account to start using Medal of Code.

@@ -1,25 +1,20 @@
 defmodule MocWeb.Nav do
+  alias Moc.Accounts
   use MocWeb, :html
   alias Phoenix.LiveView.JS
 
-  defp get_links() do
-    # user not logged in
-    if false do
-      [
-        %{title: "SIGN IN", path: "/auth/sign-in"}
-      ]
-    end
+  attr :selected_nav, :string, default: "home"
+  attr :user, Accounts.User, default: nil
 
-    [
+  def nav(assigns) do
+    links = [
       %{title: "LEADERBOARD", path: ~p"/leaderboard"},
       %{title: "CONTRIBUTORS", path: ~p"/contributors"},
       %{title: "MEDALS", path: ~p"/medals"},
       %{title: "STATS", path: ~p"/stats"}
     ]
-  end
 
-  def nav(assigns) do
-    assigns = assign(assigns, links: get_links())
+    assigns = assign(assigns, links: links)
 
     ~H"""
     <nav class="navbar">
@@ -59,7 +54,7 @@ defmodule MocWeb.Nav do
             </li>
             <li :for={link <- @links} class="flex flex-col justify-center">
               <.link
-                href={link.path}
+                navigate={link.path}
                 class={["px-3 py-2 hover:bg-moc-2 rounded-lg hover:no-underline", "active"]}
               >
                 {link.title}
