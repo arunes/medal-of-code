@@ -7,7 +7,7 @@ defmodule MocWeb.AdminLive.Organization.Index do
 
     socket =
       socket
-      |> assign(:page_title, "Admin")
+      |> assign(:page_title, "Admin | Organizations")
       |> assign(:total_organizations, length(organizations))
       |> stream(:organizations, organizations)
 

@@ -10,31 +10,64 @@ defmodule Moc.Admin.OrganizationView do
   ]
 end
 
+defmodule Moc.Admin.ProjectView do
+  defstruct [
+    :id,
+    :name,
+    :description,
+    :url,
+    :total_repos,
+    :total_active_repos,
+    :inserted_at
+  ]
+end
+
 defmodule Moc.Admin do
   import Ecto.Query
   alias Moc.Connector
   alias Moc.Repo
   alias Moc.Admin.Organization
+  alias Moc.Admin.Project
+  alias Moc.Admin.Repository
+  alias Moc.Admin.ProjectView
   alias Moc.Admin.OrganizationView
 
   def get_organization_list() do
     from(org in Organization,
-      # left_join: prj in assoc(org, :projects),
-      # left_join: rp in assoc(prj, :repositories),
+      left_join: prj in assoc(org, :projects),
+      left_join: rp in assoc(prj, :repositories),
       group_by: [org.id, org.provider, org.external_id, org.inserted_at],
       select: %OrganizationView{
         id: org.id,
         provider: org.provider,
         external_id: org.external_id,
-        # count(fragment("DISTINCT ?", prj.id)),
-        total_projects: 0,
-        # count(fragment("DISTINCT ?", rp.id)),
-        total_repos: 0,
-        total_active_repos: 0,
-        # count(fragment("DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)", rp.sync_enabled, rp.id)),
+        total_projects: count(fragment("DISTINCT ?", prj.id)),
+        total_repos: count(fragment("DISTINCT ?", rp.id)),
+        total_active_repos:
+          count(fragment("DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)", rp.sync_enabled, rp.id)),
         updated_at: org.updated_at
       },
       order_by: org.external_id
+    )
+    |> Repo.all()
+  end
+
+  def get_project_list(organization_id) do
+    from(prj in Project,
+      where: prj.organization_id == ^organization_id,
+      left_join: rp in assoc(prj, :repositories),
+      group_by: [prj.id, prj.name, prj.description, prj.url, prj.inserted_at],
+      select: %ProjectView{
+        id: prj.id,
+        name: prj.name,
+        description: prj.description,
+        url: prj.url,
+        total_repos: count(fragment("DISTINCT ?", rp.id)),
+        total_active_repos:
+          count(fragment("DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)", rp.sync_enabled, rp.id)),
+        inserted_at: prj.inserted_at
+      },
+      order_by: prj.name
     )
     |> Repo.all()
   end
@@ -72,7 +105,7 @@ defmodule Moc.Admin do
 
     Connector.get_projects(settings)
     |> Enum.map(fn prj ->
-      Repo.insert!(%Moc.Admin.Project{
+      Repo.insert!(%Project{
         organization_id: changeset.id,
         external_id: prj.id,
         name: prj.name,
@@ -99,7 +132,7 @@ defmodule Moc.Admin do
           }
         end)
 
-      Repo.insert_all(Moc.Admin.Repository, repositories)
+      Repo.insert_all(Repository, repositories)
     end)
 
     {:ok, changeset}

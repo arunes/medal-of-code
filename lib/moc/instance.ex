@@ -2,6 +2,7 @@ defmodule Moc.Instance do
   require Logger
   use Agent
   import Ecto.Query
+  alias Moc.Admin.Organization
   alias Moc.Instance.Status
   alias Moc.Accounts.User
   alias Moc.Admin.Settings
@@ -60,10 +61,7 @@ defmodule Moc.Instance do
       )
       |> Repo.all()
 
-    # TODO: Connect organization
-    has_org = nil
-    # from(org in Organization, select: org.id, limit: 1)
-    # |> Repo.one()
+    has_org = from(org in Organization, select: org.id, limit: 1) |> Repo.one()
 
     has_admin =
       from(usr in User, where: usr.is_admin, select: usr.id, limit: 1)
