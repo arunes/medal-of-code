@@ -80,7 +80,7 @@ defmodule MocWeb.AdminLive.Organization.Index do
 
   def delete_modal(assigns) do
     ~H"""
-    <.modal id={"delete-modal-#{@org.id}"} size="xl">
+    <.modal id={"delete-modal-#{@org.id}"} size="md">
       Are you sure want to delete the <strong>{@org.external_id}</strong>
       organization and all the records associated with? <hr class="my-4" />
       <.button

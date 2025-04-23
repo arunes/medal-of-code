@@ -37,7 +37,7 @@ defmodule MocWeb.CoreComponents do
   """
   attr :id, :string, required: true
   attr :show, :boolean, default: false
-  attr :size, :string, default: "xl"
+  attr :size, :string, values: ["sm", "md", "lg", "xl", "2xl", "3xl"], default: "xl"
   attr :on_cancel, JS, default: %JS{}
   slot :inner_block, required: true
 
@@ -62,7 +62,12 @@ defmodule MocWeb.CoreComponents do
         <div class="flex min-h-full items-center justify-center">
           <div class={[
             "w-full",
-            "max-w-#{@size}",
+            @size == "sm" && "max-w-sm",
+            @size == "md" && "max-w-md",
+            @size == "lg" && "max-w-lg",
+            @size == "xl" && "max-w-xl",
+            @size == "2xl" && "max-w-2xl",
+            @size == "3xl" && "max-w-3xl",
             "p-4 sm:p-6 lg:py-8"
           ]}>
             <.focus_wrap
@@ -255,7 +260,7 @@ defmodule MocWeb.CoreComponents do
           name={@name}
           value="true"
           checked={@checked}
-          class="rounded border-moc-3 text-black focus:ring-0"
+          class="rounded border-moc-3 text-moc-2 focus:ring-0"
           {@rest}
         />
         {@label}
@@ -418,7 +423,9 @@ defmodule MocWeb.CoreComponents do
               class={[
                 "px-3 py-2",
                 @row_click && "hover:cursor-pointer",
-                col[:align] && "text-#{col[:align]}"
+                col[:align] == "left" && "text-left",
+                col[:align] == "right" && "text-right",
+                col[:align] == "center" && "text-center"
               ]}
             >
               {render_slot(col, @row_item.(row))}

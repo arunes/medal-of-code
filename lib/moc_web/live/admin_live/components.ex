@@ -54,7 +54,9 @@ defmodule MocWeb.AdminLive.Components do
         <% end %>
       </ol>
     </header>
-    {render_slot(@inner_block)}
+    <section class="px-3">
+      {render_slot(@inner_block)}
+    </section>
     """
   end
 

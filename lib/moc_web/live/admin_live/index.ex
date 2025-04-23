@@ -13,7 +13,7 @@ defmodule MocWeb.AdminLive.Index do
   def render(assigns) do
     ~H"""
     <.admin_content selected_nav="dashboard">
-      this is dashboard
+      TODO!
     </.admin_content>
     """
   end

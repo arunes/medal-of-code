@@ -10,11 +10,6 @@
 @import "./rarity.css";
 @import "./footer.css";
 
-/* for some reason seems like tailwind does not have text-right class in it */
-.text-right {
-  text-align: right;
-}
-
 .affinity-dark {
   color: var(--affinity-dark);
 }
