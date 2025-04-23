@@ -12,5 +12,7 @@ defmodule Moc.Repo.Migrations.CreateRepositories do
 
       timestamps(type: :utc_datetime)
     end
+
+    create index("repositories", [:project_id])
   end
 end

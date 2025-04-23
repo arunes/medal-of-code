@@ -8,6 +8,7 @@ defmodule Moc.Admin.Repository do
     field(:url, :string)
     field(:sync_enabled, :boolean)
     field(:cutoff_date, :utc_datetime)
+
     belongs_to(:project, Moc.Admin.Project)
 
     timestamps(type: :utc_datetime)

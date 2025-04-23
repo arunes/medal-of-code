@@ -7,6 +7,7 @@ defmodule Moc.Admin.Project do
     field(:name, :string)
     field(:description, :string)
     field(:url, :string)
+
     belongs_to(:organization, Moc.Admin.Organization)
     has_many(:repositories, Moc.Admin.Repository)
 
