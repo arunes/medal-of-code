@@ -9,8 +9,11 @@ defmodule MocWeb.AdminLive.Users do
   end
 
   def render(assigns) do
+    breadcrumb = [%{link: "", label: "Users"}]
+    assigns = assign(assigns, :breadcrumb, breadcrumb)
+
     ~H"""
-    <.admin_content selected_nav="users">
+    <.admin_content selected_nav="users" breadcrumb={@breadcrumb}>
       users
     </.admin_content>
     """

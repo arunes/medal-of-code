@@ -37,7 +37,6 @@ defmodule Moc.Admin.Organization do
       |> unsafe_validate_unique(:external_id, Moc.Repo)
       |> unique_constraint(:external_id)
     else
-      IO.puts("SHALLOW VALIDATION ID")
       changeset
     end
   end
@@ -58,7 +57,6 @@ defmodule Moc.Admin.Organization do
         :unauthorized -> add_error(changeset, :token, "unauthorized")
       end
     else
-      IO.puts("SHALLOW VALIDATION TOKEN")
       changeset
     end
   end

@@ -14,9 +14,27 @@ defmodule MocWeb.AdminLive.Organization.Index do
     {:ok, socket}
   end
 
+  def handle_event("delete", %{"organization_id" => organization_id}, socket) do
+    Moc.Admin.delete_organization!(organization_id)
+    organizations = Moc.Admin.get_organization_list()
+
+    socket =
+      socket
+      |> assign(:page_title, "Admin | Organizations")
+      |> assign(:total_organizations, length(organizations))
+      |> stream(:organizations, organizations)
+
+    {:noreply, socket}
+  end
+
   def render(assigns) do
+    breadcrumb = [%{link: "", label: "Organizations"}]
+    assigns = assign(assigns, :breadcrumb, breadcrumb)
+
     ~H"""
-    <.admin_content selected_nav="organizations">
+    <.admin_content selected_nav="organizations" breadcrumb={@breadcrumb}>
+      <.delete_modal :for={{_, org} <- @streams.organizations} org={org} />
+
       <.table
         :if={@total_organizations > 0}
         id="organizations"
@@ -34,25 +52,49 @@ defmodule MocWeb.AdminLive.Organization.Index do
         <:col :let={org} align="right" label="Last Update">
           <.local_datetime date={org.updated_at} />
         </:col>
-        <:action>
+        <:action :let={org}>
           <div class="inline-flex" role="group">
-            <button type="button" title="Sync Organization">
-              <.icon name="hero-arrow-path" class="h-4 w-4" />
-            </button>
-            <button type="button" class="p-2" title="Delete">
+            <button
+              type="button"
+              class="p-2"
+              title="Delete"
+              phx-click={show_modal("delete-modal-#{org.id}")}
+            >
               <.icon name="hero-trash" class="h-4 w-4" />
             </button>
           </div>
         </:action>
       </.table>
-      <div :if={@total_organizations == 0} colspan="5" class="text-sm">
+      <div :if={@total_organizations == 0} class="text-sm">
         No organization found!, add an organization to start using Medal of Code.
       </div>
 
-      <.link navigate={~p"/admin/organizations/new"} class="moc-btn-blue">
-        Add Organization
-      </.link>
+      <div class="mt-5">
+        <.link navigate={~p"/admin/organizations/new"} class="moc-btn-blue">
+          Add Organization
+        </.link>
+      </div>
     </.admin_content>
+    """
+  end
+
+  def delete_modal(assigns) do
+    ~H"""
+    <.modal id={"delete-modal-#{@org.id}"} size="xl">
+      Are you sure want to delete the <strong>{@org.external_id}</strong>
+      organization and all the records associated with? <hr class="my-4" />
+      <.button
+        show_icon={false}
+        variation={:red}
+        phx-click="delete"
+        phx-value-organization_id={@org.id}
+      >
+        Delete
+      </.button>
+      <.button show_icon={false} variation={:gray} phx-click={hide_modal("delete-modal-#{@org.id}")}>
+        Cancel
+      </.button>
+    </.modal>
     """
   end
 end

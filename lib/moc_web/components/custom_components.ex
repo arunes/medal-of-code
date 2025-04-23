@@ -61,13 +61,28 @@ defmodule MocWeb.CustomComponents do
   end
 
   slot :inner_block, required: true
+  attr :show_icon, :boolean, default: true
+  attr :variation, :atom, values: [:blue, :red, :gray], default: :blue
+  attr :rest, :global, doc: "the arbitrary HTML attributes to add to the flash container"
 
   def button(assigns) do
     ~H"""
-    <button class="moc-btn-blue">
-      {render_slot(@inner_block)} →
-      <.icon name="hero-arrow-long-right" class="ml-1 h-4 w-4 inline-block phx-submit-loading:hidden" />
+    <button
+      class={[
+        @variation == :blue && "moc-btn-blue",
+        @variation == :red && "moc-btn-red",
+        @variation == :gray && "moc-btn-gray"
+      ]}
+      {@rest}
+    >
+      {render_slot(@inner_block)}
       <.icon
+        :if={@show_icon}
+        name="hero-arrow-long-right"
+        class="ml-1 h-4 w-4 inline-block phx-submit-loading:hidden"
+      />
+      <.icon
+        :if={@show_icon}
         name="hero-arrow-path"
         class="ml-1 h-4 w-4 animate-spin hidden phx-submit-loading:inline-block"
       />

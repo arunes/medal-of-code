@@ -19,6 +19,81 @@ defmodule MocWeb.CoreComponents do
   alias Phoenix.LiveView.JS
 
   @doc """
+  Renders a modal.
+
+  ## Examples
+
+      <.modal id="confirm-modal">
+        This is a modal.
+      </.modal>
+
+  JS commands may be passed to the `:on_cancel` to configure
+  the closing/cancel event, for example:
+
+      <.modal id="confirm" on_cancel={JS.navigate(~p"/posts")}>
+        This is another modal.
+      </.modal>
+
+  """
+  attr :id, :string, required: true
+  attr :show, :boolean, default: false
+  attr :size, :string, default: "xl"
+  attr :on_cancel, JS, default: %JS{}
+  slot :inner_block, required: true
+
+  def modal(assigns) do
+    ~H"""
+    <div
+      id={@id}
+      phx-mounted={@show && show_modal(@id)}
+      phx-remove={hide_modal(@id)}
+      data-cancel={JS.exec(@on_cancel, "phx-remove")}
+      class="relative z-50 hidden"
+    >
+      <div id={"#{@id}-bg"} class="bg-black/60 fixed inset-0 transition-opacity" aria-hidden="true" />
+      <div
+        class="fixed inset-0 overflow-y-auto"
+        aria-labelledby={"#{@id}-title"}
+        aria-describedby={"#{@id}-description"}
+        role="dialog"
+        aria-modal="true"
+        tabindex="0"
+      >
+        <div class="flex min-h-full items-center justify-center">
+          <div class={[
+            "w-full",
+            "max-w-#{@size}",
+            "p-4 sm:p-6 lg:py-8"
+          ]}>
+            <.focus_wrap
+              id={"#{@id}-container"}
+              phx-window-keydown={JS.exec("data-cancel", to: "##{@id}")}
+              phx-key="escape"
+              phx-click-away={JS.exec("data-cancel", to: "##{@id}")}
+              class="relative hidden rounded-lg bg-moc p-4 shadow-lg ring-1 ring-gray-200 dark:ring-gray-800 transition"
+            >
+              <div class="absolute top-4 right-4">
+                <button
+                  phx-click={JS.exec("data-cancel", to: "##{@id}")}
+                  type="button"
+                  class="-m-3 flex-none p-3 opacity-20 hover:opacity-40"
+                  aria-label="Close"
+                >
+                  <.icon name="hero-x-mark-solid" class="h-5 w-5" />
+                </button>
+              </div>
+              <div id={"#{@id}-content"} class="pr-5">
+                {render_slot(@inner_block)}
+              </div>
+            </.focus_wrap>
+          </div>
+        </div>
+      </div>
+    </div>
+    """
+  end
+
+  @doc """
   Renders flash notices.
 
   ## Examples

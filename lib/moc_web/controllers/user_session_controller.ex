@@ -5,7 +5,9 @@ defmodule MocWeb.UserSessionController do
   alias MocWeb.UserAuth
 
   def create(conn, %{"_action" => "registered"} = params) do
-    create(conn, params, "Account created successfully!")
+    conn
+    |> put_session(:user_return_to, ~p"/admin/organizations")
+    |> create(params, "Account created successfully!")
   end
 
   def create(conn, %{"_action" => "password_updated"} = params) do

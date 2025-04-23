@@ -3,24 +3,26 @@ defmodule MocWeb.AdminLive.Organization.Repositories do
   import MocWeb.AdminLive.Components
 
   def mount(%{"organization_id" => organization_id, "project_id" => project_id}, _session, socket) do
+    organization = Moc.Admin.get_organization!(organization_id)
+    project = Moc.Admin.get_project!(project_id)
     repositories = Moc.Admin.get_repository_list(organization_id, project_id)
 
     socket =
       socket
       |> assign(:page_title, "Admin | Repositories")
       |> assign(:total_repositories, length(repositories))
-      |> assign(:organization_id, organization_id)
-      |> assign(:project_id, project_id)
+      |> assign(:organization, organization)
+      |> assign(:project, project)
       |> stream(:repositories, repositories)
 
     {:ok, socket}
   end
 
   def handle_event("toggle-sync", %{"repository_id" => repository_id}, socket) do
-    Moc.Admin.toggle_sync(repository_id)
+    Moc.Admin.toggle_sync!(repository_id)
 
     repositories =
-      Moc.Admin.get_repository_list(socket.assigns.organization_id, socket.assigns.project_id)
+      Moc.Admin.get_repository_list(socket.assigns.organization.id, socket.assigns.project.id)
 
     {:noreply,
      socket
@@ -29,8 +31,26 @@ defmodule MocWeb.AdminLive.Organization.Repositories do
   end
 
   def render(assigns) do
+    breadcrumb = [
+      %{link: ~p"/admin/organizations", label: "Organizations"},
+      %{
+        link: ~p"/admin/organizations/#{assigns.organization.id}",
+        label: assigns.organization.external_id
+      },
+      %{
+        link: "",
+        label: assigns.project.name
+      }
+    ]
+
+    assigns = assign(assigns, :breadcrumb, breadcrumb)
+
     ~H"""
-    <.admin_content selected_nav="organizations">
+    <.admin_content selected_nav="organizations" breadcrumb={@breadcrumb}>
+      <p class="mb-2 text-center">
+        Click <.icon name="hero-check" class="h-5 w-5 align-text-top" /> or
+        <.icon name="hero-x-mark" class="h-5 w-5 align-text-top" /> icons to set sync status.
+      </p>
       <.table
         :if={@total_repositories > 0}
         id="repositories"
@@ -50,7 +70,7 @@ defmodule MocWeb.AdminLive.Organization.Repositories do
         </:col>
       </.table>
       <div :if={@total_repositories == 0} colspan="5" class="text-sm">
-        No repositories found!, add an organization to start using Medal of Code.
+        No repositories found!, make sure current project has at least one repository and you have access to it.
       </div>
     </.admin_content>
     """

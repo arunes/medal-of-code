@@ -57,6 +57,14 @@
   }
 
   .moc-btn-blue {
-    @apply text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5 phx-click-loading:bg-red-300;
+    @apply text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5 mt-2.5;
+  }
+
+  .moc-btn-red {
+    @apply text-white bg-red-500 hover:bg-red-600 rounded-lg text-sm px-5 py-2.5 mt-2.5;
+  }
+
+  .moc-btn-gray {
+    @apply text-white bg-gray-500 hover:bg-gray-600 rounded-lg text-sm px-5 py-2.5 mt-2.5;
   }
 }

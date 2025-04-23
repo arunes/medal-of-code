@@ -9,8 +9,11 @@ defmodule MocWeb.AdminLive.Settings do
   end
 
   def render(assigns) do
+    breadcrumb = [%{link: "", label: "Settings"}]
+    assigns = assign(assigns, :breadcrumb, breadcrumb)
+
     ~H"""
-    <.admin_content selected_nav="settings">
+    <.admin_content selected_nav="settings" breadcrumb={@breadcrumb}>
       settings
     </.admin_content>
     """

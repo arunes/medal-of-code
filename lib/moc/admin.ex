@@ -35,6 +35,8 @@ end
 
 defmodule Moc.Admin do
   import Ecto.Query
+  alias Hex.API.Key.Organization
+  alias Hex.API.Key.Organization
   alias Moc.Connector
   alias Moc.Repo
   alias Moc.Admin.Organization
@@ -84,6 +86,18 @@ defmodule Moc.Admin do
     |> Repo.all()
   end
 
+  def get_organization!(organization_id) do
+    Repo.get!(Organization, organization_id)
+  end
+
+  def delete_organization!(organization_id) do
+    Repo.get!(Organization, organization_id) |> Repo.delete!()
+  end
+
+  def get_project!(project_id) do
+    Repo.get!(Project, project_id)
+  end
+
   def get_repository_list(_organization_id, project_id) do
     from(rp in Repository,
       where: rp.project_id == ^project_id,
@@ -100,7 +114,7 @@ defmodule Moc.Admin do
     |> Repo.all()
   end
 
-  def toggle_sync(repository_id) do
+  def toggle_sync!(repository_id) do
     repo =
       from(rp in Repository, where: rp.id == ^repository_id)
       |> Repo.one!()
@@ -115,10 +129,10 @@ defmodule Moc.Admin do
   @doc """
   Creates a organization and syncs the projects
   """
-  @spec create_organization(map()) :: {:ok | :error, integer()}
-  def create_organization(params) do
+  @spec create_organization(map()) :: {:ok | :error, Ecto.Changeset.t()}
+  def create_organization(attrs) do
     %Organization{}
-    |> Organization.create_changeset(params)
+    |> Organization.create_changeset(attrs)
     |> Repo.insert()
     |> maybe_run_sync()
   end
