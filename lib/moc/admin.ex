@@ -22,6 +22,17 @@ defmodule Moc.Admin.ProjectView do
   ]
 end
 
+defmodule Moc.Admin.RepositoryView do
+  defstruct [
+    :id,
+    :name,
+    :url,
+    :sync_enabled,
+    :cutoff_date,
+    :inserted_at
+  ]
+end
+
 defmodule Moc.Admin do
   import Ecto.Query
   alias Moc.Connector
@@ -29,8 +40,9 @@ defmodule Moc.Admin do
   alias Moc.Admin.Organization
   alias Moc.Admin.Project
   alias Moc.Admin.Repository
-  alias Moc.Admin.ProjectView
   alias Moc.Admin.OrganizationView
+  alias Moc.Admin.ProjectView
+  alias Moc.Admin.RepositoryView
 
   def get_organization_list() do
     from(org in Organization,
@@ -70,6 +82,34 @@ defmodule Moc.Admin do
       order_by: prj.name
     )
     |> Repo.all()
+  end
+
+  def get_repository_list(_organization_id, project_id) do
+    from(rp in Repository,
+      where: rp.project_id == ^project_id,
+      select: %RepositoryView{
+        id: rp.id,
+        name: rp.name,
+        url: rp.url,
+        sync_enabled: rp.sync_enabled,
+        cutoff_date: rp.cutoff_date,
+        inserted_at: rp.inserted_at
+      },
+      order_by: rp.name
+    )
+    |> Repo.all()
+  end
+
+  def toggle_sync(repository_id) do
+    repo =
+      from(rp in Repository, where: rp.id == ^repository_id)
+      |> Repo.one!()
+
+    repo
+    |> Repository.changeset(%{sync_enabled: !repo.sync_enabled})
+    |> Repo.update()
+
+    !repo.sync_enabled
   end
 
   @doc """

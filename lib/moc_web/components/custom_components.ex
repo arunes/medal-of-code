@@ -1,6 +1,7 @@
 defmodule MocWeb.CustomComponents do
   use Phoenix.Component
   use MocWeb, :verified_routes
+  import MocWeb.CoreComponents, only: [icon: 1]
   alias Phoenix.LiveView.JS
 
   attr :size, :integer, required: true
@@ -56,6 +57,29 @@ defmodule MocWeb.CustomComponents do
       </h1>
       <p :if={@subtitle} class="text-sm text-moc-2 mt-2">{render_slot(@subtitle)}</p>
     </div>
+    """
+  end
+
+  slot :inner_block, required: true
+
+  def button(assigns) do
+    ~H"""
+    <button class="moc-btn-blue">
+      {render_slot(@inner_block)} →
+      <.icon name="hero-arrow-long-right" class="ml-1 h-4 w-4 inline-block phx-submit-loading:hidden" />
+      <.icon
+        name="hero-arrow-path"
+        class="ml-1 h-4 w-4 animate-spin hidden phx-submit-loading:inline-block"
+      />
+    </button>
+    """
+  end
+
+  def local_datetime(assigns) do
+    ~H"""
+    <moc-local-datetime {assigns} iso-datetime={@date} phx-update="ignore">
+      {@date}
+    </moc-local-datetime>
     """
   end
 end

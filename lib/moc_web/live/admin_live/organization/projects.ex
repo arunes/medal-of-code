@@ -7,7 +7,7 @@ defmodule MocWeb.AdminLive.Organization.Projects do
 
     socket =
       socket
-      |> assign(:page_title, "Admin | Organization Projects")
+      |> assign(:page_title, "Admin | Projects")
       |> assign(:total_projects, length(projects))
       |> assign(:organization_id, organization_id)
       |> stream(:projects, projects)
@@ -29,8 +29,8 @@ defmodule MocWeb.AdminLive.Organization.Projects do
         }
       >
         <:col :let={prj} label="Name">{prj.name}</:col>
-        <:col :let={prj} label="Description">{prj.description}</:col>
-        <:col :let={prj} label="Repos (In sync/total)">
+        <:col :let={prj} label="Description">{prj.description || "N/A"}</:col>
+        <:col :let={prj} align="center" label="Repos (In sync/total)">
           {prj.total_active_repos} / {prj.total_repos}
         </:col>
         <:action>
@@ -47,8 +47,6 @@ defmodule MocWeb.AdminLive.Organization.Projects do
       <div :if={@total_projects == 0} colspan="5" class="text-sm">
         No projects found!, add an organization to start using Medal of Code.
       </div>
-
-      <.link navigate={~p"/admin/organizations/new"} class="size-xl">Add Organization</.link>
     </.admin_content>
     """
   end

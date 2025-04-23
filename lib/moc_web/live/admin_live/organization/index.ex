@@ -27,12 +27,12 @@ defmodule MocWeb.AdminLive.Organization.Index do
       >
         <:col :let={org} label="Id">{org.external_id}</:col>
         <:col :let={org} label="Provider">{org.provider}</:col>
-        <:col :let={org} label="Projects">{org.total_projects}</:col>
-        <:col :let={org} label="Repos (In sync/total)">
+        <:col :let={org} align="center" label="Projects">{org.total_projects}</:col>
+        <:col :let={org} align="center" label="Repos (In sync/total)">
           {org.total_active_repos} / {org.total_repos}
         </:col>
-        <:col :let={org} label="Last Update">
-          <span phx-mounted={JS.dispatch("moc:to_local_time")}>{org.updated_at}</span>
+        <:col :let={org} align="right" label="Last Update">
+          <.local_datetime date={org.updated_at} />
         </:col>
         <:action>
           <div class="inline-flex" role="group">
@@ -49,7 +49,9 @@ defmodule MocWeb.AdminLive.Organization.Index do
         No organization found!, add an organization to start using Medal of Code.
       </div>
 
-      <.link navigate={~p"/admin/organizations/new"} class="size-xl">Add Organization</.link>
+      <.link navigate={~p"/admin/organizations/new"} class="moc-btn-blue">
+        Add Organization
+      </.link>
     </.admin_content>
     """
   end

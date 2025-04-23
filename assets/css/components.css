@@ -55,4 +55,8 @@
   .box-link:hover {
     text-decoration: none;
   }
+
+  .moc-btn-blue {
+    @apply text-white bg-blue-500 hover:bg-blue-600 rounded-lg text-sm px-5 py-2.5 phx-click-loading:bg-red-300;
+  }
 }

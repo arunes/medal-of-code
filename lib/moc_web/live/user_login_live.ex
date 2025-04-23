@@ -43,9 +43,7 @@ defmodule MocWeb.UserLoginLive do
     >
       <.input field={@form[:email]} type="email" label="Email" required />
       <.input field={@form[:password]} type="password" label="Password" required />
-      <.button phx-disable-with="Logging in..." class="w-full">
-        Log in <span aria-hidden="true">→</span>
-      </.button>
+      <.button>Log in</.button>
     </.form>
     """
   end

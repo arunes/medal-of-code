@@ -105,36 +105,6 @@ defmodule MocWeb.CoreComponents do
   end
 
   @doc """
-  Renders a button.
-
-  ## Examples
-
-      <.button>Send!</.button>
-      <.button phx-click="go" class="ml-2">Send!</.button>
-  """
-  attr :type, :string, default: nil
-  attr :class, :string, default: nil
-  attr :rest, :global, include: ~w(disabled form name value)
-
-  slot :inner_block, required: true
-
-  def button(assigns) do
-    ~H"""
-    <button
-      type={@type}
-      class={[
-        "phx-submit-loading:opacity-75 rounded-lg bg-moc-4 hover:bg-moc-5 py-2 px-3",
-        "text-sm font-semibold leading-6 text-white active:text-moc",
-        @class
-      ]}
-      {@rest}
-    >
-      {render_slot(@inner_block)}
-    </button>
-    """
-  end
-
-  @doc """
   Renders an input with label and error messages.
 
   A `Phoenix.HTML.FormField` may be passed as argument,
@@ -329,6 +299,8 @@ defmodule MocWeb.CoreComponents do
 
   slot :col, required: true do
     attr :label, :string
+    attr :width, :string
+    attr :align, :string, values: ["left", "center", "right"]
   end
 
   slot :action, doc: "the slot for showing user actions in the last table column"
@@ -344,7 +316,16 @@ defmodule MocWeb.CoreComponents do
       <table class="w-full text-left mb-12">
         <thead class="text-sm bg-moc-3 text-moc-1">
           <tr>
-            <th :for={col <- @col} class="px-3 py-3">{col[:label]}</th>
+            <th
+              :for={col <- @col}
+              class={[
+                "px-3 py-3",
+                col[:align] && "text-#{col[:align]}"
+              ]}
+              width={col[:width]}
+            >
+              {col[:label]}
+            </th>
             <th :if={@action != []} class="relative p-0 pb-4">
               <span class="sr-only">Actions</span>
             </th>
@@ -359,7 +340,11 @@ defmodule MocWeb.CoreComponents do
             <td
               :for={{col, _i} <- Enum.with_index(@col)}
               phx-click={@row_click && @row_click.(row)}
-              class={["px-3 py-2", @row_click && "hover:cursor-pointer"]}
+              class={[
+                "px-3 py-2",
+                @row_click && "hover:cursor-pointer",
+                col[:align] && "text-#{col[:align]}"
+              ]}
             >
               {render_slot(col, @row_item.(row))}
             </td>

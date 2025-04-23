@@ -74,7 +74,7 @@ defmodule MocWeb.InitLive do
       <.input type="email" field={@form[:email]} label="Your email" required />
       <.input type="password" field={@form[:password]} label="Password" required />
       <.input type="password" field={@form[:password_confirmation]} label="Confirm password" required />
-      <.button class="w-full">Register</.button>
+      <.button>Register</.button>
     </.form>
     """
   end
