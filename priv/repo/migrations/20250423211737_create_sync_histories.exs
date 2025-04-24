@@ -3,9 +3,11 @@ defmodule Moc.Repo.Migrations.CreateSyncHistories do
 
   def change do
     create table(:sync_histories) do
-      add :prs_imported, :integer
-      add :prs_reviews_imported, :integer
-      add :comments_imported, :integer
+      add :prs_imported, :integer, null: false, default: 0
+      add :pr_reviews_imported, :integer, null: false, default: 0
+      add :comments_imported, :integer, null: false, default: 0
+      add :error_message, :string, null: true
+      add :status, :string, null: false, default: "importing"
 
       timestamps(type: :utc_datetime)
     end

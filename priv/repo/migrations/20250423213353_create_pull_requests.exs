@@ -7,8 +7,8 @@ defmodule Moc.Repo.Migrations.CreatePullRequests do
       add :title, :string, null: false
       add :description, :string, null: true
       add :status, :string, null: false
-      add :created_on, :naive_datetime, null: false
-      add :closed_on, :naive_datetime, null: false
+      add :created_on, :utc_datetime, null: false
+      add :closed_on, :utc_datetime, null: false
       add :source_branch, :string, null: false
       add :target_branch, :string, null: false
       add :is_draft, :boolean, null: false
@@ -16,7 +16,7 @@ defmodule Moc.Repo.Migrations.CreatePullRequests do
       add :squash_merge, :boolean, null: true
       add :merge_strategy, :string, null: true
       add :ready_for_use, :boolean, null: false
-      add :comments_imported_on, :naive_datetime, null: true
+      add :comments_imported_on, :utc_datetime, null: true
       add :repository_id, references("repositories", on_delete: :delete_all), null: false
       add :created_by_id, references("contributors", on_delete: :delete_all), null: false
 

@@ -10,5 +10,8 @@ defmodule Moc.Repo.Migrations.CreatePullRequestReviews do
 
       timestamps(type: :utc_datetime)
     end
+
+    create index("pull_request_reviews", [:reviewer_id])
+    create index("pull_request_reviews", [:pull_request_id])
   end
 end

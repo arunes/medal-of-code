@@ -1,0 +1,2495 @@
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined function insert_comments_to_db/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 32 │     |> insert_comments_to_db()
+    │        ^^^^^^^^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:32:8: Moc.PullRequests.do_import!/0
+
+[Warning]     error: undefined function download_comments/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 31 │     |> download_comments()
+    │        ^^^^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:31:8: Moc.PullRequests.do_import!/0
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1027 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 15ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1227 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 1046ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1141ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "prs" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 71 │   defp download_and_insert_comments(prs) do
+    │                                     ~~~
+    │
+    └─ lib/moc/pull_requests.ex:71:37: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning]     error: undefined variable "pull_request"
+    │
+ 99 │           pull_request_id: pull_request.pr_id,
+    │                            ^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:99:28: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning]     error: undefined variable "pull_request"
+    │
+ 77 │         pull_request.pr_external_id
+    │         ^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:77:9: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning]     error: undefined variable "pull_request"
+    │
+ 76 │         pull_request.repo_external_id,
+    │         ^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:76:9: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning]     error: undefined variable "pull_request"
+    │
+ 75 │         pull_request.project_external_id,
+    │         ^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:75:9: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning]     error: undefined variable "settings"
+    │
+ 74 │         settings,
+    │         ^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:74:9: Moc.PullRequests.download_and_insert_comments/1
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1088 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 11ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 162 │     threads =
+     │     ~~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:162:5: Moc.PullRequests.download_prs/2
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 167 │         pull_request.pr_external_id
+     │         ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:167:9: Moc.PullRequests.download_prs/2
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 166 │         pull_request.repo_external_id,
+     │         ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:166:9: Moc.PullRequests.download_prs/2
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 165 │         pull_request.project_external_id,
+     │         ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:9: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1017 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 15ms
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:22
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:22
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:23
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:24
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:25
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:30
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:29
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:28
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:27
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:26
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:25
+
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:163:25
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "pr" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 163 │     |> Enum.map(fn pr ->
+     │                    ~
+     │
+     └─ lib/moc/pull_requests.ex:163:20: Moc.PullRequests.download_prs/2
+
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 164 │       threads =
+     │       ~
+     │
+     └─ lib/moc/pull_requests.ex:164:7: Moc.PullRequests.download_prs/2
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 169 │           pull_request.pr_external_id
+     │           ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:169:11: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1014 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 18ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 164 │       threads =
+     │       ~
+     │
+     └─ lib/moc/pull_requests.ex:164:7: Moc.PullRequests.download_prs/2
+
+[Log] Generated moc app
+[Info] Compile took 1159 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4215ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1013ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 164 │       threads =
+     │       ~
+     │
+     └─ lib/moc/pull_requests.ex:164:7: Moc.PullRequests.download_prs/2
+
+[Log] Generated moc app
+[Info] Compile took 1095 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4382ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1084ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 165 │       threads =
+     │       ~
+     │
+     └─ lib/moc/pull_requests.ex:165:7: Moc.PullRequests.download_prs/2
+
+[Log] Generated moc app
+[Info] Compile took 1170 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4269ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1058ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "threads" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 165 │       threads =
+     │       ~
+     │
+     └─ lib/moc/pull_requests.ex:165:7: Moc.PullRequests.download_prs/2
+
+[Log] Generated moc app
+[Info] Compile took 1011 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 8 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4430ms, changed 1 modules, analyzed 19, 0 warnings found
+[Info] Loaded PLT info in 1140ms
+[Info] Dialyzer analysis is up to date
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:164:23
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1187 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4237ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1020ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 127 │   defp download_prs([repo | rest], result) do
+     │                                    ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:127:36: Moc.PullRequests.download_prs/2
+
+[Log] Generated moc app
+[Info] Compile took 1196 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4398ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1122ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1143 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4213ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1110ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1178 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 5347ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1141ms
+[Info] Dialyzer analysis is up to date
+[Log] Received $/cancelRequest for unknown request id: 2604
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:169:9:
+     error: syntax error before: '}'
+     │
+ 169 │         }
+     │         ^
+     │
+     └─ lib/moc/pull_requests.ex:169:9
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 975 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 174 │   defp download_threads([pr, rest], result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:174:30: Moc.PullRequests.download_threads/2
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 174 │   defp download_threads([pr, rest], result) do
+     │                                     ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:174:37: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 178 │       repo.repo_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:178:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 177 │       repo.project_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:177:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "settings"
+     │
+ 176 │       settings,
+     │       ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:7: Moc.PullRequests.download_threads/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1073 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 15ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/2
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], result) do
+     │                                     ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:37: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 176 │       repo.repo_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 175 │       repo.project_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:175:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "settings"
+     │
+ 174 │       settings,
+     │       ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:174:7: Moc.PullRequests.download_threads/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1023 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 14ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/2
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], result) do
+     │                                     ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:37: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 176 │       repo.repo_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "repo"
+     │
+ 175 │       repo.project_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:175:7: Moc.PullRequests.download_threads/2
+
+[Warning]      error: undefined variable "settings"
+     │
+ 174 │       settings,
+     │       ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:174:7: Moc.PullRequests.download_threads/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1060 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 10ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], settings, result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/3
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], settings, result) do
+     │                                               ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:47: Moc.PullRequests.download_threads/3
+
+[Warning]      error: undefined variable "repo"
+     │
+ 176 │       repo.repo_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:7: Moc.PullRequests.download_threads/3
+
+[Warning]      error: undefined variable "repo"
+     │
+ 175 │       repo.project_external_id,
+     │       ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:175:7: Moc.PullRequests.download_threads/3
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1025 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 8ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], settings, result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/3
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], settings, result) do
+     │                                               ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:47: Moc.PullRequests.download_threads/3
+
+[Warning]      error: undefined variable "repo"
+     │
+ 177 │         repo.repo_external_id,
+     │         ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:177:9: Moc.PullRequests.download_threads/3
+
+[Warning]      error: undefined variable "repo"
+     │
+ 176 │         repo.project_external_id,
+     │         ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:9: Moc.PullRequests.download_threads/3
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1064 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 11ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "project_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, repo_id, settings, result) do
+     │                                     ~~~~~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:37: Moc.PullRequests.download_threads/5
+
+[Warning]      warning: variable "repo_id" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, repo_id, settings, result) do
+     │                                                 ~~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:49: Moc.PullRequests.download_threads/5
+
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, repo_id, settings, result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/5
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, repo_id, settings, result) do
+     │                                                                    ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:68: Moc.PullRequests.download_threads/5
+
+[Warning]      error: undefined variable "repo"
+     │
+ 177 │         repo.repo_external_id,
+     │         ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:177:9: Moc.PullRequests.download_threads/5
+
+[Warning]      error: undefined variable "repo"
+     │
+ 176 │         repo.project_external_id,
+     │         ^^^^
+     │
+     └─ lib/moc/pull_requests.ex:176:9: Moc.PullRequests.download_threads/5
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 999 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 9ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, settings, result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/4
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, settings, result) do
+     │                                                           ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:59: Moc.PullRequests.download_threads/4
+
+[Warning]      error: undefined variable "repo_id"
+     │
+ 177 │         repo_id,
+     │         ^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:177:9: Moc.PullRequests.download_threads/4
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1004 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 13ms
+[Log] Received $/cancelRequest for unknown request id: 2682
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "rest" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, settings, result) do
+     │                              ~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:30: Moc.PullRequests.download_threads/4
+
+[Warning]      warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 172 │   defp download_threads([pr, rest], project_id, settings, result) do
+     │                                                           ~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:172:59: Moc.PullRequests.download_threads/4
+
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 170 │   defp download_threads([], _, _, result), do: result
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:170:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 165 │       |> download_threads(settings)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1026 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 13ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 170 │   defp download_threads([], _, _, result), do: result
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:170:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 181 │     download_threads(rest, [%{pr | threads: threads} | result])
+     │     ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:181:5: Moc.PullRequests.download_threads/4
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 165 │       |> download_threads(settings)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 916 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 5ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 170 │   defp download_threads([], _, _, result), do: result
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:170:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/3 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 181 │     download_threads(rest, project_id, [%{pr | threads: threads} | result])
+     │     ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:181:5: Moc.PullRequests.download_threads/4
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 165 │       |> download_threads(settings)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1125 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 13ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 170 │   defp download_threads([], _, _, result), do: result
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:170:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 165 │       |> download_threads(settings)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 933 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 9ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 170 │   defp download_threads([], _, _, result), do: result
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:170:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/3 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 165 │       |> download_threads(repo.project_external_id, settings)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:165:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 945 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 9ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1101 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 7ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4262ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1059ms
+[Info] Dialyzer analysis is up to date
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:73:29
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 48 │         {total_comments, _} = insert_comments_to_db(prs)
+    │          ~
+    │
+    └─ lib/moc/pull_requests.ex:48:10: Moc.PullRequests.insert_results_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1032 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4166ms, changed 1 modules, analyzed 2, 2 warnings found
+[Info] Loaded PLT info in 1022ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 48 │         {total_comments, _} = insert_comments_to_db(prs)
+    │          ~
+    │
+    └─ lib/moc/pull_requests.ex:48:10: Moc.PullRequests.insert_results_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1072 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4254ms, changed 1 modules, analyzed 2, 2 warnings found
+[Info] Loaded PLT info in 1107ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 48 │         {total_comments, _} = insert_comments_to_db(prs)
+    │          ~
+    │
+    └─ lib/moc/pull_requests.ex:48:10: Moc.PullRequests.insert_results_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1056 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4297ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1062ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 48 │         {total_comments, _} = insert_comments_to_db(prs)
+    │          ~
+    │
+    └─ lib/moc/pull_requests.ex:48:10: Moc.PullRequests.insert_results_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1084 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4278ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1091ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1068 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4347ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1102ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1064 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4274ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1217ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1122 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4262ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1097ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 984 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 15ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4590ms, changed 1 modules, analyzed 18, 0 warnings found
+[Info] Loaded PLT info in 1107ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1110 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4315ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Loaded PLT info in 1207ms
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1972 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 7ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4493ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1059ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "comments"
+     │
+ 108 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:108:13: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 102 │         pull_request_id: pull_request.pr_id,
+     │                          ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:102:26: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 974 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 8ms
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:45:27
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "pr_id_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 46 │         pr_id_map = get_pr_id_map(prs)
+    │         ~
+    │
+    └─ lib/moc/pull_requests.ex:46:9: Moc.PullRequests.insert_results_to_db/2
+
+[Warning]      error: undefined variable "pr_id_map"
+     │
+ 127 │             pull_request_id: pr_id_map[pr.id],
+     │                              ^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:127:30: Moc.PullRequests.insert_reviews_to_db/1
+
+[Warning]      error: undefined variable "comments"
+     │
+ 110 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:110:13: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 104 │         pull_request_id: pull_request.pr_id,
+     │                          ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:104:26: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 976 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 6ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "pr_id_map"
+     │
+ 127 │             pull_request_id: pr_id_map[pr.id],
+     │                              ^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:127:30: Moc.PullRequests.insert_reviews_to_db/1
+
+[Warning]      error: undefined variable "comments"
+     │
+ 110 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:110:13: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 104 │         pull_request_id: pull_request.pr_id,
+     │                          ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:104:26: Moc.PullRequests.insert_comments_to_db/1
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 964 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 9ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "pr_id_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 79 │   defp insert_comments_to_db(prs, pr_id_map) do
+    │                                   ~~~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:79:35: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined variable "comments"
+     │
+ 110 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:110:13: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined variable "pull_request"
+     │
+ 104 │         pull_request_id: pull_request.pr_id,
+     │                          ^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:104:26: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 977 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 9ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "comments"
+     │
+ 110 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:110:13: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined variable "pr"
+     │
+ 104 │         pull_request_id: pr_id_map[pr.id],
+     │                                    ^^
+     │
+     └─ lib/moc/pull_requests.ex:104:36: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 977 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 10ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "comments"
+     │
+ 111 │     {length(comments), nil}
+     │             ^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:111:13: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined variable "pr"
+     │
+ 104 │         pull_request_id: pr_id_map[pr.id],
+     │                                    ^^
+     │
+     └─ lib/moc/pull_requests.ex:104:36: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 957 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 7ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "pr"
+     │
+ 104 │         pull_request_id: pr_id_map[pr.id],
+     │                                    ^^
+     │
+     └─ lib/moc/pull_requests.ex:104:36: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1012 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 15ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined variable "pr"
+     │
+ 105 │         pull_request_id: pr_id_map[pr.id],
+     │                                    ^^
+     │
+     └─ lib/moc/pull_requests.ex:105:36: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1018 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 12ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined function utc_now/0 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 107 │         updated_at: utc_now()
+     │                     ^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:107:21: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined function utc_now/0 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 106 │         inserted_at: utc_now(),
+     │                      ^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:106:22: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined function string_to_utc/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 102 │         updated_on: cmt.updated_on |> string_to_utc,
+     │                                       ^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:102:39: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined function string_to_utc/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 101 │         published_on: cmt.published_on |> string_to_utc,
+     │                                           ^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:101:43: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]     error: undefined function if_nil/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 99 │         content: if_nil(cmt.content),
+    │                  ^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:99:18: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1007 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 10ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      error: undefined function string_to_utc/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 102 │         updated_on: cmt.updated_on |> string_to_utc,
+     │                                       ^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:102:39: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]      error: undefined function string_to_utc/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 101 │         published_on: cmt.published_on |> string_to_utc,
+     │                                           ^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:101:43: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning]     error: undefined function if_nil/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 99 │         content: if_nil(cmt.content),
+    │                  ^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:99:18: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 995 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 8ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined function if_nil/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 99 │         content: if_nil(cmt.content),
+    │                  ^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:99:18: Moc.PullRequests.insert_comments_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1019 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 8ms
+[Log] Received $/cancelRequest for unknown request id: 2954
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: Moc.Utils.if_nil/1 is undefined or private
+    │
+ 99 │         content: Utils.if_nil(cmt.content),
+    │                        ~
+    │
+    └─ lib/moc/pull_requests.ex:99:24: Moc.PullRequests.insert_comments_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1169 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4641ms, changed 1 modules, analyzed 2, 1 warnings found
+[Info] Loaded PLT info in 1098ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1056 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 4 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4479ms, changed 1 modules, analyzed 21, 0 warnings found
+[Info] Loaded PLT info in 1065ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1164 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4278ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1133ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1050 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4262ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1080ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] warning: invalid association `created_by` in schema Moc.PullRequests.PullRequestComment: associated schema Moc.Schema.Contributor does not exist
+  lib/moc/pull_requests/pull_request_comment.ex:1: Moc.PullRequests.PullRequestComment (module)
+
+[Warning] warning: invalid association `pull_request` in schema Moc.PullRequests.PullRequestComment: associated schema Moc.Schema.PullRequest does not exist
+  lib/moc/pull_requests/pull_request_comment.ex:1: Moc.PullRequests.PullRequestComment (module)
+
+[Log] Generated moc app
+[Info] Compile took 1105 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4256ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1036ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] warning: invalid association `created_by` in schema Moc.PullRequests.PullRequestComment: associated schema Moc.Schema.Contributor does not exist
+  lib/moc/pull_requests/pull_request_comment.ex:1: Moc.PullRequests.PullRequestComment (module)
+
+[Warning] warning: invalid association `pull_request` in schema Moc.PullRequests.PullRequestComment: associated schema Moc.Schema.PullRequest does not exist
+  lib/moc/pull_requests/pull_request_comment.ex:1: Moc.PullRequests.PullRequestComment (module)
+
+[Log] Generated moc app
+[Info] Compile took 1112 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4223ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1090ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1088 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Incremental PLT updated in 4796ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1386ms
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: unused import Ecto.Changeset
+    │
+  3 │   import Ecto.Changeset
+    │   ~
+    │
+    └─ lib/moc/pull_requests/pull_request_comment.ex:3:3
+
+[Log] Generated moc app
+[Info] Compile took 4102 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: unused import Ecto.Changeset
+    │
+  3 │   import Ecto.Changeset
+    │   ~
+    │
+    └─ lib/moc/pull_requests/pull_request_comment.ex:3:3
+
+[Log] Generated moc app
+[Info] Compile took 3695 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 14ms
+[Info] Incremental PLT updated in 6386ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1557ms
+[Info] Updating incremental PLT
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Incremental PLT updated in 1484ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 2020ms
+[Log] Compiling 1 file (.ex)
+[Warning] warning: invalid association `comments` in schema Moc.PullRequests.PullRequest: associated schema PullRequestComment does not exist
+  lib/moc/pull_requests/pull_request.ex:1: Moc.PullRequests.PullRequest (module)
+
+[Warning]     warning: unused import Ecto.Changeset
+    │
+  3 │   import Ecto.Changeset
+    │   ~
+    │
+    └─ lib/moc/pull_requests/pull_request_comment.ex:3:3
+
+[Log] Generated moc app
+[Info] Compile took 3316 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 5188ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1139ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Warning]     warning: unused import Ecto.Changeset
+    │
+  3 │   import Ecto.Changeset
+    │   ~
+    │
+    └─ lib/moc/pull_requests/pull_request_comment.ex:3:3
+
+[Warning] warning: invalid association `comments` in schema Moc.PullRequests.PullRequest: associated schema PullRequestComment does not exist
+  lib/moc/pull_requests/pull_request.ex:1: Moc.PullRequests.PullRequest (module)
+
+[Info] Compile took 991 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 1019ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1130ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Warning]     warning: unused import Ecto.Changeset
+    │
+  3 │   import Ecto.Changeset
+    │   ~
+    │
+    └─ lib/moc/pull_requests/pull_request_comment.ex:3:3
+
+[Warning] warning: invalid association `comments` in schema Moc.PullRequests.PullRequest: associated schema PullRequestComment does not exist
+  lib/moc/pull_requests/pull_request.ex:1: Moc.PullRequests.PullRequest (module)
+
+[Info] Compile took 984 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 1075ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1151ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] warning: invalid association `comments` in schema Moc.PullRequests.PullRequest: associated schema PullRequestComment does not exist
+  lib/moc/pull_requests/pull_request.ex:1: Moc.PullRequests.PullRequest (module)
+
+[Log] Generated moc app
+[Info] Compile took 1153 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4287ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1080ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1141 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4484ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1042ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1194 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4268ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1099ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined variable "current_total"
+    │
+ 62 │     insert_results_to_db(rest, [current_total | result])
+    │                                 ^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:62:33: Moc.PullRequests.insert_results_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 987 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 11ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1211 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4180ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1023ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1177 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 15ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4241ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1072ms
+[Info] Dialyzer analysis is up to date
+[Log] Received $/cancelRequest for unknown request id: 3120
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "contributors" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 97 │     contributors =
+    │     ~~~~~~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:97:5: Moc.PullRequests.insert_comments_to_db/2
+
+[Log] Generated moc app
+[Info] Compile took 1196 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4296ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1028ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1203 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4287ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1151ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1264 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4248ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1030ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: function insert_comments_to_db/2 is unused
+    │
+ 79 │   defp insert_comments_to_db(prs, pr_id_map) do
+    │        ~
+    │
+    └─ lib/moc/pull_requests.ex:79:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1218 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 8ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4228ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1097ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Warning]     warning: function insert_comments_to_db/2 is unused
+    │
+ 79 │   defp insert_comments_to_db(prs, pr_id_map) do
+    │        ~
+    │
+    └─ lib/moc/pull_requests.ex:79:8: Moc.PullRequests (module)
+
+[Info] Compile took 1010 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 2ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 959ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1129ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined function insert_comments_to_db/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 52 │         {total_comments, _} = insert_comments_to_db(prs, pr_id_map)
+    │                               ^^^^^^^^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:52:31: Moc.PullRequests.insert_results_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1113 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 15ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined variable "total_comments"
+    │
+ 56 │           number_of_comments: total_comments
+    │                               ^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:56:31: Moc.PullRequests.insert_results_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1093 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 10ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1114 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4360ms, changed 2 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1090ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Compile took 940 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 954ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1113ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Compile took 893 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 1002ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1108ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1004 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 5 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4686ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1112ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1000 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 5 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4164ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1018ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     error: undefined variable "current_total"
+    │
+ 54 │     insert_results_to_db(rest, [current_total | result])
+    │                                 ^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:54:33: Moc.PullRequests.insert_results_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 952 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 14ms
+[Log] Received $/cancelRequest for unknown request id: 3203
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1075 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4269ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1091ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 168 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:168:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1073 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 7ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4185ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1073ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: function insert_comments_to_db/2 is unused
+    │
+ 74 │   defp insert_comments_to_db(prs, pr_id_map) do
+    │        ~
+    │
+    └─ lib/moc/pull_requests.ex:74:8: Moc.PullRequests (module)
+
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 203 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:203:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1187 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4410ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1048ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "pr_id_map" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 50 │     pr_id_map = get_pr_id_map(prs)
+    │     ~~~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:50:5: Moc.PullRequests.insert_results_to_db/2
+
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 54 │     {total_comments, _} = insert_comments_to_db(prs)
+    │      ~~~~~~~~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:54:6: Moc.PullRequests.insert_results_to_db/2
+
+[Warning]      warning: function insert_reviews_to_db/2 is unused
+     │
+ 112 │   defp insert_reviews_to_db(prs, pr_id_map) do
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:112:8: Moc.PullRequests (module)
+
+[Warning]     warning: function insert_comments_to_db/2 is unused
+    │
+ 77 │   defp insert_comments_to_db(prs, pr_id_map) do
+    │        ~
+    │
+    └─ lib/moc/pull_requests.ex:77:8: Moc.PullRequests (module)
+
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 204 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:204:8: Moc.PullRequests (module)
+
+[Warning]     error: undefined function insert_comments_to_db/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 54 │     {total_comments, _} = insert_comments_to_db(prs)
+    │                           ^^^^^^^^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:54:27: Moc.PullRequests.insert_results_to_db/2
+
+[Warning]     error: undefined function insert_reviews_to_db/1 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+    │
+ 53 │     {total_reviews, _} = insert_reviews_to_db(prs)
+    │                          ^^^^^^^^^^^^^^^^^^^^
+    │
+    └─ lib/moc/pull_requests.ex:53:26: Moc.PullRequests.insert_results_to_db/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 1128 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 10ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "total_comments" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 53 │     {total_comments, _} = insert_comments_to_db(prs, pr_id_map)
+    │      ~~~~~~~~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:53:6: Moc.PullRequests.insert_results_to_db/2
+
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 203 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:203:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1113 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4336ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1061ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (KeyError) key :number_of_comments not found
+    expanding struct: Moc.PullRequests.ImportResult.__struct__/1
+    lib/moc/pull_requests.ex:55: Moc.PullRequests.insert_results_to_db/2
+[Info] Compile took 1035 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 16ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 209 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:209:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1121 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 15ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4245ms, changed 2 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1118ms
+[Info] Dialyzer analysis is up to date
+[Warning] warning: an expression is always required on the right side of ->. Please provide a value after ->
+└─ nofile:209:25
+
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "all_prs" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 208 │     all_prs =
+     │     ~~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:208:5: Moc.PullRequests.download_prs/2
+
+[Warning]      warning: function download_threads/4 is unused
+     │
+ 215 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:215:8: Moc.PullRequests (module)
+
+[Warning]      error: undefined function download_threads/2 (expected Moc.PullRequests to define such a function or for it to be imported, but none are available)
+     │
+ 210 │       |> download_threads(repo.pro)
+     │          ^^^^^^^^^^^^^^^^
+     │
+     └─ lib/moc/pull_requests.ex:210:10: Moc.PullRequests.download_prs/2
+
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (CompileError) lib/moc/pull_requests.ex: cannot compile module Moc.PullRequests (errors have been logged)
+
+[Info] Compile took 974 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 3 symbols added to index in 12ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: variable "all_prs" is unused (if the variable is not meant to be used, prefix it with an underscore)
+     │
+ 208 │     all_prs =
+     │     ~~~~~~~
+     │
+     └─ lib/moc/pull_requests.ex:208:5: Moc.PullRequests.download_prs/2
+
+[Warning]      warning: default values for the optional arguments in download_threads/4 are never used
+     │
+ 215 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:215:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1165 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4241ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1087ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]      warning: default values for the optional arguments in download_threads/4 are never used
+     │
+ 215 │   defp download_threads(prs, project_id, settings, result \\ [])
+     │        ~
+     │
+     └─ lib/moc/pull_requests.ex:215:8: Moc.PullRequests (module)
+
+[Log] Generated moc app
+[Info] Compile took 1189 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4395ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1181ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1268 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4662ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1406ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1216 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4540ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1538ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1128 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4747ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1117ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "result" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 51 │     result =
+    │     ~~~~~~
+    │
+    └─ lib/moc/contributor_cache.ex:51:5: Moc.ContributorCache.create_contributor/1
+
+[Warning]     error: undefined variable "resp"
+    │
+ 59 │     resp.id
+    │     ^^^^
+    │
+    └─ lib/moc/contributor_cache.ex:59:5: Moc.ContributorCache.create_contributor/1
+
+[Warning] 
+== Compilation error in file lib/moc/contributor_cache.ex ==
+** (CompileError) lib/moc/contributor_cache.ex: cannot compile module Moc.ContributorCache (errors have been logged)
+
+[Info] Compile took 943 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: Logger.info/1 is undefined or private. However, there is a macro with the same name and arity. Be sure to require Logger if you intend to invoke this macro
+    │
+ 16 │     Logger.info("Starting contributor cache process. '#{@me}'")
+    │            ~
+    │
+    └─ lib/moc/contributor_cache.ex:16:12: Moc.ContributorCache.start_link/1
+
+[Log] Generated moc app
+[Info] Compile took 1027 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 5 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4563ms, changed 1 modules, analyzed 3, 1 warnings found
+[Info] Loaded PLT info in 1118ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1117 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 5 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 5030ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1375ms
+[Info] Dialyzer analysis is up to date
+[Log] Received $/cancelRequest for unknown request id: 3342
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:108:96:
+     error: syntax error before: ','
+     │
+ 108 │         liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_by_id/1) |> Enum.join(","),,
+     │                                                                                                ^
+     │
+     └─ lib/moc/pull_requests.ex:108:96
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 964 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1092 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4323ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1099ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1275 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4713ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1325ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1133 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4364ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1020ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1108 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4518ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1138ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1128 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4318ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1078ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1137 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4466ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1093ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1154 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 5ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4310ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1101ms
+[Info] Dialyzer analysis is up to date
+[Warning] warning: missing parentheses for expression following "else:" keyword. Parentheses are required to solve ambiguity inside keywords.
+
+This error happens when you have function calls without parentheses inside keywords. For example:
+
+    function(arg, one: nested_call a, b, c)
+    function(arg, one: if expr, do: :this, else: :that)
+
+In the examples above, we don't know if the arguments "b" and "c" apply to the function "function" or "nested_call". Or if the keywords "do" and "else" apply to the function "function" or "if". You can solve this by explicitly adding parentheses:
+
+    function(arg, one: if(expr, do: :this, else: :that))
+    function(arg, one: nested_call(a, b, c))
+
+Ambiguity found at:
+└─ nofile:103
+
+[Log] Received $/cancelRequest for unknown request id: 3431
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:103:24:
+     error: unexpected comma. Parentheses are required to solve ambiguity inside containers.
+
+     This error may happen when you forget a comma in a list or other container:
+
+         [a, b c, d]
+
+     Or when you have ambiguous calls:
+
+         [function a, b, c]
+
+     In the example above, we don't know if the values "b" and "c" belongs to the list or the function "function". You can solve this by explicitly adding parentheses:
+
+         [one, function(a, b, c)]
+
+     Elixir cannot compile otherwise. Syntax error before: ','
+     │
+ 103 │         thread_status: if cmt.thread_status = nil, do: nil, else: cmt.thread_status |> String.to_atom(),
+     │                        ^
+     │
+     └─ lib/moc/pull_requests.ex:103:24
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 975 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Log] Received $/cancelRequest for unknown request id: 3433
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:103:51:
+     error: unexpected keyword: do:. In case you wanted to write a "do" expression, you must either use do-blocks or separate the keyword argument with comma. For example, you should either write:
+
+         if some_condition? do
+           :this
+         else
+           :that
+         end
+
+     or the equivalent construct:
+
+         if(some_condition?, do: :this, else: :that)
+
+     where "some_condition?" is the first argument and the second argument is a keyword list.
+
+     You may see this error if you forget a trailing comma before the "do" in a "do" block
+     │
+ 103 │         thread_status: if cmt.thread_status = nil do: nil, else: cmt.thread_status |> String.to_atom(),
+     │                                                   ^
+     │
+     └─ lib/moc/pull_requests.ex:103:51
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 965 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Log] Received $/cancelRequest for unknown request id: 3434
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:103:24:
+     error: unexpected comma. Parentheses are required to solve ambiguity inside containers.
+
+     This error may happen when you forget a comma in a list or other container:
+
+         [a, b c, d]
+
+     Or when you have ambiguous calls:
+
+         [function a, b, c]
+
+     In the example above, we don't know if the values "b" and "c" belongs to the list or the function "function". You can solve this by explicitly adding parentheses:
+
+         [one, function(a, b, c)]
+
+     Elixir cannot compile otherwise. Syntax error before: ','
+     │
+ 103 │         thread_status: if cmt.thread_status = nil, do: nil, else: cmt.thread_status |> String.to_atom(),
+     │                        ^
+     │
+     └─ lib/moc/pull_requests.ex:103:24
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 957 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Log] Received $/cancelRequest for unknown request id: 3436
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:103:60:
+     error: syntax error before: 'else:'
+     │
+ 103 │         thread_status: if cmt.thread_status = nil, do: nil else: cmt.thread_status |> String.to_atom(),
+     │                                                            ^
+     │
+     └─ lib/moc/pull_requests.ex:103:60
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 975 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Log] Received $/cancelRequest for unknown request id: 3438
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning] 
+== Compilation error in file lib/moc/pull_requests.ex ==
+** (SyntaxError) invalid syntax found on lib/moc/pull_requests.ex:103:24:
+     error: unexpected comma. Parentheses are required to solve ambiguity inside containers.
+
+     This error may happen when you forget a comma in a list or other container:
+
+         [a, b c, d]
+
+     Or when you have ambiguous calls:
+
+         [function a, b, c]
+
+     In the example above, we don't know if the values "b" and "c" belongs to the list or the function "function". You can solve this by explicitly adding parentheses:
+
+         [one, function(a, b, c)]
+
+     Elixir cannot compile otherwise. Syntax error before: ','
+     │
+ 103 │         thread_status: if cmt.thread_status = nil, do: nil, else: cmt.thread_status |> String.to_atom(),
+     │                        ^
+     │
+     └─ lib/moc/pull_requests.ex:103:24
+    (elixir 1.18.2) lib/kernel/parallel_compiler.ex:428: anonymous fn/5 in Kernel.ParallelCompiler.spawn_workers/8
+[Info] Compile took 973 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1189 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 945ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1162ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1101 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 15ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4193ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1021ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1187 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 15ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4310ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1158ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1041 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 14ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4282ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1060ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1025 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 12ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4360ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1074ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Compile took 973 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 951ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1100ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: this clause for create_changeset/2 cannot match because a previous clause at line 15 always matches
+    │
+ 19 │   def create_changeset(sync_history, attrs) do
+    │       ~
+    │
+    └─ lib/moc/admin/sync_history.ex:19:7
+
+[Log] Generated moc app
+[Info] Compile took 1057 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 7 symbols added to index in 13ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4278ms, changed 1 modules, analyzed 1, 1 warnings found
+[Info] Loaded PLT info in 1153ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 986 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 8 symbols added to index in 6ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4300ms, changed 1 modules, analyzed 1, 0 warnings found
+[Info] Loaded PLT info in 1087ms
+[Info] Dialyzer analysis is up to date
+[Log] Received $/cancelRequest for unknown request id: 3648
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Compile took 974 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 0 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 0 symbols added to index in 0ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 942ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1107ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "history" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 30 │     history = SyncHistory.create_changeset(%SyncHistory{}) |> Repo.insert!()
+    │     ~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:30:5: Moc.PullRequests.do_import!/0
+
+[Warning]     warning: Moc.Admin.SyncHistory.create_changeset/1 is undefined or private. Did you mean:
+
+          * create_changeset/2
+
+    │
+ 30 │     history = SyncHistory.create_changeset(%SyncHistory{}) |> Repo.insert!()
+    │                           ~
+    │
+    └─ lib/moc/pull_requests.ex:30:27: Moc.PullRequests.do_import!/0
+
+[Log] Generated moc app
+[Info] Compile took 1169 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4386ms, changed 1 modules, analyzed 2, 1 warnings found
+[Info] Loaded PLT info in 1133ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "history" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 30 │     history = %SyncHistory{} |> SyncHistory.create_changeset() |> Repo.insert!()
+    │     ~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:30:5: Moc.PullRequests.do_import!/0
+
+[Warning]     warning: Moc.Admin.SyncHistory.create_changeset/1 is undefined or private. Did you mean:
+
+          * create_changeset/2
+
+    │
+ 30 │     history = %SyncHistory{} |> SyncHistory.create_changeset() |> Repo.insert!()
+    │                                             ~
+    │
+    └─ lib/moc/pull_requests.ex:30:45: Moc.PullRequests.do_import!/0
+
+[Log] Generated moc app
+[Info] Compile took 1141 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 10ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4411ms, changed 1 modules, analyzed 2, 1 warnings found
+[Info] Loaded PLT info in 1098ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "history" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 30 │     history = %SyncHistory{} |> SyncHistory.create_changeset() |> Repo.insert!()
+    │     ~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:30:5: Moc.PullRequests.do_import!/0
+
+[Log] Generated moc app
+[Info] Compile took 1204 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 8 symbols added to index in 11ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 4412ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Loaded PLT info in 1211ms
+[Log] Compiling 1 file (.ex)
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "history" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 30 │     history = %SyncHistory{} |> SyncHistory.create_changeset() |> Repo.insert!()
+    │     ~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:30:5: Moc.PullRequests.do_import!/0
+
+[Log] Generated moc app
+[Info] Compile took 2131 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 8 symbols added to index in 17ms
+[Info] Updating incremental PLT
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Compiling 1 file (.ex)
+[Warning]     warning: variable "history" is unused (if the variable is not meant to be used, prefix it with an underscore)
+    │
+ 30 │     history = %SyncHistory{} |> SyncHistory.create_changeset() |> Repo.insert!()
+    │     ~~~~~~~
+    │
+    └─ lib/moc/pull_requests.ex:30:5: Moc.PullRequests.do_import!/0
+
+[Log] Generated moc app
+[Info] Compile took 4625 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 1 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 8 symbols added to index in 18ms
+[Info] Incremental PLT updated in 6562ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1680ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 5067ms, changed 1 modules, analyzed 3, 0 warnings found
+[Info] Loaded PLT info in 1075ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1138 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 9ms
+[Info] Updating incremental PLT
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Info] Compile took 2925 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 2ms
+[Info] Incremental PLT updated in 5398ms, changed 1 modules, analyzed 2, 0 warnings found
+[Info] Loaded PLT info in 1461ms
+[Info] Updating incremental PLT
+[Info] Incremental PLT updated in 916ms, changed 0 modules, analyzed 0, 0 warnings found
+[Info] Loaded PLT info in 1157ms
+[Info] Dialyzer analysis is up to date
+[Info] Starting build with MIX_ENV: test MIX_TARGET: host
+[Log] Compiling 1 file (.ex)
+[Log] Generated moc app
+[Info] Compile took 1143 milliseconds
+[Info] [ElixirLS WorkspaceSymbols] Updating index...
+[Info] [ElixirLS WorkspaceSymbols] 2 modules need reindexing
+[Info] [ElixirLS WorkspaceSymbols] 6 symbols added to index in 8ms
+[Info] Updating incremental PLT

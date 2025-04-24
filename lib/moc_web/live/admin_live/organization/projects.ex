@@ -26,6 +26,9 @@ defmodule MocWeb.AdminLive.Organization.Projects do
 
     ~H"""
     <.admin_content selected_nav="organizations" breadcrumb={@breadcrumb}>
+      <div :if={@total_projects > 0} class="text-sm mb-3">
+        Click on a project to see the list of repositories.
+      </div>
       <.table
         :if={@total_projects > 0}
         id="organizations"

@@ -23,6 +23,7 @@ defmodule Moc.Connector.Type do
               vote: integer(),
               is_required: integer()
             }),
+          threads: list(thread()),
           completionOptions: %{
             delete_source_branch: String.t(),
             squash_merge: String.t(),

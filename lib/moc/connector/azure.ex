@@ -52,7 +52,7 @@ defmodule Moc.Connector.Azure do
         skip
       ) do
     # increase 1 second to not to get the already retrieved pr
-    min_date = NaiveDateTime.add(min_date, 1)
+    min_date = DateTime.add(min_date, 1)
 
     url =
       "https://dev.azure.com/#{settings.organization_id}/_apis/git/repositories/#{repository_id}/pullrequests?searchCriteria.queryTimeRangeType=closed&searchCriteria.minTime=#{format_utc_date(min_date)}&searchCriteria.status=#{status}&$skip=#{skip}&$top=#{@page_size}&api-version=7.1"
@@ -85,6 +85,7 @@ defmodule Moc.Connector.Azure do
                    is_required: rev["isRequired"]
                  }
                end),
+             threads: [],
              completionOptions: %{
                delete_source_branch: res["completionOptions"]["deleteSourceBranch"],
                squash_merge: res["completionOptions"]["squashMerge"],

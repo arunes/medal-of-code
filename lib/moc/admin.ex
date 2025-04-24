@@ -35,7 +35,7 @@ end
 
 defmodule Moc.Admin do
   import Ecto.Query
-  alias Hex.API.Key.Organization
+  alias Moc.Utils
   alias Hex.API.Key.Organization
   alias Moc.Connector
   alias Moc.Repo
@@ -181,8 +181,8 @@ defmodule Moc.Admin do
               DateTime.utc_now()
               |> DateTime.add(6 * 30 * 24 * 60 * 60 * -1)
               |> DateTime.truncate(:second),
-            inserted_at: DateTime.utc_now() |> DateTime.truncate(:second),
-            updated_at: DateTime.utc_now() |> DateTime.truncate(:second)
+            inserted_at: Utils.utc_now(),
+            updated_at: Utils.utc_now()
           }
         end)
 

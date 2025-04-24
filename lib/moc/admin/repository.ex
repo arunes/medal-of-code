@@ -3,11 +3,11 @@ defmodule Moc.Admin.Repository do
   import Ecto.Changeset
 
   schema "repositories" do
-    field(:external_id, :string)
-    field(:name, :string)
-    field(:url, :string)
-    field(:sync_enabled, :boolean)
-    field(:cutoff_date, :utc_datetime)
+    field :external_id, :string
+    field :name, :string
+    field :url, :string
+    field :sync_enabled, :boolean
+    field :cutoff_date, :utc_datetime
 
     belongs_to(:project, Moc.Admin.Project)
 

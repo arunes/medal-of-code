@@ -35,6 +35,9 @@ defmodule MocWeb.AdminLive.Organization.Index do
     <.admin_content selected_nav="organizations" breadcrumb={@breadcrumb}>
       <.delete_modal :for={{_, org} <- @streams.organizations} org={org} />
 
+      <div :if={@total_organizations > 0} class="text-sm mb-3">
+        Click on an organization to see the list of projects.
+      </div>
       <.table
         :if={@total_organizations > 0}
         id="organizations"

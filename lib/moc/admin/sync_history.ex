@@ -6,14 +6,25 @@ defmodule Moc.Admin.SyncHistory do
     field :prs_imported, :integer
     field :pr_reviews_imported, :integer
     field :comments_imported, :integer
+    field :error_message, :string
+    field :status, Ecto.Enum, values: [:importing, :finished, :failed]
 
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
-  def changeset(sync_history, attrs) do
+  def create_changeset(sync_history, attrs \\ %{}) do
+    sync_history |> cast(attrs, [])
+  end
+
+  def update_changeset(sync_history, attrs) do
     sync_history
-    |> cast(attrs, [:prs_imported, :pr_reviews_imported, :comments_imported])
-    |> validate_required([:prs_imported, :pr_reviews_imported, :comments_imported])
+    |> cast(attrs, [
+      :prs_imported,
+      :pr_reviews_imported,
+      :comments_imported,
+      :error_message,
+      :status
+    ])
+    |> validate_required([:prs_imported, :pr_reviews_imported, :comments_imported, :status])
   end
 end

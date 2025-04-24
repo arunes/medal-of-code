@@ -1,6 +1,6 @@
 defmodule Moc.Instance do
-  require Logger
   use Agent
+  require Logger
   import Ecto.Query
   alias Moc.Admin.Organization
   alias Moc.Instance.Status
@@ -11,7 +11,7 @@ defmodule Moc.Instance do
   @me __MODULE__
 
   def start_link(_args) do
-    Logger.info("Starting settings process. '#{@me}'")
+    Logger.info("Starting instance process. '#{@me}'")
     Agent.start_link(&get_initial_state/0, name: @me)
   end
 

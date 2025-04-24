@@ -3,17 +3,17 @@ defmodule Moc.PullRequests.Contributor do
   import Ecto.Changeset
 
   schema "contributors" do
-    field(:external_id, :string)
-    field(:name, :string)
-    field(:email, :string)
-    field(:is_visible, :boolean)
+    field :external_id, :string
+    field :name, :string
+    field :email, :string
+    field :is_visible, :boolean
 
     timestamps(type: :utc_datetime)
   end
 
   @doc false
-  def changeset(contributors, attrs) do
-    contributors
+  def create_changeset(contributor, attrs \\ %{}) do
+    contributor
     |> cast(attrs, [:name, :external_id, :email])
     |> validate_required([:name, :external_id])
   end

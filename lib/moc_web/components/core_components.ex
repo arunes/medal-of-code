@@ -372,6 +372,7 @@ defmodule MocWeb.CoreComponents do
   attr :rows, :list, required: true
   attr :row_id, :any, default: nil, doc: "the function for generating the row id"
   attr :row_click, :any, default: nil, doc: "the function for handling phx-click on each row"
+  attr :class, :string, default: nil
 
   attr :row_item, :any,
     default: &Function.identity/1,
@@ -393,7 +394,7 @@ defmodule MocWeb.CoreComponents do
 
     ~H"""
     <div class="overflow-y-auto px-4 sm:overflow-visible sm:px-0">
-      <table class="w-full text-left mb-12">
+      <table class={["w-full text-left", @class]}>
         <thead class="text-sm bg-moc-3 text-moc-1">
           <tr>
             <th

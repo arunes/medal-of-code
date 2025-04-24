@@ -1,6 +1,7 @@
 defmodule Moc.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Moc.Utils
 
   schema "users" do
     field :email, :string
@@ -128,8 +129,7 @@ defmodule Moc.Accounts.User do
   Confirms the account by setting `confirmed_at`.
   """
   def confirm_changeset(user) do
-    now = DateTime.utc_now() |> DateTime.truncate(:second)
-    change(user, confirmed_at: now)
+    change(user, confirmed_at: Utils.utc_now())
   end
 
   @doc """

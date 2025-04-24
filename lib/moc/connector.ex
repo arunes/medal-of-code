@@ -74,7 +74,7 @@ defmodule Moc.Connector do
   ## Returns
     - A list of pull requests (`Type.pull_request()`).
   """
-  @spec get_pull_requests(t(), String.t(), String.t(), NaiveDateTime.t()) ::
+  @spec get_pull_requests(t(), String.t(), String.t(), DateTime.t()) ::
           list(Type.pull_request())
   def get_pull_requests(%{provider: :azure} = settings, repository_id, status, min_date) do
     Azure.get_pull_requests(settings, repository_id, status, min_date, 0)

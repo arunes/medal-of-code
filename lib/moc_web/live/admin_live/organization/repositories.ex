@@ -47,7 +47,7 @@ defmodule MocWeb.AdminLive.Organization.Repositories do
 
     ~H"""
     <.admin_content selected_nav="organizations" breadcrumb={@breadcrumb}>
-      <p class="mb-2 text-center">
+      <p class="text-sm mb-3">
         Click <.icon name="hero-check" class="h-5 w-5 align-text-top" /> or
         <.icon name="hero-x-mark" class="h-5 w-5 align-text-top" /> icons to set sync status.
       </p>
