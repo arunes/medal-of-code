@@ -59,15 +59,7 @@ defmodule Moc.PullRequests do
   defp insert_results_to_db([], result), do: result
 
   defp insert_results_to_db([{repo_id, prs} | rest], result) do
-    # {:ok, current_total} =
-    #   Repo.transaction(fn ->
-    #     {total_prs, _} = insert_prs_to_db(repo_id, prs)
-    #     {total_reviews, _} = insert_reviews_to_db(prs)
-    #     %ImportResult{number_of_prs: total_prs, number_of_reviews: total_reviews}
-    #   end)
-
     {total_prs, _} = insert_prs_to_db(repo_id, prs)
-
     pr_id_map = get_pr_id_map(prs)
     {total_reviews, _} = insert_reviews_to_db(prs, pr_id_map)
     {total_comments, _} = insert_comments_to_db(prs, pr_id_map)
@@ -99,37 +91,47 @@ defmodule Moc.PullRequests do
   end
 
   defp insert_comments_to_db(prs, pr_id_map) do
-    prs
-    |> Enum.flat_map(fn pr ->
-      pr.threads
-      |> Enum.flat_map(fn th ->
-        th.comments
-        |> Enum.map(fn cmt ->
-          cmt
-          |> Map.put(:thread_id, th.id)
-          |> Map.put(:thread_status, th.status)
-          |> Map.put(:pull_request_id, pr.id)
+    result =
+      prs
+      |> Enum.flat_map(fn pr ->
+        pr.threads
+        |> Enum.flat_map(fn th ->
+          th.comments
+          |> Enum.map(fn cmt ->
+            cmt
+            |> Map.put(:thread_id, th.id)
+            |> Map.put(:thread_status, th.status)
+            |> Map.put(:pull_request_id, pr.id)
+          end)
         end)
       end)
-    end)
-    |> Enum.map(fn cmt ->
-      %{
-        external_id: cmt.id,
-        thread_id: cmt.thread_id,
-        thread_status: cmt.thread_status |> Utils.nullable_atom(),
-        parent_comment_id: cmt.parent_comment_id,
-        content: Utils.if_nil(cmt.content),
-        comment_type: cmt.comment_type |> String.to_atom(),
-        published_on: cmt.published_on |> Utils.string_to_utc(),
-        updated_on: cmt.updated_on |> Utils.string_to_utc(),
-        created_by_id: ContributorCache.get_by_id(cmt.created_by),
-        liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_by_id/1) |> Enum.join(","),
-        pull_request_id: pr_id_map[cmt.pull_request_id],
-        inserted_at: Utils.utc_now(),
-        updated_at: Utils.utc_now()
-      }
-    end)
-    |> then(&Repo.insert_all(PullRequestComment, &1))
+      |> Enum.map(fn cmt ->
+        %{
+          external_id: cmt.id,
+          thread_id: cmt.thread_id,
+          thread_status: cmt.thread_status |> Utils.nullable_atom(),
+          parent_comment_id: cmt.parent_comment_id,
+          content: Utils.if_nil(cmt.content),
+          comment_type: cmt.comment_type |> String.to_atom(),
+          published_on: cmt.published_on |> Utils.string_to_utc(),
+          updated_on: cmt.updated_on |> Utils.string_to_utc(),
+          created_by_id: ContributorCache.get_by_id(cmt.created_by),
+          liked_by: cmt.users_liked |> Enum.map(&ContributorCache.get_by_id/1) |> Enum.join(","),
+          pull_request_id: pr_id_map[cmt.pull_request_id],
+          inserted_at: Utils.utc_now(),
+          updated_at: Utils.utc_now()
+        }
+      end)
+      |> then(&Repo.insert_all(PullRequestComment, &1))
+
+    # update prs to set comment import date
+    pr_ids = pr_id_map |> Enum.map(fn {_, v} -> v end)
+
+    Repo.update_all(from(pr in PullRequest, where: pr.id in ^pr_ids),
+      set: [comments_imported_on: Utils.utc_now()]
+    )
+
+    result
   end
 
   defp insert_reviews_to_db(prs, pr_id_map) do
