@@ -1,0 +1,24 @@
+meta {
+  name: get-pull-requests
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://dev.azure.com/{{organizationId}}/_apis/git/repositories/:repositoryId/pullrequests?searchCriteria.queryTimeRangeType=closed&searchCriteria.minTime=2025-01-01&searchCriteria.status=completed&$skip=0&$top=2&api-version=7.1
+  body: none
+  auth: inherit
+}
+
+params:query {
+  searchCriteria.queryTimeRangeType: closed
+  searchCriteria.minTime: 2025-01-01
+  searchCriteria.status: completed
+  $skip: 0
+  $top: 2
+  api-version: 7.1
+}
+
+params:path {
+  repositoryId: 
+}
