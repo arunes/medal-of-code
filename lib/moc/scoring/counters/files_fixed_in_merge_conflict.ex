@@ -8,7 +8,7 @@ defmodule Moc.Scoring.Counters.FilesFixedInMergeConflict do
     |> Enum.map(&select_result/1)
   end
 
-  defp is_merge_conflict_comment(%{type: type}) when type != "text", do: false
+  defp is_merge_conflict_comment(%{type: type}) when type != :text, do: false
 
   defp is_merge_conflict_comment(%{content: content}),
     do: content =~ "Submitted conflict resolution for the file(s)."
