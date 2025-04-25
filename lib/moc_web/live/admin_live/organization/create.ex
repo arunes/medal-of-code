@@ -24,7 +24,6 @@ defmodule MocWeb.AdminLive.Organization.Create do
          |> redirect(to: ~p"/admin/organizations/#{organization}")}
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        IO.inspect(changeset, label: "TSTSTS")
         form = changeset |> to_form(as: "organization")
         socket = assign(socket, :form, form)
         {:noreply, socket}

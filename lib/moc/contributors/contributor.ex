@@ -11,7 +11,6 @@ defmodule Moc.Contributors.Contributor do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def create_changeset(contributor, attrs \\ %{}) do
     contributor
     |> cast(attrs, [:name, :external_id, :email])

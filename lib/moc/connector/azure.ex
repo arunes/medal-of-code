@@ -11,7 +11,7 @@ defmodule Moc.Connector.Azure do
   end
 
   defp parse_validate_result({:ok, %{status_code: 200, body: body}}) do
-    case Jason.decode(body) |> IO.inspect() do
+    case Jason.decode(body) do
       {:ok, %{"authenticatedUser" => %{"id" => "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"}}} ->
         :unauthorized
 

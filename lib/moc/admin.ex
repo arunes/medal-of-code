@@ -125,7 +125,7 @@ defmodule Moc.Admin do
       |> Repo.one!()
 
     repo
-    |> Repository.changeset(%{sync_enabled: !repo.sync_enabled})
+    |> Repository.create_changeset(%{sync_enabled: !repo.sync_enabled})
     |> Repo.update()
 
     !repo.sync_enabled

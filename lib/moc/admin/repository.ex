@@ -14,8 +14,7 @@ defmodule Moc.Admin.Repository do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
-  def changeset(repository, attrs) do
+  def create_changeset(repository, attrs) do
     repository
     |> cast(attrs, [
       :external_id,

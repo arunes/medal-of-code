@@ -1,6 +1,5 @@
 defmodule Moc.Scoring.Medal do
   use Ecto.Schema
-  import Ecto.Changeset
 
   schema "medals" do
     field :name, :string
@@ -13,12 +12,5 @@ defmodule Moc.Scoring.Medal do
     belongs_to(:counter, Moc.Scoring.Counter)
 
     timestamps(type: :utc_datetime)
-  end
-
-  @doc false
-  def changeset(medal, attrs) do
-    medal
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
   end
 end

@@ -63,7 +63,6 @@ defmodule Moc.Scoring.Counters do
           updated_at: Utils.utc_now()
         }
       end)
-      |> IO.inspect(label: "INSERT")
 
     Repo.insert_all(ContributorCounter, to_insert)
 
@@ -77,6 +76,8 @@ defmodule Moc.Scoring.Counters do
         )
       )
     end)
+
+    result_set
   end
 
   defp group_into_result_set(results, counter, all_pr_ids) do

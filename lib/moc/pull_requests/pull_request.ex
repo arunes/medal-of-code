@@ -19,6 +19,7 @@ defmodule Moc.PullRequests.PullRequest do
 
     has_many(:comments, Moc.PullRequests.PullRequestComment)
     has_many(:reviews, Moc.PullRequests.PullRequestReview)
+    has_many(:contributor_xp, Moc.Contributors.ContributorXP)
     belongs_to(:repository, Moc.Admin.Repository)
     belongs_to(:created_by, Moc.Contributors.Contributor)
 
