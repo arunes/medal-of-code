@@ -1,7 +1,7 @@
 defmodule MocWeb.AdminLive.Index do
-  alias Moc.Sync
   use MocWeb, :live_view
   import MocWeb.AdminLive.Components
+  alias Moc.Sync
 
   def mount(_params, _session, socket) do
     socket =

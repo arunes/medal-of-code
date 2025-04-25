@@ -20,7 +20,7 @@ defmodule Moc.PullRequests.PullRequest do
     has_many(:comments, Moc.PullRequests.PullRequestComment)
     has_many(:reviews, Moc.PullRequests.PullRequestReview)
     belongs_to(:repository, Moc.Admin.Repository)
-    belongs_to(:created_by, Moc.PullRequests.Contributor)
+    belongs_to(:created_by, Moc.Contributors.Contributor)
 
     timestamps(type: :utc_datetime)
   end

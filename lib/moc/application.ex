@@ -11,7 +11,7 @@ defmodule Moc.Application do
       MocWeb.Telemetry,
       Moc.Repo,
       Moc.Instance,
-      Moc.ContributorCache,
+      Moc.Contributors.ContributorCache,
       {Ecto.Migrator, repos: Application.fetch_env!(:moc, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:moc, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Moc.PubSub},

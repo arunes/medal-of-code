@@ -1,4 +1,4 @@
-defmodule Moc.PullRequests.Contributor do
+defmodule Moc.Contributors.Contributor do
   use Ecto.Schema
   import Ecto.Changeset
 

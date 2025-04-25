@@ -12,7 +12,7 @@ defmodule Moc.PullRequests do
   require Logger
   import Ecto.Query
   alias Moc.Admin.SyncHistory
-  alias Moc.ContributorCache
+  alias Moc.Contributors.ContributorCache
   alias Moc.Utils
   alias Moc.Connector
   alias Moc.PullRequests.ImportResult

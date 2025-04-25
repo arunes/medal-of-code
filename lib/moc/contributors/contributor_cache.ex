@@ -1,4 +1,4 @@
-defmodule Moc.ContributorCache do
+defmodule Moc.Contributors.ContributorCache do
   @moduledoc """
   A cache for storing contributors, using an Agent to manage the state. Provides function for retrieving contributors by IDs.
   """
@@ -11,7 +11,7 @@ defmodule Moc.ContributorCache do
   import Ecto.Query
   alias Moc.Connector.Type
   alias Moc.Repo
-  alias Moc.PullRequests.Contributor
+  alias Moc.Contributors.Contributor
 
   def start_link(_) do
     Logger.info("Starting contributor cache process. '#{@me}'")

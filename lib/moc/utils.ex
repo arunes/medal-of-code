@@ -6,4 +6,11 @@ defmodule Moc.Utils do
 
   def nullable_atom(nil), do: nil
   def nullable_atom(value), do: value |> String.to_atom()
+
+  def capitalize_first(<<>>), do: ""
+  def capitalize_first(<<c::utf8, rest::binary>>), do: String.upcase(<<c>>) <> rest
+
+  def flatten(input, result \\ [])
+  def flatten(input, result) when is_list(input), do: Enum.flat_map(input, &flatten(&1, result))
+  def flatten(input, result), do: [input | result]
 end

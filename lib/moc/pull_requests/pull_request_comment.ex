@@ -15,7 +15,7 @@ defmodule Moc.PullRequests.PullRequestComment do
     field :published_on, :utc_datetime
     field :updated_on, :utc_datetime
 
-    belongs_to :created_by, Moc.PullRequests.Contributor
+    belongs_to :created_by, Moc.Contributors.Contributor
     belongs_to :pull_request, Moc.PullRequests.PullRequest
 
     timestamps(type: :utc_datetime)

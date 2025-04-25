@@ -5,7 +5,7 @@ defmodule Moc.PullRequests.PullRequestReview do
     field :vote, :integer
     field :is_required, :boolean
 
-    belongs_to(:reviewer, Moc.PullRequests.Contributor)
+    belongs_to(:reviewer, Moc.Contributors.Contributor)
     belongs_to(:pull_request, Moc.PullRequests.PullRequest)
 
     timestamps(type: :utc_datetime)
