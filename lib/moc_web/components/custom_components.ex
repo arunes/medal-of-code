@@ -79,12 +79,12 @@ defmodule MocWeb.CustomComponents do
       <.icon
         :if={@show_icon}
         name="hero-arrow-long-right"
-        class="ml-1 h-4 w-4 inline-block phx-submit-loading:hidden"
+        class="ml-1 h-4 w-4 inline-block phx-submit-loading:hidden phx-click-loading:hidden"
       />
       <.icon
         :if={@show_icon}
         name="hero-arrow-path"
-        class="ml-1 h-4 w-4 animate-spin hidden phx-submit-loading:inline-block"
+        class="ml-1 h-4 w-4 animate-spin hidden phx-submit-loading:inline-block phx-click-loading:inline-block"
       />
     </button>
     """

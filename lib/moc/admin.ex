@@ -35,6 +35,7 @@ end
 
 defmodule Moc.Admin do
   import Ecto.Query
+  alias Moc.Admin.SyncHistory
   alias Moc.Utils
   alias Hex.API.Key.Organization
   alias Moc.Connector
@@ -45,6 +46,10 @@ defmodule Moc.Admin do
   alias Moc.Admin.OrganizationView
   alias Moc.Admin.ProjectView
   alias Moc.Admin.RepositoryView
+
+  def get_sync_history_list() do
+    SyncHistory |> order_by([sh], desc: sh.inserted_at) |> Repo.all()
+  end
 
   def get_organization_list() do
     from(org in Organization,

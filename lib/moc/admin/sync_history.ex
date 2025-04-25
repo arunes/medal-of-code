@@ -4,7 +4,7 @@ defmodule Moc.Admin.SyncHistory do
 
   schema "sync_histories" do
     field :prs_imported, :integer
-    field :pr_reviews_imported, :integer
+    field :reviews_imported, :integer
     field :comments_imported, :integer
     field :error_message, :string
     field :status, Ecto.Enum, values: [:importing, :finished, :failed]
@@ -20,11 +20,11 @@ defmodule Moc.Admin.SyncHistory do
     sync_history
     |> cast(attrs, [
       :prs_imported,
-      :pr_reviews_imported,
+      :reviews_imported,
       :comments_imported,
       :error_message,
       :status
     ])
-    |> validate_required([:prs_imported, :pr_reviews_imported, :comments_imported, :status])
+    |> validate_required([:prs_imported, :reviews_imported, :comments_imported, :status])
   end
 end

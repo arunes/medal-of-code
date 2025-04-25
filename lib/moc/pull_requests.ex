@@ -46,7 +46,7 @@ defmodule Moc.PullRequests do
     history
     |> SyncHistory.update_changeset(%{
       prs_imported: result.number_of_prs,
-      pr_reviews_imported: result.number_of_reviews,
+      reviews_imported: result.number_of_reviews,
       comments_imported: result.number_of_comments,
       status: :finished
     })
@@ -111,7 +111,7 @@ defmodule Moc.PullRequests do
           thread_id: cmt.thread_id,
           thread_status: cmt.thread_status |> Utils.nullable_atom(),
           parent_comment_id: cmt.parent_comment_id,
-          content: Utils.if_nil(cmt.content),
+          content: cmt.content || "",
           comment_type: cmt.comment_type |> String.to_atom(),
           published_on: cmt.published_on |> Utils.string_to_utc(),
           updated_on: cmt.updated_on |> Utils.string_to_utc(),
