@@ -1,4 +1,6 @@
-Moc.Repo.insert!(%Moc.Scoring.Counter{
+defmodule Moc.Seeds.CountersAndMedals do
+  def run do
+    Moc.Repo.insert!(%Moc.Scoring.Counter{
   key: "commentedWithQuestion",
   xp: 3.0,
   display_order: 111,
@@ -1493,3 +1495,5 @@ Moc.Repo.insert!(%Moc.Scoring.Counter{
 	#  }]
 })
 
+  end
+end

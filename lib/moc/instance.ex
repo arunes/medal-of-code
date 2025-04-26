@@ -52,6 +52,7 @@ defmodule Moc.Instance do
   defp get_initial_state() do
     settings =
       from(st in Settings,
+        where: st.key != "db.initialized",
         select: %{
           key: st.key,
           category: st.category,

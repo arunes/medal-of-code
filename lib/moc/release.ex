@@ -10,6 +10,7 @@ defmodule Moc.Release do
 
     for repo <- repos() do
       {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Ecto.Migrator.run(&1, :up, all: true))
+      {:ok, _, _} = Ecto.Migrator.with_repo(repo, &Moc.Seeds.run/1)
     end
   end
 

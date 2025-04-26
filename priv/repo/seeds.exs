@@ -1,5 +1,1 @@
-Code.require_file("seeds/settings.exs", __DIR__)
-Code.require_file("seeds/levels.exs", __DIR__)
-Code.require_file("seeds/titles.exs", __DIR__)
-Code.require_file("seeds/title_prefixes.exs", __DIR__)
-Code.require_file("seeds/counters_and_medals.exs", __DIR__)
+Moc.Seeds.run()
