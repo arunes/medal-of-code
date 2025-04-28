@@ -373,6 +373,7 @@ defmodule MocWeb.CoreComponents do
   attr :row_id, :any, default: nil, doc: "the function for generating the row id"
   attr :row_click, :any, default: nil, doc: "the function for handling phx-click on each row"
   attr :class, :string, default: nil
+  attr :hide_header, :boolean, default: false
 
   attr :row_item, :any,
     default: &Function.identity/1,
@@ -381,6 +382,7 @@ defmodule MocWeb.CoreComponents do
   slot :col, required: true do
     attr :label, :string
     attr :width, :string
+    attr :class, :string
     attr :align, :string, values: ["left", "center", "right"]
   end
 
@@ -395,13 +397,16 @@ defmodule MocWeb.CoreComponents do
     ~H"""
     <div class="overflow-y-auto px-4 sm:overflow-visible sm:px-0">
       <table class={["w-full text-left", @class]}>
-        <thead class="text-sm bg-moc-3 text-moc-1">
+        <thead :if={!@hide_header} class="text-sm bg-moc-3 text-moc-1">
           <tr>
             <th
               :for={col <- @col}
               class={[
+                col[:class],
                 "px-3 py-3",
-                col[:align] && "text-#{col[:align]}"
+                col[:align] == "left" && "text-left",
+                col[:align] == "right" && "text-right",
+                col[:align] == "center" && "text-center"
               ]}
               width={col[:width]}
             >
@@ -422,6 +427,7 @@ defmodule MocWeb.CoreComponents do
               :for={{col, _i} <- Enum.with_index(@col)}
               phx-click={@row_click && @row_click.(row)}
               class={[
+                col[:class],
                 "px-3 py-2",
                 @row_click && "hover:cursor-pointer",
                 col[:align] == "left" && "text-left",

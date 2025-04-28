@@ -28,7 +28,6 @@ defmodule MocWeb.Router do
       live "/medals", MedalLive.Index
       live "/medals/:id", MedalLive.Show
       live "/leaderboard", LeaderboardLive.Index
-      live "/leaderboard/:date", LeaderboardLive.Show
       live "/privacy", PrivacyLive.Index
       live "/stats", StatsLive.Index
     end
