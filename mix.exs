@@ -58,7 +58,8 @@ defmodule Moc.MixProject do
       {:emojix, "~> 0.4.0"},
       {:ecto_sqlite3_extras, "~> 1.2"},
       {:bandit, "~> 1.5"},
-      {:bcrypt_elixir, "~> 3.2"}
+      {:bcrypt_elixir, "~> 3.2"},
+      {:timex, "~> 3.7"}
     ]
   end
 
