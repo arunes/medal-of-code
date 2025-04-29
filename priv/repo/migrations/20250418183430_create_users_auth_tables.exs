@@ -7,6 +7,7 @@ defmodule Moc.Repo.Migrations.CreateUsersAuthTables do
       add :is_admin, :boolean, null: false
       add :hashed_password, :string, null: false
       add :confirmed_at, :utc_datetime
+      add :contributor_id, references(:contributors, on_delete: :nothing), null: true
 
       timestamps(type: :utc_datetime)
     end

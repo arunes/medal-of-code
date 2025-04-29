@@ -2,22 +2,15 @@ defmodule MocWeb.CustomComponents do
   use Phoenix.Component
   use MocWeb, :verified_routes
   import MocWeb.CoreComponents, only: [icon: 1]
-  alias Phoenix.LiveView.JS
 
   attr :size, :integer, required: true
   attr :name, :string, required: true
+  attr :id, :string, required: true
   attr :class, :string, default: nil
 
   def avatar(assigns) do
     ~H"""
-    <img
-      src="/images/avatar-placeholder.png"
-      class={["rounded-full", @class]}
-      width={@size}
-      height={@size}
-      alt={@name}
-      phx-mounted={JS.dispatch("moc:set_avatar")}
-    />
+    <moc-avatar id={"avatar-#{@id}"} class={@class} name={@name} size={@size} phx-update="ignore" />
     """
   end
 

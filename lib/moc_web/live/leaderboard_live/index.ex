@@ -52,7 +52,7 @@ defmodule MocWeb.LeaderboardLive.Index do
   end
 
   def handle_event("filter", params, socket) do
-    boards = Leaderboard.get_list(params) |> IO.inspect()
+    boards = Leaderboard.get_list(params)
 
     socket =
       socket

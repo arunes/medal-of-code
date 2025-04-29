@@ -22,6 +22,8 @@ defmodule Moc.PullRequests do
   alias Moc.Admin.Repository
   alias Moc.Repo
 
+  @chunk_size 250
+
   @doc """
   Imports pull requests for enabled repositories and returs the number of pull requests imported
   """
@@ -59,10 +61,10 @@ defmodule Moc.PullRequests do
   defp insert_results_to_db([], result), do: result
 
   defp insert_results_to_db([{repo_id, prs} | rest], result) do
-    {total_prs, _} = insert_prs_to_db(repo_id, prs)
+    total_prs = insert_prs_to_db(repo_id, prs)
     pr_id_map = get_pr_id_map(prs)
-    {total_reviews, _} = insert_reviews_to_db(prs, pr_id_map)
-    {total_comments, _} = insert_comments_to_db(prs, pr_id_map)
+    total_reviews = insert_reviews_to_db(prs, pr_id_map)
+    total_comments = insert_comments_to_db(prs, pr_id_map)
 
     current_total = %ImportResult{
       number_of_prs: total_prs,
@@ -91,7 +93,7 @@ defmodule Moc.PullRequests do
   end
 
   defp insert_comments_to_db(prs, pr_id_map) do
-    result =
+    comments =
       prs
       |> Enum.flat_map(fn pr ->
         pr.threads
@@ -122,41 +124,57 @@ defmodule Moc.PullRequests do
           updated_at: Utils.utc_now()
         }
       end)
-      |> then(&Repo.insert_all(PullRequestComment, &1))
+
+    comments
+    |> Enum.chunk_every(@chunk_size)
+    |> Enum.each(fn list ->
+      Repo.insert_all(PullRequestComment, list)
+    end)
 
     # update prs to set comment import date
-    pr_ids = pr_id_map |> Enum.map(fn {_, v} -> v end)
+    pr_id_map
+    |> Enum.map(fn {_, v} -> v end)
+    |> Enum.chunk_every(@chunk_size)
+    |> Enum.each(fn pr_ids ->
+      Repo.update_all(from(pr in PullRequest, where: pr.id in ^pr_ids),
+        set: [comments_imported_on: Utils.utc_now()]
+      )
+    end)
 
-    Repo.update_all(from(pr in PullRequest, where: pr.id in ^pr_ids),
-      set: [comments_imported_on: Utils.utc_now()]
-    )
-
-    result
+    length(comments)
   end
 
   defp insert_reviews_to_db(prs, pr_id_map) do
-    prs
-    |> Enum.reduce([], fn pr, acc ->
-      reviewers =
-        pr.reviewers
-        |> Enum.map(fn rw ->
-          %{
-            vote: rw.vote,
-            is_required:
-              case rw.is_required do
-                nil -> false
-                val -> val
-              end,
-            reviewer_id: ContributorCache.get_by_id(rw),
-            pull_request_id: pr_id_map[pr.id],
-            inserted_at: Utils.utc_now(),
-            updated_at: Utils.utc_now()
-          }
-        end)
+    reviews =
+      prs
+      |> Enum.reduce([], fn pr, acc ->
+        reviewers =
+          pr.reviewers
+          |> Enum.map(fn rw ->
+            %{
+              vote: rw.vote,
+              is_required:
+                case rw.is_required do
+                  nil -> false
+                  val -> val
+                end,
+              reviewer_id: ContributorCache.get_by_id(rw),
+              pull_request_id: pr_id_map[pr.id],
+              inserted_at: Utils.utc_now(),
+              updated_at: Utils.utc_now()
+            }
+          end)
 
-      reviewers ++ acc
+        reviewers ++ acc
+      end)
+
+    reviews
+    |> Enum.chunk_every(@chunk_size)
+    |> Enum.each(fn list ->
+      Repo.insert_all(PullRequestReview, list)
     end)
-    |> then(&Repo.insert_all(PullRequestReview, &1))
+
+    reviews |> length()
   end
 
   defp insert_prs_to_db(repo_id, prs) do
@@ -182,7 +200,12 @@ defmodule Moc.PullRequests do
         updated_at: Utils.utc_now()
       }
     end)
-    |> then(&Repo.insert_all(PullRequest, &1))
+    |> Enum.chunk_every(@chunk_size)
+    |> Enum.each(fn list ->
+      Repo.insert_all(PullRequest, list)
+    end)
+
+    prs |> length()
   end
 
   defp download_prs(repos, result \\ [])

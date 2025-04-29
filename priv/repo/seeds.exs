@@ -1,1 +1,1 @@
-Moc.Seeds.run()
+Moc.Seeds.run(nil)

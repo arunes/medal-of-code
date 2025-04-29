@@ -11,6 +11,8 @@ defmodule Moc.Accounts.User do
     field :current_password, :string, virtual: true, redact: true
     field :confirmed_at, :utc_datetime
 
+    belongs_to(:contributor, Moc.Contributors.Contributor)
+
     timestamps(type: :utc_datetime)
   end
 
