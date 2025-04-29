@@ -14,4 +14,3 @@ docker run -p 8080:4000 -e SECRET_KEY_BASE=your_secret_key --pull always ghcr.io
 - Add ability to change cutoff date for imports
 - Add ability to update organization
 - Add github
-- Add gitlab
