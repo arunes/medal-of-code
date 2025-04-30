@@ -19,12 +19,12 @@ defmodule MocWeb.Router do
 
     live_session :require_authenticated_user,
       on_mount: [
-        {MocWeb.UserAuth, :ensure_authenticated},
-        {MocWeb.SaveRequestUri, :save_request_path}
+        {MocWeb.UserAuth, :ensure_authenticated}
       ] do
       live "/", HomeLive.Index
       live "/contributors", ContributorLive.Index
       live "/contributors/:id", ContributorLive.Show
+      live "/contributors/:id/history", ContributorLive.Show
       live "/medals", MedalLive.Index
       live "/medals/:id", MedalLive.Show
       live "/leaderboard", LeaderboardLive.Index
@@ -37,10 +37,7 @@ defmodule MocWeb.Router do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
     live_session :redirect_if_user_is_authenticated,
-      on_mount: [
-        {MocWeb.UserAuth, :redirect_if_user_is_authenticated},
-        {MocWeb.SaveRequestUri, :save_request_path}
-      ] do
+      on_mount: [{MocWeb.UserAuth, :redirect_if_user_is_authenticated}] do
       live "/init", InitLive
       live "/users/log_in", UserLoginLive, :new
     end
@@ -58,7 +55,7 @@ defmodule MocWeb.Router do
     pipe_through [:browser, :require_admin_user]
 
     live_session :require_admin_user,
-      on_mount: [{MocWeb.UserAuth, :ensure_is_admin}, {MocWeb.SaveRequestUri, :save_request_path}] do
+      on_mount: [{MocWeb.UserAuth, :ensure_is_admin}] do
       live "/admin", AdminLive.Index
       live "/admin/organizations", AdminLive.Organization.Index
       live "/admin/organizations/new", AdminLive.Organization.Create

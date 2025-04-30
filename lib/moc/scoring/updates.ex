@@ -7,6 +7,63 @@ defmodule Moc.Scoring.Updates do
   alias Moc.Scoring.Type
   alias Moc.Contributors.ContributorOverview
 
+  def get_update_list(%{contributor_id: nil} = search_params),
+    do:
+      get_update_list_query(search_params)
+      |> Repo.all()
+
+  def get_update_list(search_params) do
+    get_update_list_query(search_params)
+    |> where([u, c, m], u.contributor_id == ^search_params.contributor_id)
+    |> Repo.all()
+  end
+
+  defp maybe_add_level_filter(filters, false), do: filters
+  defp maybe_add_level_filter(filters, true), do: [:xp_increase, :level_up | filters]
+  defp maybe_add_affinity_filter(filters, false), do: filters
+  defp maybe_add_affinity_filter(filters, true), do: [:prefix_change | filters]
+  defp maybe_add_attribute_filter(filters, false), do: filters
+
+  defp maybe_add_attribute_filter(filters, true),
+    do: [
+      :dexterity_increase,
+      :charisma_increase,
+      :wisdom_increase,
+      :constitution_increase | filters
+    ]
+
+  defp get_update_list_query(search_params) do
+    search_types =
+      [:medal_won, :title_change]
+      |> maybe_add_level_filter(search_params.show_level)
+      |> maybe_add_affinity_filter(search_params.show_affinity)
+      |> maybe_add_attribute_filter(search_params.show_attributes)
+
+    from(upd in Update,
+      join: cnt in assoc(upd, :contributor),
+      left_join: md in assoc(upd, :medal),
+      where: upd.type in ^search_types or cnt.id == ^search_params.current_contributor_id,
+      select: %{
+        contributor_id: upd.contributor_id,
+        contributor_name: cnt.name,
+        xp: upd.xp,
+        type: upd.type,
+        level: upd.level,
+        title: upd.title,
+        prefix: upd.prefix,
+        dexterity: upd.dexterity,
+        charisma: upd.charisma,
+        wisdom: upd.wisdom,
+        constitution: upd.constitution,
+        medal_id: upd.medal_id,
+        medal_name: md.name,
+        inserted_at: upd.inserted_at
+      },
+      limit: ^search_params.number_of_records,
+      order_by: [desc: upd.inserted_at]
+    )
+  end
+
   @spec save_updates(list(Type.medal_winner()), list(ContributorOverview)) :: :ok
   def save_updates(medal_winners, contributors_before) do
     Logger.info("Saving updates.")
@@ -55,50 +112,50 @@ defmodule Moc.Scoring.Updates do
 
   #### XP Updates
   defp get_xp_update(nil, current),
-    do: %{type: "xpIncrease", contributor_id: current.id, xp: current.xp}
+    do: %{type: :xp_increase, contributor_id: current.id, xp: current.xp}
 
   defp get_xp_update(existing, current) when current.xp > existing.xp,
-    do: %{type: "xpIncrease", contributor_id: current.id, xp: current.xp - existing.xp}
+    do: %{type: :xp_increase, contributor_id: current.id, xp: current.xp - existing.xp}
 
   defp get_xp_update(_, _), do: :none
 
   #### Level Updates
   defp get_level_update(nil, current),
-    do: %{type: "levelUp", contributor_id: current.id, level: current.level}
+    do: %{type: :level_up, contributor_id: current.id, level: current.level}
 
   defp get_level_update(existing, current) when current.level > existing.level,
-    do: %{type: "levelUp", contributor_id: current.id, level: current.level}
+    do: %{type: :level_up, contributor_id: current.id, level: current.level}
 
   defp get_level_update(_, _),
     do: :none
 
   #### Title Updates
   defp get_title_update(nil, current),
-    do: %{type: "titleChange", contributor_id: current.id, title: current.title}
+    do: %{type: :title_change, contributor_id: current.id, title: current.title}
 
   defp get_title_update(existing, current) when current.title != existing.title,
-    do: %{type: "titleChange", contributor_id: current.id, title: current.title}
+    do: %{type: :title_change, contributor_id: current.id, title: current.title}
 
   defp get_title_update(_, _),
     do: :none
 
   #### Prefix Updates
   defp get_prefix_update(nil, current),
-    do: %{type: "prefixChange", contributor_id: current.id, prefix: current.prefix}
+    do: %{type: :prefix_change, contributor_id: current.id, prefix: current.prefix}
 
   defp get_prefix_update(existing, current) when current.prefix != existing.prefix,
-    do: %{type: "prefixChange", contributor_id: current.id, prefix: current.prefix}
+    do: %{type: :prefix_change, contributor_id: current.id, prefix: current.prefix}
 
   defp get_prefix_update(_, _),
     do: :none
 
   #### Charisma Updates
   defp get_charisma_update(nil, current),
-    do: %{type: "charismaIncrease", contributor_id: current.id, charisma: current.charisma}
+    do: %{type: :charisma_increase, contributor_id: current.id, charisma: current.charisma}
 
   defp get_charisma_update(existing, current) when current.charisma > existing.charisma,
     do: %{
-      type: "charismaIncrease",
+      type: :charisma_increase,
       contributor_id: current.id,
       charisma: current.charisma - existing.charisma
     }
@@ -108,7 +165,7 @@ defmodule Moc.Scoring.Updates do
   #### Constitution Updates
   defp get_constitution_update(nil, current),
     do: %{
-      type: "constitutionIncrease",
+      type: :constitution_increase,
       contributor_id: current.id,
       constitution: current.constitution
     }
@@ -116,7 +173,7 @@ defmodule Moc.Scoring.Updates do
   defp get_constitution_update(existing, current)
        when current.constitution > existing.constitution,
        do: %{
-         type: "constitutionIncrease",
+         type: :constitution_increase,
          contributor_id: current.id,
          constitution: current.constitution - existing.constitution
        }
@@ -125,11 +182,11 @@ defmodule Moc.Scoring.Updates do
 
   #### Dexterity Updates
   defp get_dexterity_update(nil, current),
-    do: %{type: "dexterityIncrease", contributor_id: current.id, dexterity: current.dexterity}
+    do: %{type: :dexterity_increase, contributor_id: current.id, dexterity: current.dexterity}
 
   defp get_dexterity_update(existing, current) when current.dexterity > existing.dexterity,
     do: %{
-      type: "dexterityIncrease",
+      type: :dexterity_increase,
       contributor_id: current.id,
       dexterity: current.dexterity - existing.dexterity
     }
@@ -138,11 +195,11 @@ defmodule Moc.Scoring.Updates do
 
   #### Wisdom Updates
   defp get_wisdom_update(nil, current),
-    do: %{type: "wisdomIncrease", contributor_id: current.id, wisdom: current.wisdom}
+    do: %{type: :wisdom_increase, contributor_id: current.id, wisdom: current.wisdom}
 
   defp get_wisdom_update(existing, current) when current.wisdom > existing.wisdom,
     do: %{
-      type: "wisdomIncrease",
+      type: :wisdom_increase,
       contributor_id: current.id,
       wisdom: current.wisdom - existing.wisdom
     }

@@ -35,7 +35,7 @@ defmodule Moc.Instance do
     settings
     |> Enum.map(fn {key, value} ->
       %Settings{key: key}
-      |> Settings.changeset(%{value: value})
+      |> Settings.update_changeset(%{value: value})
       |> Repo.update()
     end)
 

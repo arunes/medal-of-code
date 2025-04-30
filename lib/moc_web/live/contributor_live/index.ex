@@ -50,7 +50,7 @@ defmodule MocWeb.ContributorLive.Index do
   end
 
   def handle_event("filter", params, socket) do
-    contributors = Moc.Contributors.get_list(params) |> IO.inspect()
+    contributors = Moc.Contributors.get_list(params)
 
     socket =
       socket
@@ -87,7 +87,6 @@ defmodule MocWeb.ContributorLive.Index do
     <.form for={@form} id="filter-form" class="mb-5" phx-change="filter">
       <.input
         type="text"
-        class="bg-moc-1 border text-sm rounded-lg block w-full p-2.5 border-transparent !outline-none"
         field={@form[:search]}
         phx-debounce={500}
         placeholder="Search contributors"

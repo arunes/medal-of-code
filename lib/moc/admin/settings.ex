@@ -11,10 +11,9 @@ defmodule Moc.Admin.Settings do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
-  def changeset(settings, attrs) do
+  def update_changeset(settings, attrs) do
     settings
-    |> cast(attrs, [:key, :category, :description, :value])
-    |> validate_required([:key, :category, :description, :value])
+    |> cast(attrs, [:value])
+    |> validate_required([:value])
   end
 end

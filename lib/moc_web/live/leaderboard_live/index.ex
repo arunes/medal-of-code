@@ -83,12 +83,7 @@ defmodule MocWeb.LeaderboardLive.Index do
 
     ~H"""
     <.form for={@form} id="filter-form" phx-change="filter">
-      <.input
-        type="select"
-        class="mx-auto block px-4 py-3 border border-moc-3 rounded-lg bg-moc-3"
-        field={@form[:date]}
-        options={@dates}
-      />
+      <.input type="select" field={@form[:date]} options={@dates} />
     </.form>
     """
   end

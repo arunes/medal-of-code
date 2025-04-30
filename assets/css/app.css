@@ -9,6 +9,7 @@
 @import "./utilities.css";
 @import "./rarity.css";
 @import "./footer.css";
+@import "./contributor.css";
 
 .affinity-dark {
   color: var(--affinity-dark);

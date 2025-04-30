@@ -1,0 +1,26 @@
+.contributor {
+  .rank {
+    color: var(--bg-main);
+    background-color: var(--fg-main);
+  }
+
+  .tagLine {
+    color: var(--fg-shade-2);
+  }
+
+  .progressBar {
+    background-color: var(--bg-shade-1);
+
+    & div {
+      background-color: var(--bg-shade-3);
+    }
+  }
+
+  .lightBar {
+    background-color: var(--affinity-dark);
+
+    & div {
+      background-color: var(--affinity-light);
+    }
+  }
+}

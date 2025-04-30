@@ -2,7 +2,19 @@ defmodule Moc.Scoring.Update do
   use Ecto.Schema
 
   schema "updates" do
-    field :type, :string
+    field :type, Ecto.Enum,
+      values: [
+        :medal_won,
+        :xp_increase,
+        :level_up,
+        :title_change,
+        :prefix_change,
+        :dexterity_increase,
+        :charisma_increase,
+        :wisdom_increase,
+        :constitution_increase
+      ]
+
     field :xp, :float
     field :level, :integer
     field :title, :string

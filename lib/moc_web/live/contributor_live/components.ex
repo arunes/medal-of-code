@@ -1,4 +1,5 @@
 defmodule MocWeb.ContributorLive.Components do
+  alias Moc.Utils
   use MocWeb, :html
   import MocWeb.CustomComponents, only: [avatar: 1]
   alias Moc.Contributors.ContributorOverview
@@ -31,19 +32,10 @@ defmodule MocWeb.ContributorLive.Components do
           class="flex absolute size-8 md:size-10 items-center justify-center bottom-0 right-0 md:top md:bottom-auto rounded-full p-1 bg-moc-2"
         >
           {@contributor.rank}
-          <sup class="font-light">{get_ordinal(@contributor.rank)}</sup>
+          <sup class="font-light">{Utils.get_ordinal(@contributor.rank)}</sup>
         </span>
       </div>
     </.link>
     """
-  end
-
-  defp get_ordinal(number) do
-    cond do
-      rem(number, 10) == 1 && rem(number, 100) != 11 -> "st"
-      rem(number, 10) == 2 && rem(number, 100) != 12 -> "nd"
-      rem(number, 10) == 3 && rem(number, 100) != 13 -> "rd"
-      true -> "th"
-    end
   end
 end
