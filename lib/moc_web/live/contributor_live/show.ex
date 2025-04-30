@@ -1,5 +1,6 @@
 defmodule MocWeb.ContributorLive.Show do
   import MocWeb.HistoryListComponent
+  import MocWeb.ContributorLive.Components, only: [contribution_calendar: 1]
   use MocWeb, :live_view
   alias Moc.Contributors
   alias Moc.Utils
@@ -7,7 +8,7 @@ defmodule MocWeb.ContributorLive.Show do
   def mount(%{"id" => contributor_id}, _session, socket) do
     contributor = Contributors.get_contributor!(contributor_id)
     settings = Moc.Instance.get_settings()
-    contributor_id = socket.assigns.current_user.contributor_id
+    current_contributor_id = socket.assigns.current_user.contributor_id
 
     contributor_settings = %{
       show_level: settings |> Utils.get_setting_value("contributor.show_level"),
@@ -16,20 +17,20 @@ defmodule MocWeb.ContributorLive.Show do
       show_medal_count: settings |> Utils.get_setting_value("contributor.show_medal_count"),
       show_attributes: settings |> Utils.get_setting_value("contributor.show_attributes"),
       show_history: settings |> Utils.get_setting_value("contributor.show_history"),
-      show_calendar: settings |> Utils.get_setting_value("contributor.show_history"),
-      show_numbers: settings |> Utils.get_setting_value("contributor.show_history"),
-      show_stats: settings |> Utils.get_setting_value("contributor.show_history"),
-      show_wordcloud: settings |> Utils.get_setting_value("contributor.show_history")
+      show_calendar: settings |> Utils.get_setting_value("contributor.show_calendar"),
+      show_counters: settings |> Utils.get_setting_value("contributor.show_counters"),
+      show_stats: settings |> Utils.get_setting_value("contributor.show_stats"),
+      show_wordcloud: settings |> Utils.get_setting_value("contributor.show_wordcloud")
     }
 
     show_activity =
-      contributor_settings.show_calendar || contributor_settings.show_numbers ||
+      contributor_settings.show_calendar || contributor_settings.show_counters ||
         contributor_settings.show_stats || contributor_settings.show_wordcloud
 
     socket =
       socket
       |> assign(:page_title, contributor.name)
-      |> assign(:contributor_id, contributor_id)
+      |> assign(:current_contributor_id, current_contributor_id)
       |> assign(:contributor, contributor)
       |> assign(:show_activity, show_activity)
       |> assign(:settings, contributor_settings)
@@ -44,30 +45,46 @@ defmodule MocWeb.ContributorLive.Show do
         <.header contributor={@contributor} show_rank={@settings.show_rank} />
 
         <.attributes
-          :if={@settings.show_attributes || @contributor.id == @contributor_id}
+          :if={@settings.show_attributes || @contributor.id == @current_contributor_id}
           contributor={@contributor}
         />
 
         <.progress_bar
-          :if={@contributor.id == @contributor_id || @settings.show_level || @settings.show_affinity}
+          :if={
+            @contributor.id == @current_contributor_id || @settings.show_level ||
+              @settings.show_affinity
+          }
           show_level={@settings.show_level}
           show_affinity={@settings.show_affinity}
           contributor={@contributor}
         />
       </section>
 
-      <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 h-full">medals</section>
+      <.medals contributor_id={@contributor.id} />
 
-      <div :if={@contributor.id == @contributor_id || @show_activity}>
+      <div :if={@contributor.id == @current_contributor_id || @show_activity}>
         <.title size="xl">Activity</.title>
+
+        <.stats
+          :if={@settings.show_stats || @current_contributor_id == @contributor.id}
+          class="mb-5"
+          contributor_id={@contributor.id}
+        />
+
+        <.contribution_calendar
+          :if={@settings.show_calendar || @current_contributor_id == @contributor.id}
+          class="mb-5"
+          id="contribution-calendar"
+          contributor_id={@contributor.id}
+        />
       </div>
 
-      <div :if={@contributor.id == @contributor_id || @settings.show_history}>
+      <div :if={@contributor.id == @current_contributor_id || @settings.show_history}>
         <.title size="xl">History</.title>
         <.history_list
           number_of_records={10}
           contributor_id={@contributor.id}
-          current_contributor_id={@contributor_id}
+          current_contributor_id={@current_contributor_id}
         />
       </div>
     </div>
@@ -188,6 +205,69 @@ defmodule MocWeb.ContributorLive.Show do
     """
   end
 
+  attr :contributor_id, :integer, required: true
+  attr :class, :string, default: ""
+
+  def medals(assigns) do
+    ~H"""
+    <.title size="xl">Medals</.title>
+    <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 h-full">medals</section>
+    """
+  end
+
+  attr :contributor_id, :integer, required: true
+  attr :class, :string, default: ""
+
+  def stats(assigns) do
+    stats = Contributors.get_contributor_stats!(assigns.contributor_id) |> IO.inspect()
+
+    list = [
+      %{title: "Total PRs", value: stats.total_prs, is_date: false},
+      %{
+        title: "First PR date",
+        value: stats.first_pr_date || "N/A",
+        is_date: stats.first_pr_date != nil
+      },
+      %{
+        title: "Last PR date",
+        value: stats.last_pr_date || "N/A",
+        is_date: stats.last_pr_date != nil
+      },
+      %{
+        title: "Avg. PR completion",
+        value: Utils.get_duration(stats.avg_completion, 2),
+        is_date: false
+      },
+      %{title: "PR per day", value: stats.pr_per_day |> Float.round(3), is_date: false},
+      %{
+        title: "Total open PR time",
+        value: Utils.get_duration(stats.total_time, 2),
+        is_date: false
+      },
+      %{title: "Total comments", value: stats.total_comments, is_date: false},
+      %{title: "Total votes", value: stats.total_votes, is_date: false}
+    ]
+
+    assigns = assigns |> assign(:stats, list)
+
+    ~H"""
+    <section class={["grid gap-4 grid-cols-2 md:grid-cols-4", @class]}>
+      <div
+        :for={stat <- @stats}
+        class="flex flex-col bg-moc-1 justify-center px-2 pt-1 pb-2 rounded-lg text-center h-24"
+      >
+        <p>
+          <sub>{stat.title}</sub>
+        </p>
+        <p class="text-lg font-bold">
+          <.local_datetime :if={stat.is_date} date={stat.value} format="date" />
+          <span :if={!stat.is_date}>{stat.value}</span>
+        </p>
+      </div>
+    </section>
+    """
+  end
+
   def history(assigns) do
     ~H"""
     <div>history</div>
@@ -197,11 +277,3 @@ defmodule MocWeb.ContributorLive.Show do
   defp get_level_percent(nil, _), do: nil
   defp get_level_percent(xp_needed, xp_progress), do: xp_progress / xp_needed * 100
 end
-
-# title={
-#   @contributor.xp_needed
-#     ? `${formatNumber(
-#         @contributor.xp_needed
-#       )} xp needed to reach level ${@contributor.level + 1}`
-#     : "Max Level"
-# }

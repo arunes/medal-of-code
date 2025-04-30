@@ -4,7 +4,7 @@ defmodule MocWeb.ContributorLive.Index do
   import MocWeb.ContributorLive.Components
 
   def mount(params, _session, socket) do
-    contributors = Moc.Contributors.get_list(params)
+    contributors = Moc.Contributors.get_contributor_list(params)
     settings = Moc.Instance.get_settings()
     contributor_id = socket.assigns.current_user.contributor_id
 
@@ -50,7 +50,7 @@ defmodule MocWeb.ContributorLive.Index do
   end
 
   def handle_event("filter", params, socket) do
-    contributors = Moc.Contributors.get_list(params)
+    contributors = Moc.Contributors.get_contributor_list(params)
 
     socket =
       socket

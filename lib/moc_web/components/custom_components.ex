@@ -84,8 +84,11 @@ defmodule MocWeb.CustomComponents do
   end
 
   def local_datetime(assigns) do
+    format = assigns[:format] || "dateTime"
+    assigns = assign(assigns, :format, format)
+
     ~H"""
-    <moc-local-datetime {assigns} iso-datetime={@date} phx-update="ignore">
+    <moc-local-datetime {assigns} iso-datetime={@date} format={@format} phx-update="ignore">
       {@date}
     </moc-local-datetime>
     """

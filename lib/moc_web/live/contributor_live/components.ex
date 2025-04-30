@@ -38,4 +38,22 @@ defmodule MocWeb.ContributorLive.Components do
     </.link>
     """
   end
+
+  attr :id, :string, required: true
+  attr :contributor_id, :integer, required: true
+  attr :class, :string, default: ""
+
+  def contribution_calendar(assigns) do
+    format = assigns[:format] || "dateTime"
+    assigns = assign(assigns, :format, format)
+
+    ~H"""
+    <moc-contribution-calendar
+      class={@class}
+      id={@id}
+      contributor_id={@contributor_id}
+      phx-update="ignore"
+    />
+    """
+  end
 end

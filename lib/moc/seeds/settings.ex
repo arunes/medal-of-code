@@ -57,9 +57,9 @@ defmodule Moc.Seeds.Settings do
     })
 
     Moc.Repo.insert!(%Moc.Admin.Settings{
-      key: "contributor.show_numbers",
+      key: "contributor.show_counters",
       category: "Contributor Profile",
-      description: "Show numbers",
+      description: "Show counters",
       value: "true"
     })
 

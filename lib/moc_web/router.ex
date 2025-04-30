@@ -14,6 +14,12 @@ defmodule MocWeb.Router do
     plug :redirect_if_setup_incomplete
   end
 
+  pipeline :api do
+    plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_current_user
+  end
+
   scope "/", MocWeb do
     pipe_through [:browser, :require_authenticated_user]
 
@@ -67,6 +73,11 @@ defmodule MocWeb.Router do
       live "/admin/settings", AdminLive.Settings
       live "/admin/users", AdminLive.Users
     end
+  end
+
+  scope "/api", MocWeb do
+    pipe_through [:api, :require_authenticated_user]
+    get "/contributors/:id/activity", ContributorController, :activity
   end
 
   def redirect_if_setup_incomplete(%{request_path: path} = conn, _opts) do

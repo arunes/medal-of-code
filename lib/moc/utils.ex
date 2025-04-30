@@ -56,9 +56,10 @@ defmodule Moc.Utils do
     end
   end
 
-  def get_duration(0), do: ""
+  def get_duration(days, max_parts \\ 3)
+  def get_duration(days, _) when days <= 0, do: "N/A"
 
-  def get_duration(days, max_parts \\ 3) do
+  def get_duration(days, max_parts) do
     duration = Duration.from_days(days)
     microseconds = duration |> Duration.to_clock() |> elem(3) |> Duration.from_microseconds()
 

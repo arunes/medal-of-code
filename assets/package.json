@@ -2,6 +2,7 @@
   "name": "moc",
   "dependencies": {
     "@dicebear/collection": "^9.2.2",
-    "@dicebear/core": "^9.2.2"
+    "@dicebear/core": "^9.2.2",
+    "cal-heatmap": "^4.2.4"
   }
 }

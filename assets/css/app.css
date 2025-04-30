@@ -1,6 +1,7 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "../node_modules/cal-heatmap/dist/cal-heatmap.css";
 
 /* moc styles */
 @import "./variables.css";
