@@ -15,6 +15,7 @@ defmodule Moc.Repo.Migrations.CreateContributorActivityView do
         DATE(prc.published_on) AS date
       FROM 
         pull_request_comments prc
+      WHERE prc.comment_type = 'text'
     """
   end
 

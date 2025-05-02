@@ -234,10 +234,10 @@ defmodule Moc.Leaderboard do
       select: %{
         id: pr.created_by_id,
         name: c.name,
-        count: avg(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on))
+        count: avg(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on))
       },
       having: count(pr.id) > 2,
-      order_by: avg(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on)),
+      order_by: avg(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on)),
       limit: 5
     )
     |> Repo.all()
@@ -256,10 +256,10 @@ defmodule Moc.Leaderboard do
       select: %{
         id: pr.created_by_id,
         name: c.name,
-        count: min(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on))
+        count: min(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on))
       },
       having: count(pr.id) > 2,
-      order_by: min(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on)),
+      order_by: min(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on)),
       limit: 5
     )
     |> Repo.all()
@@ -278,10 +278,10 @@ defmodule Moc.Leaderboard do
       select: %{
         id: pr.created_by_id,
         name: c.name,
-        count: max(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on))
+        count: max(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on))
       },
       having: count(pr.id) > 2,
-      order_by: [desc: max(fragment("julianday(?) - julianday(?)", pr.closed_on, pr.created_on))],
+      order_by: [desc: max(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on))],
       limit: 5
     )
     |> Repo.all()

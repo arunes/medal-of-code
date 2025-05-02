@@ -34,6 +34,17 @@ defmodule Moc.Utils do
     "Celebrate the {medals}-medal {title}! Harmonizing code conflicts with a touch of tranquility! ☮️"
   ]
 
+  @rarity_scale [
+    %{rarity: 1, name: "Ultra Rare", className: "rarity-ultra-rare"},
+    %{rarity: 5, name: "Very Rare", className: "rarity-very-rare"},
+    %{rarity: 10, name: "Rare", className: "rarity-rare"},
+    %{rarity: 20, name: "Uncommon", className: "rarity-uncommon"},
+    %{rarity: 40, name: "Common", className: "rarity-common"},
+    %{rarity: 60, name: "Frequent", className: "rarity-frequent"},
+    %{rarity: 80, name: "Very Frequent", className: "rarity-very-frequent"},
+    %{rarity: 100, name: "Universal", className: "rarity-universal"}
+  ]
+
   def utc_now(), do: DateTime.utc_now() |> DateTime.truncate(:second)
 
   def string_to_utc(str),
@@ -94,4 +105,6 @@ defmodule Moc.Utils do
   def pick_tag_line(_, seed) do
     seed |> rem(length(@tag_lines)) |> then(&Enum.at(@tag_lines, &1))
   end
+
+  def get_rarity(percentage), do: @rarity_scale |> Enum.find(&(&1.rarity >= percentage))
 end

@@ -1,5 +1,8 @@
 defmodule Moc.Scoring do
   require Logger
+  import Ecto.Query
+  alias Moc.Contributors.ContributorCounter
+  alias Moc.Scoring.Counter
   alias Moc.Scoring.Updates
   alias Moc.Scoring.Medals
   alias Moc.Utils
@@ -12,6 +15,42 @@ defmodule Moc.Scoring do
   def calculate() do
     Counters.get_result_sets()
     |> save_results()
+  end
+
+  def get_counter_list(nil) do
+    from(cnt in Counter,
+      where: cnt.main_counter,
+      left_join: cc in ContributorCounter,
+      on: cc.counter_id == cnt.id,
+      group_by: [cnt.id, cnt.main_description, cnt.category, cnt.display_order],
+      select: %{
+        id: cnt.id,
+        description: cnt.main_description,
+        category: cnt.category,
+        display_order: cnt.display_order,
+        count: coalesce(sum(cc.count), 0)
+      },
+      order_by: cnt.display_order
+    )
+    |> Repo.all()
+  end
+
+  def get_counter_list(contributor_id) do
+    from(cnt in Counter,
+      where: cnt.personal_counter,
+      left_join: cc in ContributorCounter,
+      on: cc.counter_id == cnt.id and cc.contributor_id == ^contributor_id,
+      group_by: [cnt.id, cnt.personal_description, cnt.category, cnt.display_order],
+      select: %{
+        id: cnt.id,
+        description: cnt.personal_description,
+        category: cnt.category,
+        display_order: cnt.display_order,
+        count: coalesce(sum(cc.count), 0)
+      },
+      order_by: cnt.display_order
+    )
+    |> Repo.all()
   end
 
   defp save_results([]), do: :ok
