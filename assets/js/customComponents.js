@@ -4,6 +4,7 @@ import CalHeatmap from "cal-heatmap";
 import LegendLite from "cal-heatmap/plugins/LegendLite";
 import Tooltip from "cal-heatmap/plugins/Tooltip";
 import CalendarLabel from "cal-heatmap/plugins/CalendarLabel";
+import WordCloud from "../vendor/wordcloud2";
 
 // converts iso date to user's local date
 class MOCLocalDatetime extends HTMLElement {
@@ -40,7 +41,7 @@ class MOCLocalDatetime extends HTMLElement {
 
 window.customElements.define("moc-local-datetime", MOCLocalDatetime);
 
-// converts iso date to user's local date
+// renders user avatar
 class MOCAvatar extends HTMLElement {
   constructor() {
     super();
@@ -69,13 +70,14 @@ class MOCContributionCalendar extends HTMLElement {
     const contributor_id = this.getAttribute("contributor_id");
 
     const div = document.createElement("div");
+    div.id = `${id}-calendar`;
     div.className = this.getAttribute("class");
     this.appendChild(div);
 
     cal.paint(
       {
         theme: localStorage.theme,
-        itemSelector: `#${id}`,
+        itemSelector: `#${div.id}`,
         date: { start: new Date("2024-06-01") },
         data: {
           source: `/api/contributors/${contributor_id}/activity`,
@@ -146,3 +148,71 @@ window.customElements.define(
   "moc-contribution-calendar",
   MOCContributionCalendar,
 );
+
+// renders medal
+class MOCMedal extends HTMLElement {
+  constructor() {
+    super();
+
+    const avatar = createAvatar(medals, {
+      seed: this.getAttribute("name"),
+      size: this.getAttribute("size"),
+      shape1Color: [this.getAttribute("colors-1")],
+      shape2Color: [this.getAttribute("colors-2")],
+      shape3Color: [this.getAttribute("colors-3")],
+      backgroundColor: [this.getAttribute("colors-bg")],
+    }).toDataUri();
+
+    const img = document.createElement("img");
+    img.src = avatar;
+    img.style.borderTop = `7px solid #${this.getAttribute("colors-1")}`;
+    img.style.borderLeft = `7px solid #${this.getAttribute("colors-1")}`;
+    img.style.borderRight = `7px solid #${this.getAttribute("colors-2")}`;
+    img.style.borderBottom = `7px solid #${this.getAttribute("colors-2")}`;
+    img.style.boxShadow = `0 0 10px 3px #${this.getAttribute("colors-3")}`;
+    img.className = this.getAttribute("class");
+
+    this.appendChild(img);
+  }
+}
+
+window.customElements.define("moc-medal", MOCMedal);
+
+// wordcloud
+class MOCWordCloud extends HTMLElement {
+  constructor() {
+    super();
+
+    const words = this.getAttribute("words");
+    const colors = ["#143059", "#2F6B9A", "#82a6c2"];
+
+    const div = document.createElement("div");
+    div.style.width = this.getAttribute("width");
+    div.style.height = this.getAttribute("height");
+    this.appendChild(div);
+
+    let list = words.split(",").map((item) => {
+      const word = item.split("|")[0];
+      const count = parseInt(item.split("|")[1]);
+      return [word, count];
+    });
+
+    const width = div.getBoundingClientRect().width;
+    const weight_sum = list.reduce((acc, item) => acc + item[1], 0);
+    WordCloud(div, {
+      list: list,
+      weightFactor: (width * 2) / weight_sum,
+      color: function (word, weight) {
+        return colors[Math.floor(weight % colors.length)];
+      },
+      fontFamily: "M PLUS Code Latin",
+      rotateRatio: 0.5,
+      rotationSteps: 10,
+      backgroundColor: "transparent",
+      drawOutOfBound: false,
+      shrinkToFit: true,
+    });
+  }
+}
+
+window.customElements.define("moc-wordcloud", MOCWordCloud);

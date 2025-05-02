@@ -11,6 +11,7 @@
 @import "./rarity.css";
 @import "./footer.css";
 @import "./contributor.css";
+@import "./medal.css";
 
 .affinity-dark {
   color: var(--affinity-dark);

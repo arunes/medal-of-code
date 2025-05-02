@@ -1,0 +1,10 @@
+.medal {
+  transition: 0.6s ease all;
+  mask: linear-gradient(135deg, #000c 40%, #000, #000c 60%) 100% 100%/250% 250%;
+
+  &:hover {
+    transform: perspective(800px) rotateY(-15deg) translateY(-5px)
+      rotateX(10deg) scale(1);
+    mask-position: 0 0;
+  }
+}
