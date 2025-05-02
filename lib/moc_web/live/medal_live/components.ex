@@ -31,7 +31,7 @@ defmodule MocWeb.MedalLive.Components do
   end
 
   attr :medal, :any, required: true
-  attr :show_medal_count, :boolean, required: true
+  attr :show_medal_count, :boolean, default: false
 
   def medal_box(assigns) do
     ~H"""

@@ -60,6 +60,7 @@ defmodule Moc.Contributors do
       |> Map.put(:rarity_percentage, rarity_percentage)
       |> Map.put(:rarity, Utils.get_rarity(rarity_percentage))
     end)
+    |> Enum.sort_by(fn medal -> medal.rarity_percentage end)
   end
 
   def get_contributor_words(contributor_id) do

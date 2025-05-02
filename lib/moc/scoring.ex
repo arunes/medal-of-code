@@ -1,6 +1,9 @@
 defmodule Moc.Scoring do
   require Logger
   import Ecto.Query
+  alias Moc.Contributors.ContributorMedal
+  alias Moc.Contributors.Contributor
+  alias Moc.Scoring.Medal
   alias Moc.Contributors.ContributorCounter
   alias Moc.Scoring.Counter
   alias Moc.Scoring.Updates
@@ -51,6 +54,35 @@ defmodule Moc.Scoring do
       order_by: cnt.display_order
     )
     |> Repo.all()
+  end
+
+  def get_medal_list() do
+    contributor_count = from(c in Contributor, select: count(c.id)) |> Repo.one!()
+
+    from(mdl in Medal,
+      left_join: cm in ContributorMedal,
+      on: mdl.id == cm.medal_id,
+      group_by: [mdl.id, mdl.name, mdl.description, mdl.affinity],
+      select: %{
+        id: mdl.id,
+        name: mdl.name,
+        description: mdl.description,
+        affinity: mdl.affinity,
+        total: count(cm.id),
+        contributors_have: count(fragment("DISTINCT ?", cm.contributor_id)),
+        last_won_on: max(cm.inserted_at),
+        is_new: false
+      }
+    )
+    |> Repo.all()
+    |> Enum.map(fn medal ->
+      rarity_percentage = medal.contributors_have / contributor_count * 100.0
+
+      medal
+      |> Map.put(:rarity_percentage, rarity_percentage)
+      |> Map.put(:rarity, Utils.get_rarity(rarity_percentage))
+    end)
+    |> Enum.sort_by(fn medal -> medal.rarity_percentage end)
   end
 
   defp save_results([]), do: :ok
