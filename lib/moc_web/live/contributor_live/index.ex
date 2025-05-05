@@ -6,7 +6,7 @@ defmodule MocWeb.ContributorLive.Index do
   def mount(params, _session, socket) do
     contributors = Moc.Contributors.get_contributor_list(params)
     settings = Moc.Instance.get_settings()
-    contributor_id = socket.assigns.current_user.contributor_id
+    current_contributor_id = socket.assigns.current_user.contributor_id
 
     contributor_settings = %{
       show_level: settings |> Utils.get_setting_value("contributor.show_level"),
@@ -17,7 +17,7 @@ defmodule MocWeb.ContributorLive.Index do
     socket =
       socket
       |> assign(:page_title, "Contributors")
-      |> assign(:contributor_id, contributor_id)
+      |> assign(:current_contributor_id, current_contributor_id)
       |> assign(:settings, contributor_settings)
       |> assign(:form, to_form(params))
       |> assign(:total_contributors, length(contributors))
@@ -41,9 +41,9 @@ defmodule MocWeb.ContributorLive.Index do
         :for={{dom_id, contributor} <- @streams.contributors}
         id={dom_id}
         contributor={contributor}
-        show_level={@settings.show_level || @contributor_id == contributor.id}
+        show_level={@settings.show_level || @current_contributor_id == contributor.id}
         show_rank={@settings.show_rank}
-        show_medal_count={@settings.show_medal_count || @contributor_id == contributor.id}
+        show_medal_count={@settings.show_medal_count || @current_contributor_id == contributor.id}
       />
     </section>
     """

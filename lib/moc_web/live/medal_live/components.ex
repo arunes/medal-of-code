@@ -31,15 +31,16 @@ defmodule MocWeb.MedalLive.Components do
   end
 
   attr :medal, :any, required: true
+  attr :id, :string, required: true
   attr :show_medal_count, :boolean, default: false
 
   def medal_box(assigns) do
     ~H"""
-    <.link class="box-link" navigate={~p"/medals/#{@medal.id}"} id={"medal-box-#{@medal.id}"}>
+    <.link class="box-link" navigate={~p"/medals/#{@medal.id}"} id={@id}>
       <span :if={@show_medal_count && @medal.total > 0} class="absolute inline-flex top-1 end-2">
         x{@medal.total}
       </span>
-      <span class={["absolute inline-flex flex-col top-2 start-3 text-sm", @medal.rarity.className]}>
+      <span class={["absolute inline-flex flex-col top-2 start-3 text-sm", @medal.rarity.class_name]}>
         {@medal.rarity.name}
       </span>
       <.medal id={"medal-#{@medal.id}"} name={@medal.name} size={82} affinity={@medal.affinity} />

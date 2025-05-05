@@ -35,14 +35,14 @@ defmodule Moc.Utils do
   ]
 
   @rarity_scale [
-    %{rarity: 1, name: "Ultra Rare", className: "rarity-ultra-rare"},
-    %{rarity: 5, name: "Very Rare", className: "rarity-very-rare"},
-    %{rarity: 10, name: "Rare", className: "rarity-rare"},
-    %{rarity: 20, name: "Uncommon", className: "rarity-uncommon"},
-    %{rarity: 40, name: "Common", className: "rarity-common"},
-    %{rarity: 60, name: "Frequent", className: "rarity-frequent"},
-    %{rarity: 80, name: "Very Frequent", className: "rarity-very-frequent"},
-    %{rarity: 100, name: "Universal", className: "rarity-universal"}
+    %{rarity: 1, name: "Ultra Rare", class_name: "rarity-ultra-rare"},
+    %{rarity: 5, name: "Very Rare", class_name: "rarity-very-rare"},
+    %{rarity: 10, name: "Rare", class_name: "rarity-rare"},
+    %{rarity: 20, name: "Uncommon", class_name: "rarity-uncommon"},
+    %{rarity: 40, name: "Common", class_name: "rarity-common"},
+    %{rarity: 60, name: "Frequent", class_name: "rarity-frequent"},
+    %{rarity: 80, name: "Very Frequent", class_name: "rarity-very-frequent"},
+    %{rarity: 100, name: "Universal", class_name: "rarity-universal"}
   ]
 
   def utc_now(), do: DateTime.utc_now() |> DateTime.truncate(:second)

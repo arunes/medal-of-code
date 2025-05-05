@@ -89,6 +89,11 @@ defmodule MocWeb.ContributorLive.Show do
         <.word_cloud contributor_id={@contributor.id} />
       </div>
 
+      <div :if={@contributor.id == @current_contributor_id || @settings.show_counters}>
+        <.title size="xl">Counters</.title>
+        <.counter_list contributor_id={@contributor.id} />
+      </div>
+
       <div :if={@contributor.id == @current_contributor_id || @settings.show_history}>
         <.title size="xl">History</.title>
         <.history_list
@@ -96,11 +101,6 @@ defmodule MocWeb.ContributorLive.Show do
           contributor_id={@contributor.id}
           current_contributor_id={@current_contributor_id}
         />
-      </div>
-
-      <div :if={@contributor.id == @current_contributor_id || @settings.show_counters}>
-        <.title size="xl">Counters</.title>
-        <.counter_list contributor_id={@contributor.id} />
       </div>
     </div>
     """
@@ -259,7 +259,12 @@ defmodule MocWeb.ContributorLive.Show do
           rise!
         </p>
 
-        <.medal_box :for={medal <- @medals} medal={medal} show_medal_count={@show_medal_count} />
+        <.medal_box
+          :for={medal <- @medals}
+          medal={medal}
+          id={"medal-#{medal.id}"}
+          show_medal_count={@show_medal_count}
+        />
       </section>
     </div>
     """

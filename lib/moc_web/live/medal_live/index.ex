@@ -5,15 +5,15 @@ defmodule MocWeb.MedalLive.Index do
 
   def mount(_params, _session, socket) do
     medals = Scoring.get_medal_list()
-    socket = socket |> assign(:medals, medals)
+    socket = socket |> stream(:medals, medals)
 
     {:ok, socket}
   end
 
   def render(assigns) do
     ~H"""
-    <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 h-full">
-      <.medal_box :for={medal <- @medals} medal={medal} />
+    <section id="medals" class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 h-full" phx-update="stream">
+      <.medal_box :for={{dom_id, medal} <- @streams.medals} medal={medal} id={dom_id} />
     </section>
     """
   end

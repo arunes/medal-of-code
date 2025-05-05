@@ -20,6 +20,64 @@ defmodule Moc.Scoring do
     |> save_results()
   end
 
+  def get_medal(medal_id) do
+    from(mdl in Medal,
+      left_join: cm in ContributorMedal,
+      on: mdl.id == cm.medal_id,
+      where: mdl.id == ^medal_id,
+      select: %{
+        id: mdl.id,
+        name: mdl.name,
+        description: mdl.description,
+        affinity: mdl.affinity,
+        lore: mdl.lore,
+        medal_count: count(cm.id),
+        contributors_have: count(fragment("DISTINCT ?", cm.contributor_id))
+      }
+    )
+    |> Repo.one()
+    |> maybe_populate_medal_details()
+  end
+
+  def get_medal_winners(medal_id) do
+    winners =
+      from(cm in ContributorMedal,
+        where: cm.medal_id == ^medal_id,
+        group_by: [cm.contributor_id],
+        select: %{id: cm.contributor_id, count: count(cm.id)}
+      )
+      |> Repo.all()
+
+    ids = winners |> Enum.map(& &1.id)
+
+    from(co in ContributorOverview,
+      where: co.id in ^ids
+    )
+    |> Repo.all()
+    |> Enum.map(fn co ->
+      %{co | number_of_medals: get_contributor_medal_count(winners, co.id)}
+    end)
+    |> Enum.sort_by(& &1.number_of_medals, :desc)
+  end
+
+  defp get_contributor_medal_count(list_of_winners, contributor_id) do
+    case list_of_winners |> Enum.find(&(&1.id == contributor_id)) do
+      nil -> 0
+      w -> w.count
+    end
+  end
+
+  defp maybe_populate_medal_details(nil), do: nil
+
+  defp maybe_populate_medal_details(medal) do
+    contributor_count = from(c in Contributor, select: count(c.id)) |> Repo.one!()
+    rarity_percentage = medal.contributors_have / contributor_count * 100.0
+
+    medal
+    |> Map.put(:rarity_percentage, rarity_percentage)
+    |> Map.put(:rarity, Utils.get_rarity(rarity_percentage))
+  end
+
   def get_counter_list(nil) do
     from(cnt in Counter,
       where: cnt.main_counter,
