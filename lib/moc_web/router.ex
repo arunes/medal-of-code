@@ -77,6 +77,7 @@ defmodule MocWeb.Router do
 
   scope "/api", MocWeb do
     pipe_through [:api, :require_authenticated_user]
+    get "/contributors/activity", ContributorController, :all_activity
     get "/contributors/:id/activity", ContributorController, :activity
   end
 

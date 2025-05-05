@@ -74,13 +74,16 @@ class MOCContributionCalendar extends HTMLElement {
     div.className = this.getAttribute("class");
     this.appendChild(div);
 
+    const dataSource = contributor_id
+      ? `/api/contributors/${contributor_id}/activity`
+      : "/api/contributors/activity";
     cal.paint(
       {
         theme: localStorage.theme,
         itemSelector: `#${div.id}`,
         date: { start: new Date("2024-06-01") },
         data: {
-          source: `/api/contributors/${contributor_id}/activity`,
+          source: dataSource,
           x: "date",
           y: "count",
         },

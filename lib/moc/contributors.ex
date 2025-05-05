@@ -16,6 +16,17 @@ defmodule Moc.Contributors do
     Repo.get(ContributorOverview, contributor_id)
   end
 
+  def get_all_activities() do
+    from(act in ContributorActivity,
+      group_by: [act.date],
+      select: %{
+        date: act.date,
+        count: count(act.date)
+      }
+    )
+    |> Repo.all()
+  end
+
   def get_activities(contributor_id) do
     from(act in ContributorActivity,
       group_by: [act.date],
@@ -249,6 +260,36 @@ defmodule Moc.Contributors do
                 select: count()
               )
             )
+        }
+      )
+      |> Repo.one!()
+
+    data
+    |> Map.put(
+      :pr_per_day,
+      calculate_pr_per_day(data.total_prs, data.first_pr_date, data.last_pr_date)
+    )
+  end
+
+  def get_all_contributor_stats() do
+    data =
+      from(pr in PullRequest,
+        select: %{
+          total_prs: count(pr.id),
+          first_pr_date: min(pr.created_on),
+          last_pr_date: max(pr.created_on),
+          avg_completion:
+            coalesce(
+              avg(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on)),
+              0.0
+            ),
+          total_time:
+            coalesce(
+              sum(fragment("JULIANDAY(?) - JULIANDAY(?)", pr.closed_on, pr.created_on)),
+              0.0
+            ),
+          total_comments: subquery(from(prc in PullRequestComment, select: count())),
+          total_votes: subquery(from(prr in PullRequestReview, select: count()))
         }
       )
       |> Repo.one!()
