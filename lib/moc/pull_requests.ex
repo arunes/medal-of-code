@@ -272,7 +272,7 @@ defmodule Moc.PullRequests do
 
   defp get_repos_to_sync do
     from(rp in Repository,
-      where: rp.sync_enabled == true,
+      where: rp.is_sync_enabled == true,
       join: prj in assoc(rp, :project),
       join: org in assoc(prj, :organization),
       left_join: pra in PullRequest,

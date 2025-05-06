@@ -15,7 +15,7 @@ defmodule MocWeb.AdminLive.Settings do
 
     socket =
       socket
-      |> assign(:page_title, "Settings | Admin")
+      |> assign(:page_title, "Admin | Settings")
       |> assign(:settings, grouped_settings)
       |> assign(:form, form)
 

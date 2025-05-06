@@ -7,10 +7,16 @@ defmodule Moc.Scoring.Updates do
   alias Moc.Scoring.Type
   alias Moc.Contributors.ContributorOverview
 
-  def get_update_list(%{contributor_id: nil} = search_params),
-    do:
-      get_update_list_query(search_params)
-      |> Repo.all()
+  def get_update_list(%{contributor_id: nil, current_contributor_id: nil} = search_params),
+    do: get_update_list_query(search_params) |> Repo.all()
+
+  def get_update_list(
+        %{contributor_id: nil, current_contributor_id: current_contributor_id} = search_params
+      ),
+      do:
+        get_update_list_query(search_params)
+        |> where([u, c, m], u.contributor_id == ^current_contributor_id)
+        |> Repo.all()
 
   def get_update_list(search_params) do
     get_update_list_query(search_params)
@@ -42,7 +48,7 @@ defmodule Moc.Scoring.Updates do
     from(upd in Update,
       join: cnt in assoc(upd, :contributor),
       left_join: md in assoc(upd, :medal),
-      where: upd.type in ^search_types or cnt.id == ^search_params.current_contributor_id,
+      where: upd.type in ^search_types,
       select: %{
         contributor_id: upd.contributor_id,
         contributor_name: cnt.name,
@@ -79,7 +85,7 @@ defmodule Moc.Scoring.Updates do
   defp get_medal_updates(medal_winners) do
     medal_winners
     |> Enum.map(fn w ->
-      %{type: "medalWon", contributor_id: w.contributor_id, medal_id: w.medal_id}
+      %{type: :medal_won, contributor_id: w.contributor_id, medal_id: w.medal_id}
     end)
   end
 

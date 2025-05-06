@@ -16,4 +16,10 @@ defmodule Moc.Contributors.Contributor do
     |> cast(attrs, [:name, :external_id, :email])
     |> validate_required([:name, :external_id])
   end
+
+  def toggle_visibility_changeset(contributor, attrs \\ %{}) do
+    contributor
+    |> cast(attrs, [:is_visible])
+    |> validate_required([:is_visible])
+  end
 end

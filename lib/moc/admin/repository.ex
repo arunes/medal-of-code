@@ -6,12 +6,18 @@ defmodule Moc.Admin.Repository do
     field :external_id, :string
     field :name, :string
     field :url, :string
-    field :sync_enabled, :boolean
+    field :is_sync_enabled, :boolean
     field :cutoff_date, :utc_datetime
 
     belongs_to(:project, Moc.Admin.Project)
 
     timestamps(type: :utc_datetime)
+  end
+
+  def toggle_sync_changeset(repository, attrs \\ %{}) do
+    repository
+    |> cast(attrs, [:is_sync_enabled])
+    |> validate_required([:is_sync_enabled])
   end
 
   def create_changeset(repository, attrs) do
@@ -20,7 +26,7 @@ defmodule Moc.Admin.Repository do
       :external_id,
       :name,
       :url,
-      :sync_enabled,
+      :is_sync_enabled,
       :cutoff_date,
       :project_id
     ])
@@ -28,7 +34,7 @@ defmodule Moc.Admin.Repository do
       :external_id,
       :name,
       :url,
-      :sync_enabled,
+      :is_sync_enabled,
       :cutoff_date,
       :project_id
     ])

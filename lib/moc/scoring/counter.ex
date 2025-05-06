@@ -5,9 +5,9 @@ defmodule Moc.Scoring.Counter do
     field :key, :string
     field :xp, :float
     field :display_order, :integer
-    field :main_counter, :boolean
+    field :is_main_counter, :boolean
     field :main_description, :string
-    field :personal_counter, :boolean
+    field :is_personal_counter, :boolean
     field :personal_description, :string
     field :category, :string
     field :affinity, Ecto.Enum, values: [:light, :neutral, :dark]

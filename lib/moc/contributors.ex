@@ -16,6 +16,22 @@ defmodule Moc.Contributors do
     Repo.get(ContributorOverview, contributor_id)
   end
 
+  def get_contributor_list() do
+    from(cnt in Contributor, order_by: cnt.name) |> Repo.all()
+  end
+
+  def toggle_visibility!(contributor_id) do
+    contributor =
+      from(cnt in Contributor, where: cnt.id == ^contributor_id)
+      |> Repo.one!()
+
+    contributor
+    |> Contributor.toggle_visibility_changeset(%{is_visible: !contributor.is_visible})
+    |> Repo.update()
+
+    !contributor.is_visible
+  end
+
   def get_all_activities() do
     from(act in ContributorActivity,
       group_by: [act.date],

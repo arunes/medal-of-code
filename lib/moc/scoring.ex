@@ -80,7 +80,7 @@ defmodule Moc.Scoring do
 
   def get_counter_list(nil) do
     from(cnt in Counter,
-      where: cnt.main_counter,
+      where: cnt.is_main_counter,
       left_join: cc in ContributorCounter,
       on: cc.counter_id == cnt.id,
       group_by: [cnt.id, cnt.main_description, cnt.category, cnt.display_order],
@@ -98,7 +98,7 @@ defmodule Moc.Scoring do
 
   def get_counter_list(contributor_id) do
     from(cnt in Counter,
-      where: cnt.personal_counter,
+      where: cnt.is_personal_counter,
       left_join: cc in ContributorCounter,
       on: cc.counter_id == cnt.id and cc.contributor_id == ^contributor_id,
       group_by: [cnt.id, cnt.personal_description, cnt.category, cnt.display_order],

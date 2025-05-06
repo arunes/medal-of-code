@@ -15,8 +15,12 @@ defmodule MocWeb.AdminLive.Components do
         title: "Organizations",
         active: assigns.selected_nav == "organizations"
       },
-      %{url: ~p"/admin/settings", title: "Settings", active: assigns.selected_nav == "settings"},
-      %{url: ~p"/admin/users", title: "Users", active: assigns.selected_nav == "users"}
+      %{
+        url: ~p"/admin/contributors",
+        title: "Contributors",
+        active: assigns.selected_nav == "contributors"
+      },
+      %{url: ~p"/admin/settings", title: "Settings", active: assigns.selected_nav == "settings"}
     ]
 
     assigns = assign(assigns, links: links) |> maybe_add_root_breadcrumb

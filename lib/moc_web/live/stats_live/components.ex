@@ -1,5 +1,4 @@
 defmodule MocWeb.StatsLive.Components do
-  alias Moc.Utils
   use MocWeb, :html
 
   attr :id, :string, required: true

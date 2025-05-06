@@ -61,8 +61,8 @@ defmodule MocWeb.AdminLive.Organization.Repositories do
         <:col :let={rp} label="Name">{rp.name}</:col>
         <:col :let={rp} align="center" width="120px" label="Sync Enabled?">
           <button phx-click="toggle-sync" phx-value-repository_id={rp.id}>
-            <.icon :if={rp.sync_enabled} name="hero-check" class="h-5 w-5" />
-            <.icon :if={not rp.sync_enabled} name="hero-x-mark" class="h-5 w-5" />
+            <.icon :if={rp.is_sync_enabled} name="hero-check" class="h-5 w-5" />
+            <.icon :if={not rp.is_sync_enabled} name="hero-x-mark" class="h-5 w-5" />
           </button>
         </:col>
         <:col :let={rp} align="right" width="220px" label="Import After">

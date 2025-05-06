@@ -27,7 +27,7 @@ defmodule Moc.Admin.RepositoryView do
     :id,
     :name,
     :url,
-    :sync_enabled,
+    :is_sync_enabled,
     :cutoff_date,
     :inserted_at
   ]
@@ -63,7 +63,13 @@ defmodule Moc.Admin do
         total_projects: count(fragment("DISTINCT ?", prj.id)),
         total_repos: count(fragment("DISTINCT ?", rp.id)),
         total_active_repos:
-          count(fragment("DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)", rp.sync_enabled, rp.id)),
+          count(
+            fragment(
+              "DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)",
+              rp.is_sync_enabled,
+              rp.id
+            )
+          ),
         updated_at: org.updated_at
       },
       order_by: org.external_id
@@ -83,7 +89,13 @@ defmodule Moc.Admin do
         url: prj.url,
         total_repos: count(fragment("DISTINCT ?", rp.id)),
         total_active_repos:
-          count(fragment("DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)", rp.sync_enabled, rp.id)),
+          count(
+            fragment(
+              "DISTINCT(CASE ? WHEN 1 THEN ? ELSE NULL END)",
+              rp.is_sync_enabled,
+              rp.id
+            )
+          ),
         inserted_at: prj.inserted_at
       },
       order_by: prj.name
@@ -110,7 +122,7 @@ defmodule Moc.Admin do
         id: rp.id,
         name: rp.name,
         url: rp.url,
-        sync_enabled: rp.sync_enabled,
+        is_sync_enabled: rp.is_sync_enabled,
         cutoff_date: rp.cutoff_date,
         inserted_at: rp.inserted_at
       },
@@ -125,10 +137,12 @@ defmodule Moc.Admin do
       |> Repo.one!()
 
     repo
-    |> Repository.create_changeset(%{sync_enabled: !repo.sync_enabled})
+    |> Repository.toggle_sync_changeset(%{
+      is_sync_enabled: !repo.is_sync_enabled
+    })
     |> Repo.update()
 
-    !repo.sync_enabled
+    !repo.is_sync_enabled
   end
 
   @doc """
@@ -181,7 +195,7 @@ defmodule Moc.Admin do
             external_id: repo.id,
             name: repo.name,
             url: repo.url,
-            sync_enabled: false,
+            is_sync_enabled: false,
             cutoff_date:
               DateTime.utc_now()
               |> DateTime.add(6 * 30 * 24 * 60 * 60 * -1)

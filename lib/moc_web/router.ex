@@ -71,7 +71,7 @@ defmodule MocWeb.Router do
            AdminLive.Organization.Repositories
 
       live "/admin/settings", AdminLive.Settings
-      live "/admin/users", AdminLive.Users
+      live "/admin/contributors", AdminLive.Contributors
     end
   end
 

@@ -6,9 +6,9 @@ defmodule Moc.Repo.Migrations.CreateCounters do
       add :key, :string, null: false
       add :xp, :float, null: false
       add :display_order, :integer, null: false
-      add :main_counter, :boolean, null: false
+      add :is_main_counter, :boolean, null: false
       add :main_description, :string, null: true
-      add :personal_counter, :boolean, null: false
+      add :is_personal_counter, :boolean, null: false
       add :personal_description, :string, null: true
       add :category, :string, null: false
       add :affinity, :string, null: false, default: "neutral"
