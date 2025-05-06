@@ -262,7 +262,7 @@ defmodule MocWeb.ContributorLive.Show do
         <.medal_box
           :for={medal <- @medals}
           medal={medal}
-          id={"medal-#{medal.id}"}
+          id={"contributor-medal-#{medal.id}"}
           show_medal_count={@show_medal_count}
         />
       </section>

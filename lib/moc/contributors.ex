@@ -231,7 +231,7 @@ defmodule Moc.Contributors do
       |> Enum.join(" ")
       |> String.downcase()
       |> String.replace(~r/http\\S+/, " ")
-      |> String.replace(~r/!\[.+\]\(.+\)/, " ")
+      |> String.replace(~r/!\\[.+\\]\\(.+\\)/, " ")
       |> String.replace(~r/[^a-zA-Z]/, " ")
       |> String.split(" ", trim: true)
       |> Enum.filter(&(String.length(&1) > 2))
