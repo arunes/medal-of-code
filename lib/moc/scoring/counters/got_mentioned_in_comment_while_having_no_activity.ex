@@ -5,7 +5,7 @@ defmodule Moc.Scoring.Counters.GotMentionedInCommentWhileHavingNoActivity do
 
   @spec count(Type.Input.t(), fun()) :: list(Type.counter_result())
   def count(
-        %Type.Input{comments: comments, created_by_id: created_by_id, reviews: reviews} = input,
+        %Type.Input{comments: comments, created_by_id: created_by_id, reviews: reviews},
         get_data
       ) do
     result =
