@@ -26,11 +26,13 @@ defmodule Moc.Contributors.ContributorCache do
     do: get_by_id(%{id: external_id, name: "Mysterious Contributor", email: ""})
 
   def get_by_id(contributor) do
+    contributor_id = String.downcase(contributor.id)
+
     Agent.get_and_update(@me, fn state ->
-      case state[contributor.id] do
+      case state[contributor_id] do
         nil ->
           new_id = create_contributor(contributor)
-          {new_id, Map.put(state, contributor.id, new_id)}
+          {new_id, Map.put(state, contributor_id, new_id)}
 
         id ->
           {id, state}
@@ -50,7 +52,7 @@ defmodule Moc.Contributors.ContributorCache do
   defp create_contributor(contributor) do
     {:ok, resp} =
       Contributor.create_changeset(%Contributor{
-        external_id: contributor.id,
+        external_id: String.downcase(contributor.id),
         name: contributor.name,
         email: contributor.email
       })
