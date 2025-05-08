@@ -68,7 +68,7 @@ defmodule Moc.Tests.Counters.GotMentionedInCommentWhileHavingNoActivityTest do
           comment_type: :text,
           content: "Hello",
           created_by_id: "12345678-1234-1234-1234-123456789012",
-          published_on: ~N[2022-01-01 00:00:00]
+          published_on: ~U[2022-01-01 00:00:00Z]
         }
       ]
     }

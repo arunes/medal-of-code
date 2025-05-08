@@ -11,7 +11,7 @@ defmodule Moc.Tests.Counters.CommentsRepliedTest do
 
   test "returns an empty list when there are no text comments" do
     input = %Type.Input{
-      comments: [%{comment_type: :system, published_on: ~N[2022-01-01 12:00:00]}]
+      comments: [%{comment_type: :system, published_on: ~U[2022-01-01 12:00:00Z]}]
     }
 
     assert CommentsReplied.count(input, nil) == []
@@ -24,13 +24,13 @@ defmodule Moc.Tests.Counters.CommentsRepliedTest do
           comment_type: :text,
           thread_id: 1,
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00]
+          published_on: ~U[2022-01-01 12:00:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 2,
           created_by_id: 2,
-          published_on: ~N[2022-01-01 12:01:00]
+          published_on: ~U[2022-01-01 12:01:00Z]
         }
       ]
     }
@@ -45,13 +45,13 @@ defmodule Moc.Tests.Counters.CommentsRepliedTest do
           comment_type: :text,
           thread_id: 1,
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00]
+          published_on: ~U[2022-01-01 12:00:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 1,
           created_by_id: 2,
-          published_on: ~N[2022-01-01 12:01:00]
+          published_on: ~U[2022-01-01 12:01:00Z]
         }
       ]
     }
@@ -68,31 +68,31 @@ defmodule Moc.Tests.Counters.CommentsRepliedTest do
           comment_type: :text,
           thread_id: 1,
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:01:00]
+          published_on: ~U[2022-01-01 12:01:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 1,
           created_by_id: 2,
-          published_on: ~N[2022-01-01 12:02:00]
+          published_on: ~U[2022-01-01 12:02:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 1,
           created_by_id: 3,
-          published_on: ~N[2022-01-01 12:03:00]
+          published_on: ~U[2022-01-01 12:03:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 2,
           created_by_id: 4,
-          published_on: ~N[2022-01-01 12:04:00]
+          published_on: ~U[2022-01-01 12:04:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 2,
           created_by_id: 5,
-          published_on: ~N[2022-01-01 12:05:00]
+          published_on: ~U[2022-01-01 12:05:00Z]
         }
       ]
     }
@@ -111,13 +111,13 @@ defmodule Moc.Tests.Counters.CommentsRepliedTest do
           comment_type: :text,
           thread_id: 1,
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00]
+          published_on: ~U[2022-01-01 12:00:00Z]
         },
         %{
           comment_type: :text,
           thread_id: 1,
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:01:00]
+          published_on: ~U[2022-01-01 12:01:00Z]
         }
       ]
     }

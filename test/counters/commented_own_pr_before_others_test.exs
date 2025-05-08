@@ -22,8 +22,8 @@ defmodule Moc.Tests.Counters.CommentedOwnPRBeforeOthersTest do
     input = %Type.Input{
       created_by_id: 1,
       comments: [
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:00:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:00]}
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:00:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:00Z]}
       ]
     }
 
@@ -34,8 +34,8 @@ defmodule Moc.Tests.Counters.CommentedOwnPRBeforeOthersTest do
     input = %Type.Input{
       created_by_id: 1,
       comments: [
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:00]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:01:00]}
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:00Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:01:00Z]}
       ]
     }
 
@@ -48,7 +48,7 @@ defmodule Moc.Tests.Counters.CommentedOwnPRBeforeOthersTest do
     input = %Type.Input{
       created_by_id: 1,
       comments: [
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:00]}
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:00Z]}
       ]
     }
 

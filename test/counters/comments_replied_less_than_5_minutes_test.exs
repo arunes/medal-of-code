@@ -20,13 +20,13 @@ defmodule Moc.Tests.Counters.CommentsRepliedLessThan5MinutesTest do
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           created_by_id: 1
         },
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:06:00],
+          published_on: ~U[2022-01-01 12:06:00Z],
           created_by_id: 2
         }
       ]
@@ -41,13 +41,13 @@ defmodule Moc.Tests.Counters.CommentsRepliedLessThan5MinutesTest do
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           created_by_id: 1
         },
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:04:00],
+          published_on: ~U[2022-01-01 12:04:00Z],
           created_by_id: 2
         }
       ]
@@ -64,31 +64,31 @@ defmodule Moc.Tests.Counters.CommentsRepliedLessThan5MinutesTest do
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           created_by_id: 1
         },
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:02:00],
+          published_on: ~U[2022-01-01 12:02:00Z],
           created_by_id: 2
         },
         %{
           comment_type: :text,
           thread_id: 1,
-          published_on: ~N[2022-01-01 12:03:00],
+          published_on: ~U[2022-01-01 12:03:00Z],
           created_by_id: 3
         },
         %{
           comment_type: :text,
           thread_id: 2,
-          published_on: ~N[2022-01-01 12:05:00],
+          published_on: ~U[2022-01-01 12:05:00Z],
           created_by_id: 4
         },
         %{
           comment_type: :text,
           thread_id: 2,
-          published_on: ~N[2022-01-01 12:06:00],
+          published_on: ~U[2022-01-01 12:06:00Z],
           created_by_id: 5
         }
       ]

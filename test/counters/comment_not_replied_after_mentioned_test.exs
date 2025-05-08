@@ -31,7 +31,7 @@ defmodule Moc.Tests.Counters.CommentNotRepliedAfterMentionedTest do
           comment_type: :text,
           content: "Hello @<12345678-1234-1234-1234-123456789012>",
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           thread_id: 1
         }
       ]
@@ -53,14 +53,14 @@ defmodule Moc.Tests.Counters.CommentNotRepliedAfterMentionedTest do
           comment_type: :text,
           content: "Hello @<12345678-1234-1234-1234-123456789012>",
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           thread_id: 1
         },
         %{
           comment_type: :text,
           content: "Reply",
           created_by_id: 2,
-          published_on: ~N[2022-01-01 12:01:00],
+          published_on: ~U[2022-01-01 12:01:00Z],
           thread_id: 1
         }
       ]
@@ -80,14 +80,14 @@ defmodule Moc.Tests.Counters.CommentNotRepliedAfterMentionedTest do
           comment_type: :text,
           content: "Hello @<12345678-1234-1234-1234-123456789012>",
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:00:00],
+          published_on: ~U[2022-01-01 12:00:00Z],
           thread_id: 1
         },
         %{
           comment_type: :text,
           content: "Hello @<23456789-2345-2345-2345-234567890123>",
           created_by_id: 1,
-          published_on: ~N[2022-01-01 12:01:00],
+          published_on: ~U[2022-01-01 12:01:00Z],
           thread_id: 2
         }
       ]

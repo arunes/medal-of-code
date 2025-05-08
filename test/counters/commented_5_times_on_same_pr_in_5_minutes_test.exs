@@ -17,10 +17,10 @@ defmodule Moc.Tests.Counters.Commented5TimesOnSamePRIn5MinutesTest do
   test "returns an empty list when there are less than 5 text comments from a contributor within 5 minutes" do
     input = %Type.Input{
       comments: [
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:30]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:30]}
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:30Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:30Z]}
       ]
     }
 
@@ -30,11 +30,11 @@ defmodule Moc.Tests.Counters.Commented5TimesOnSamePRIn5MinutesTest do
   test "returns a single contributor with a count of 1 when there are 5 or more text comments from a contributor within 5 minutes" do
     input = %Type.Input{
       comments: [
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:30]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:30]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:02:00]}
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:30Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:30Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:02:00Z]}
       ]
     }
 
@@ -46,16 +46,16 @@ defmodule Moc.Tests.Counters.Commented5TimesOnSamePRIn5MinutesTest do
   test "returns multiple contributors with their respective counts when there are multiple contributors with 5 or more text comments within 5 minutes" do
     input = %Type.Input{
       comments: [
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:00:30]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:00]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:01:30]},
-        %{comment_type: :text, created_by_id: 1, published_on: ~N[2022-01-01 12:02:00]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:03:00]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:03:30]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:04:00]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:04:30]},
-        %{comment_type: :text, created_by_id: 2, published_on: ~N[2022-01-01 12:05:00]}
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:00:30Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:00Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:01:30Z]},
+        %{comment_type: :text, created_by_id: 1, published_on: ~U[2022-01-01 12:02:00Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:03:00Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:03:30Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:04:00Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:04:30Z]},
+        %{comment_type: :text, created_by_id: 2, published_on: ~U[2022-01-01 12:05:00Z]}
       ]
     }
 
