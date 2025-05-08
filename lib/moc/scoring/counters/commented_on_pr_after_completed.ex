@@ -7,7 +7,7 @@ defmodule Moc.Scoring.Counters.CommentedOnPRAfterCompleted do
     comments
     |> Enum.filter(fn cmt ->
       cmt.comment_type == :text and
-        NaiveDateTime.compare(cmt.published_on, closed_on) == :gt
+        DateTime.compare(cmt.published_on, closed_on) == :gt
     end)
     |> Helpers.result_by_comment_count()
   end

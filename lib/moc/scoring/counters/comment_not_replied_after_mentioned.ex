@@ -35,7 +35,7 @@ defmodule Moc.Scoring.Counters.CommentNotRepliedAfterMentioned do
        ) do
     Enum.any?(comments, fn cmt ->
       cmt.thread_id == thread_id and
-        NaiveDateTime.compare(cmt.published_on, published_on) == :gt and
+        DateTime.compare(cmt.published_on, published_on) == :gt and
         cmt.created_by_id == contributor_id
     end)
   end

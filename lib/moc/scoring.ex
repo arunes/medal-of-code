@@ -15,6 +15,8 @@ defmodule Moc.Scoring do
   alias Moc.Contributors.ContributorOverview
   alias Moc.PullRequests.PullRequestCounter
 
+  @chunk_size 250
+
   def calculate() do
     Counters.get_result_sets()
     |> save_results()
@@ -163,29 +165,30 @@ defmodule Moc.Scoring do
   defp award_xp(result_set) do
     Logger.info("Awarding XP for counter with id #{result_set.counter_id}")
 
-    to_insert =
-      result_set.results
-      |> Enum.flat_map(fn result ->
-        result.data
-        |> Enum.map(fn d ->
-          %{
-            contributor_id: result.contributor_id,
-            pull_request_id: d.pull_request_id,
-            xp: d.xp,
-            dark_xp: add_dark_xp(d.affinity, d.xp),
-            light_xp: add_light_xp(d.affinity, d.xp),
-            dexterity: d.dexterity,
-            wisdom: d.wisdom,
-            charisma: d.charisma,
-            constitution: d.constitution,
-            inserted_at: Utils.utc_now(),
-            updated_at: Utils.utc_now()
-          }
-        end)
+    result_set.results
+    |> Enum.flat_map(fn result ->
+      result.data
+      |> Enum.map(fn d ->
+        %{
+          contributor_id: result.contributor_id,
+          pull_request_id: d.pull_request_id,
+          xp: d.xp,
+          dark_xp: add_dark_xp(d.affinity, d.xp),
+          light_xp: add_light_xp(d.affinity, d.xp),
+          dexterity: d.dexterity,
+          wisdom: d.wisdom,
+          charisma: d.charisma,
+          constitution: d.constitution,
+          inserted_at: Utils.utc_now(),
+          updated_at: Utils.utc_now()
+        }
       end)
-      |> Enum.filter(fn d -> d.xp + d.dexterity + d.wisdom + d.charisma + d.constitution > 0 end)
-
-    Repo.insert_all(ContributorXP, to_insert)
+    end)
+    |> Enum.filter(fn d -> d.xp + d.dexterity + d.wisdom + d.charisma + d.constitution > 0 end)
+    |> Enum.chunk_every(@chunk_size)
+    |> Enum.each(fn list ->
+      Repo.insert_all(ContributorXP, list)
+    end)
 
     result_set
   end

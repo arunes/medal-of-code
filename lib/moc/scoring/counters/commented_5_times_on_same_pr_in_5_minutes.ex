@@ -6,15 +6,15 @@ defmodule Moc.Scoring.Counters.Commented5TimesOnSamePRIn5Minutes do
     comments
     |> Enum.filter(&(&1.comment_type == :text))
     |> Enum.map(fn comment ->
-      five_min_in_future = NaiveDateTime.add(comment.published_on, 5 * 60, :second)
+      five_min_in_future = DateTime.add(comment.published_on, 5 * 60, :second)
 
       number_of_comments =
         Enum.count(comments, fn uc ->
           uc.comment_type == :text &&
             uc.created_by_id == comment.created_by_id &&
-            (NaiveDateTime.compare(uc.published_on, comment.published_on) == :eq ||
-               NaiveDateTime.compare(uc.published_on, comment.published_on) == :gt) &&
-            NaiveDateTime.compare(uc.published_on, five_min_in_future) == :lt
+            (DateTime.compare(uc.published_on, comment.published_on) == :eq ||
+               DateTime.compare(uc.published_on, comment.published_on) == :gt) &&
+            DateTime.compare(uc.published_on, five_min_in_future) == :lt
         end)
 
       %{contributor_id: comment.created_by_id, total_comments: number_of_comments}

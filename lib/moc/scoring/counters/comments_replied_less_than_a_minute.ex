@@ -14,12 +14,12 @@ defmodule Moc.Scoring.Counters.CommentsRepliedLessThanAMinute do
   end
 
   defp who_replied_in_5_minutes([author | replies]) do
-    reply_window = NaiveDateTime.add(author.published_on, 60, :second)
+    reply_window = DateTime.add(author.published_on, 60, :second)
 
     replies
     |> Enum.filter(fn cmt -> cmt.created_by_id != author.created_by_id end)
     |> Enum.filter(fn cmt ->
-      NaiveDateTime.compare(cmt.published_on, reply_window) == :lt
+      DateTime.compare(cmt.published_on, reply_window) == :lt
     end)
     |> Enum.map(& &1.created_by_id)
     |> Enum.uniq()

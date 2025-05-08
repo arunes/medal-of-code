@@ -6,8 +6,8 @@ defmodule Moc.Scoring.Counters.Type do
             title: String.t(),
             description: String.t(),
             status: String.t(),
-            created_on: NaiveDateTime.t(),
-            closed_on: NaiveDateTime.t(),
+            created_on: DateTime.t(),
+            closed_on: DateTime.t(),
             source_branch: String.t(),
             target_branch: String.t(),
             is_draft: boolean,
@@ -15,7 +15,7 @@ defmodule Moc.Scoring.Counters.Type do
             squash_merge: boolean,
             merge_strategy: String.t(),
             ready_for_use: boolean,
-            comments_imported_on: NaiveDateTime.t(),
+            comments_imported_on: DateTime.t(),
             created_by_id: pos_integer(),
             repository_id: pos_integer(),
             comments: [
@@ -28,8 +28,8 @@ defmodule Moc.Scoring.Counters.Type do
                 content: String.t(),
                 comment_type: String.t(),
                 liked_by: String.t(),
-                published_on: NaiveDateTime.t(),
-                updated_on: NaiveDateTime.t(),
+                published_on: DateTime.t(),
+                updated_on: DateTime.t(),
                 created_by_id: pos_integer(),
                 pull_request_id: pos_integer()
               }
