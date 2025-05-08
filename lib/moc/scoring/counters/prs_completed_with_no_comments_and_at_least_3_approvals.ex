@@ -1,6 +1,12 @@
 defmodule Moc.Scoring.Counters.PrsCompletedWithNoCommentsAndAtLeast3Approvals do
   alias Moc.Scoring.Counters.Type
 
+  # 10 - approved 
+  # 5 - approved with suggestions
+  # 0 - no vote 
+  # -5 - waiting for author
+  # -10 - rejected
+
   @spec count(Type.Input.t(), fun()) :: list(Type.counter_result())
   def count(
         %Type.Input{
