@@ -822,7 +822,7 @@ defmodule Moc.Seeds.CountersAndMedals do
       medals: [
         %Moc.Scoring.Medal{
           name: "Judge, Jury and Executioner",
-          description: "Complete a PR without adding any reviewers.",
+          description: "Complete 5 PRs without adding any reviewers.",
           count_to_award: 5,
           affinity: :dark,
           lore:
