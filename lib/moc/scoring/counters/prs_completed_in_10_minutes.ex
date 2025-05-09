@@ -11,7 +11,7 @@ defmodule Moc.Scoring.Counters.PrsCompletedIn10Minutes do
         },
         _get_data
       ) do
-    ten_mins_later = DateTime.add(created_on, 10 * 60)
+    ten_mins_later = DateTime.add(created_on, 10, :minute)
 
     cond do
       status == :completed && DateTime.compare(ten_mins_later, closed_on) == :gt ->
