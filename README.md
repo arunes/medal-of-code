@@ -17,6 +17,7 @@ docker run -p 8080:4000 --pull always ghcr.io/arunes/medal-of-code
 Go to http://localhost:8080
 
 ### Other options
+
 - If you are running Medal of Code publicly, it is strongly suggested that you use your own secret key by setting `SECRET_KEY_BASE` environment variable to any 64 bit string.
 - If you are running Medal of Code somewhere else other than localhost, you have to set `PHX_HOST` environment variable to your host name.
 
@@ -26,4 +27,4 @@ Go to http://localhost:8080
 - Add user management
 - Add ability to change cutoff date for imports
 - Add ability to update organization
-- Add github
+- Add github support
