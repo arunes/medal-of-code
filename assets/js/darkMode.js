@@ -23,4 +23,5 @@ window.addEventListener("toggle-darkmode", (_event) => {
   initDarkMode();
 });
 
+window["isDarkMode"] = darkExpected();
 initDarkMode();

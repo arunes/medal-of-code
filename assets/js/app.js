@@ -5,8 +5,8 @@ import { Socket } from "phoenix";
 import { LiveSocket } from "phoenix_live_view";
 import topbar from "../vendor/topbar";
 // Import custom js
-import "./customComponents.js";
 import "./darkMode.js";
+import "./customComponents.js";
 import "./avatar.js";
 import "./dateTime.js";
 
