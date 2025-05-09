@@ -79,7 +79,7 @@ class MOCContributionCalendar extends HTMLElement {
       : "/api/contributors/activity";
     cal.paint(
       {
-        theme: localStorage.theme,
+        theme: localStorage.theme === "dark" ? "dark" : "light",
         itemSelector: `#${div.id}`,
         date: { start: new Date("2024-06-01") },
         data: {
